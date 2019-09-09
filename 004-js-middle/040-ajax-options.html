@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>请求数据</title>
+</head>
+<body>
+	<button id="btn">请求数据</button>
+</body>
+<script>
+
+	function ajax(method,url,data,fnSucc,fnErr){
+		//新建ajax对象(买一个电话)
+		var oAjax = new XMLHttpRequest();
+
+		if(method.toUpperCase() == "POST"){
+			//ajax对象建立连接
+			oAjax.open(method,url,true);
+
+			oAjax.setRequestHeader("Baidu-Options","Baidu-Options-Content");
+
+			oAjax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+
+			//ajax对象发送请求(问问题)
+			oAjax.send(data);
+		}else if(method.toUpperCase() == "GET"){
+			if(data){
+				var url = url + "?" + data;
+			}
+			
+			//ajax对象建立连接
+			oAjax.open(method,url,true);
+
+			oAjax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+
+			//ajax对象发送请求(问问题)
+			oAjax.send();
+		}else{
+			//ajax对象建立连接
+			oAjax.open(method,url,true);
+
+			oAjax.setRequestHeader("Baidu-Options","Baidu-Options-Content");
+
+			//ajax对象发送请求(问问题)
+			oAjax.send();
+		}
+
+
+		//返回数据(回答问题)
+		oAjax.onreadystatechange = function(){
+			// console.log(oAjax.readyState);
+			if(oAjax.readyState == 4){//数据完全返回
+				// console.log(oAjax.readyState);
+				console.log(oAjax.getResponseHeader("Date"));
+				// console.log(oAjax.getResponseHeader("Connection"));
+				// console.log(oAjax.getResponseHeader("Content-Type"));
+				if(oAjax.status == 200){
+					try{
+						// console.log(oAjax.responseText);
+						var strToObj = JSON.parse(oAjax.responseText);
+						// console.log(strToObj.name);
+						typeof fnSucc == "function" && fnSucc(oAjax.responseText);
+					}catch(err){
+						console.log(err);
+					}
+					
+				}else{
+					typeof fnErr == "function" && fnErr(oAjax.status);
+				}
+			}
+		}
+		oAjax.onerror = function(){
+			console.log("error......")
+		}
+	}
+
+
+	var oBtn = document.getElementById('btn');
+
+	oBtn.onclick = function(){
+
+		/*
+		ajax("post",
+			"http://127.0.0.1:3000/",
+			'{"name":"King","age":21}',
+			function(data){
+				console.log(data);
+			},
+			function(err){
+				console.log("this status Code is " + err);
+			}
+		);
+		*/
+	
+		/*
+		ajax("get",
+			"http://127.0.0.1:3000/",
+			'name=Leo',
+			function(data){
+				console.log(data);
+			},
+			function(err){
+				console.log("this status Code is " + err);
+			}
+		);
+		*/
+	
+		ajax("POST",
+			"http://127.0.0.1:3001/edit",
+			'',
+			function(data){
+				console.log(data);
+				
+			},
+			function(err){
+				console.log("this status Code is " + err);
+			}
+		);
+	}
+</script>
+</html>

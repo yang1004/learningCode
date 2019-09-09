@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>操作属性</title>
+</head>
+<body>
+	<input type="text" name="text1" value="aa">
+	<input type="text" name="text2" value="bb">
+	<input type="checkbox" checked>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		
+		console.log($('input').attr("name"));//通常返回第一个元素
+		console.log($('input').eq(1).attr("name"));
+		console.log($('input').prop("name"));
+
+
+		console.log($('input').eq(0).attr("name","text1111"));
+		console.log($('input').eq(1).prop("name","text2222"));
+		console.log($('input').eq(2).attr("checked","checked"));
+		console.log($('input').eq(2).prop("checked",true));
+
+
+		console.log($('input').eq(0).attr("value","aaaa"));
+		console.log($('input').eq(1).prop("value","bbbb"));
+
+
+		console.log($('input').eq(0).removeAttr("name"));
+		console.log($('input').eq(1).removeAttr("name"));
+		console.log($('input').eq(0).removeProp("value"));
+		console.log($('input').eq(1).removeProp("value"));
+		
+	})
+</script>
+</html>

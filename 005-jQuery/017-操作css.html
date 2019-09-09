@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>操作css</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box1{
+			width: 100px;
+			height: 100px;
+			background-color: pink;
+		}
+		.box2{
+			width: 200px;
+			height: 200px;
+			background-color: green;
+		}
+	</style>
+</head>
+<body>
+	<div class="box1">div1</div>
+	<div class="box2">div2</div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		// console.log($('div').css("width"));
+		
+		/*
+		$('div').css("width","300px");
+		$('div').css("height",300);
+		*/
+		
+		// $('div').css("width","300px").css("height","300px").css("color","red");
+		
+		$('div').css({
+			width:300,
+			height:300,
+			color:"purple"
+		});
+
+		//判断是否有该类
+		console.log($('div').hasClass("box1"));
+		console.log($('div').hasClass("box3"));
+	})
+</script>
+</html>

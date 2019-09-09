@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>兄弟元素垂直向上</title>
+	<style type="text/css">
+		*{
+			margin: 0px;
+			height: 0px;
+		}
+		.div1{
+			width: 100px;
+			height: 100px;
+			background: red;
+			margin-bottom: 100px;
+
+		}
+		.div2{
+			width: 100px;
+			height: 100px;
+			background: blue;
+			margin-top: 100px;
+		}
+		.father{
+			width: 200px;
+			height: 200px;
+			overflow: hidden;
+		}
+	</style>
+</head>
+<body>
+	<div class="div1"></div>
+	<div class="father">
+		<div class="div2"></div>
+	</div>
+
+</body>
+</html>

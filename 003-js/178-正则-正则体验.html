@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>正则-正则体验</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var str = "sd 123 45 678 gs93";
+	var result = [];
+	var tmp = "";
+	for(var i=0;i<str.length;i++){
+		// console.log(str.charAt(i));
+		if(!isNaN(parseInt(str.charAt(i)))){
+			tmp = tmp + str.charAt(i);
+		}else{
+			if(tmp){
+				result.push(tmp);
+				tmp = "";
+			}
+		}
+	}
+	if(tmp){
+		result.push(tmp);
+		tmp = "";
+	}
+	console.log(result);
+	console.log(str.match(/\d+/g));
+	console.log(str.replace(/\d+/g,"*"));
+</script>
+</html>

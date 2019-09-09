@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动画-显示隐藏和切换</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			margin-top: 10px;
+		}
+	</style>
+</head>
+<body>
+	<button>显示</button>
+	<button>隐藏</button>
+	<button>切换</button>
+	<div>div1</div>
+	<div>div2</div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		$('button').eq(0).on('click',function(){
+			$('div').show(1000,function(){
+				alert('div show...');
+			})
+		});
+
+		$('button').eq(1).on('click',function(){
+			$('div').hide(1000,function(){
+				alert('div hide...');
+			})
+		});
+
+		$('button').eq(2).on('click',function(){
+			$('div').toggle(1000,function(){
+				alert('div toggle...');
+			})
+		});
+	})
+</script>
+</html>

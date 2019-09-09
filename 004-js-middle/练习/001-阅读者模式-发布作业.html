@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>阅读者模式-发布作业</title>
+</head>
+<body>
+	
+</body>
+<script>
+	(function(w){
+		function Teacher(name){
+			this.name = name;
+
+			this.students = [];
+		}
+		Teacher.prototype = {
+			constructor:Teacher,
+			register:function(student){
+				this.students.push(student);
+			},
+			publish:function(msg){
+				for(var i=0;i<this.students.length;i++){
+					this.students[i].listen(msg);
+				}
+			}
+		}
+
+		w.Teacher = Teacher;
+	})(window);
+
+
+	(function(w){
+		function Student(name,teacher){
+			this.name = name;
+
+			teacher.register(this);
+		}
+		Student.prototype = {
+			constructor:Student,
+			listen:function(msg){
+				console.log(this.name + " got msg " + msg);
+			}
+		}
+
+		w.Student = Student;
+	})(window);
+
+	var t1 = new Teacher("teacherWang");
+	var s1 = new Student("Tom",t1);
+	var s2 = new Student("Leo",t1);
+	var s3 = new Student("Kin",t1);
+	console.log(t1);
+
+	t1.publish("everyone do something......");
+</script>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>获取节点</title>
+</head>
+<body>
+	<ul id="list">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+	</ul>
+</body>
+<script>
+	var aUl = document.getElementById('list')
+	var aNodesAll = aUl.childNodes;
+	var aNodesElementsAll = aUl.children;
+	var firstChild = aUl.firstChild;
+	console.log(aNodesAll);
+	console.log(aNodesElementsAll);
+	console.log(firstChild);
+	var lastChild = aUl.lastChild;
+	console.log(lastChild);
+	var firstElementChild = aUl.firstElementChild;
+	console.log(firstElementChild);
+	var lastElementChild = aUl.lastElementChild;
+	console.log(lastElementChild);
+</script>
+</html>

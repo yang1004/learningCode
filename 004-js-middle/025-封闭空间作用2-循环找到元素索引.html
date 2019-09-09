@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>封闭空间作用2-循环找到元素索引</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		ul{
+			width: 100%;
+			margin: 50px auto;
+		}
+		li{
+			list-style: none;
+			float: left;
+			width: 100px;
+			height: 80px;
+			line-height: 80px;
+			margin-left: 30px;
+			text-align: center;
+			background-color: red;
+		}
+		.active{
+			background-color: yellow;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li class="active">1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+		<li>6</li>
+		<li>7</li>
+	</ul>
+</body>
+<script>
+	var oLi = document.getElementsByTagName('li');
+
+	var lastIndex = 0;
+	for(var i=0;i<oLi.length;i++){
+		(function(i){
+			oLi[i].onmouseover = function(){
+				oLi[lastIndex].className = "";
+				this.className = "active";
+				lastIndex = i;
+			}
+		})(i);
+	}
+</script>
+</html>

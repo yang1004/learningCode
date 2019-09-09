@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>027-组件-template模版</title>
+</head>
+<body>
+	<div id="test1">
+		<button-counter></button-counter>
+		<button-counter></button-counter>
+		<button-counter></button-counter>
+	</div>
+	<div id="test2">
+		<button-counter></button-counter>
+		<button-counter></button-counter>
+		<button-counter></button-counter>
+	</div>
+	<template id="button-counter">
+		<button @click="count++">我被点击了{{count}}次</button>
+	</template>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	// 注册全局组件
+	//必须定义在前面
+	Vue.component('button-counter',{
+		data(){
+			return {
+				count:0
+			}
+		},
+		template:'#button-counter'
+	})
+	var vm1 = new Vue({
+		el:"#test1",
+		data:{
+			
+		},
+	})
+	var vm2 = new Vue({
+		el:"#test2",
+		data:{
+			
+		},
+	})
+</script>
+</html>

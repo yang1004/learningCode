@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件自动触发</title>
+</head>
+<body>
+	<form action="https://www.baidu.com">
+		<input type="text">
+		<div>
+			<input type="submit" value="提交">
+		</div>
+	</form>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		$('input').eq(1).on('click',function(ev){
+			alert('input click...');
+		});
+		$('div').on('click',function(){
+			alert('div click...');
+		});
+
+		// $('input').eq(1).trigger('click');
+		$('input').eq(1).triggerHandler('click');//自动触发并阻止冒泡和默认行为
+	})
+</script>
+</html>

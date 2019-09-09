@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>面向对象高级-判断属性</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function Person(name,age){
+		this.name = name;
+		this.age = age;
+	}
+	Person.prototype.sayName = function(){
+		console.log("I am "+this.name);
+	}
+	Person.prototype.sayAge = function(){
+		console.log("I am "+this.age+" years old");
+	}
+	Person.prototype.LEGS = 2;
+	var p1 = new Person('tom',18);
+
+	console.log(p1);
+	console.log(p1.name);
+	console.log(p1.age);
+	console.log(p1.LEGS);
+
+	/*
+	console.log(p1.hasOwnProperty("name"));//在实例对象上有
+	console.log(p1.hasOwnProperty("age"));//在实例对象上有
+	console.log(p1.hasOwnProperty("LEGS"));//在实例对象上没有
+	*/
+
+	// console.log("LEGS" in p1);//原型对象上有
+
+	function toInPrototype(obj,attr){
+		return !obj.hasOwnProperty(attr) && attr in obj;
+	}
+	console.log(toInPrototype(p1,"name"));//原型对象上没有
+	console.log(toInPrototype(p1,"age"));//原型对象上没有
+	console.log(toInPrototype(p1,"LEGS"));//原型对象上有
+</script>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>042-动画-animate</title>
+	<link rel="stylesheet" href="css/animate.css">
+</head>
+<body>
+	<div id="test">
+		<button @click="show = !show">home</button>
+		<transition
+		    enter-active-class="animated swing"
+		    leave-active-class="animated bounceInLeft"
+		    appear
+		  >
+			<p v-if="show">home</p>
+		</transition>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	var vm = new Vue({
+		el:"#test",
+		data:{
+			show:true
+		}
+	})
+</script>
+</html>

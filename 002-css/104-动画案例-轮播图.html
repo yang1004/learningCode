@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>轮播图</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father{
+			width: 800px;
+			height: 400px;
+			border: 5px solid black;
+			margin: 100px auto;
+			overflow: hidden;
+		}
+		.list{
+			width: 4800px;
+			height: 280px;
+			animation: boxe 8s linear infinite;
+		}
+		li{
+			width: 800px;
+			height: 400px;
+			float: left;
+			list-style: none;
+		}
+		img{
+			width: 100%;
+			height: 100%;
+		}
+		@keyframes boxe{
+			from{
+				margin-left: 0;
+			}
+			to{
+				margin-left: -4000px;
+			}
+		}
+		.father .list:hover{
+			animation-play-state: paused;
+		}
+		.father .list:hover li{
+			opacity: 0.5;
+		}
+		.father .list li:hover{
+			opacity: 1;
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<ul class="list">
+			<li><img src="https://img.alicdn.com/tfs/TB1B4gpQxnaK1RjSZFtXXbC2VXa-520-280.png_q90_.webp"></li>
+			<li><img src="https://aecpm.alicdn.com/tfscom/TB1dPf7IpYqK1RjSZLeXXbXppXa.jpg"></li>
+			<li><img src="https://aecpm.alicdn.com/simba/img/TB1JNHwKFXXXXafXVXXSutbFXXX.jpg"></li>
+			<li><img src="https://aecpm.alicdn.com/simba/img/TB183NQapLM8KJjSZFBSutJHVXa.jpg"></li>
+			<li><img src="https://img.alicdn.com/tfs/TB1NXHYQCzqK1RjSZFLXXcn2XXa-520-280.jpg_q90_.webp"></li>
+			<li><img src="https://img.alicdn.com/tfs/TB1B4gpQxnaK1RjSZFtXXbC2VXa-520-280.png_q90_.webp"></li>
+		</ul>
+	</div>
+</body>
+</html>

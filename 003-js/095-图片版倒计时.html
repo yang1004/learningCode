@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>图片版倒计时</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function to2Str(num){
+		return num < 10 ? '0'+num : ''+num;
+	}//定义一个函数，时间小于10时在十位添加一个“0”
+	var oBox = document.getElementById('box');//获取DOM元素
+	var aImg = oBox.children;//获取子元素
+	var timer = 0;//设置一个变量，控制定时器开关
+	var orderTime = new Date('2018-12-07 19:00:00');//定义一个目标时间
+	var endTime = orderTime.getTime();//目标时间距离格林尼治时间的毫秒数
+	function time(){//定义一个time函数
+		var allTime = (endTime - Date.now())/1000;//定义一个变量等于目标时间距离现在时间的时间差  单位秒
+		if(allTime <= 0 ){
+			allTime = 0;
+			clearInterval(timer);//如果时间差为0，则关闭循环定时器
+		}
+		var oH = parseInt(allTime/3600);//定义一个变量为时间差的小时数
+		var oM = parseInt((allTime%3600)/60);//定义一个变量为时间差的分钟数
+		var oS = parseInt(allTime%3600)%60;//定义一个变量为时间差的秒数
+		var time = to2Str(oH)+to2Str(oM)+to2Str(oS);//定义一个变量 值为小时数分钟数秒数 如果数值小于10则在各自的十位加“0”
+		for(var i =0;i<aImg.length;i++){
+			aImg[i].src = 'image/'+time.charAt(i)+'.png';//修改数字图片的路径
+		}
+
+	}
+	timer = setInterval(time,1000);//设置一个循环定时器，函数为time
+	time();//初始化时运行下time函数，避免出现00:00:00情况
+</script>
+</html>

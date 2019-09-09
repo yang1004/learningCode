@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>作用域的决定</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var a = 1;
+	function fn(){
+		var a = 2;
+		return a;
+	}
+	console.log("a:::",a);
+	console.log("fn:::",fn());
+
+
+	var b = 1;
+	function fb1(){
+		console.log("fb:::",b);
+	}
+	function fb2(){
+		var b = 2;
+		fb1();
+		console.log("fb2:::",b);
+	}
+	fb2();
+</script>
+</html>

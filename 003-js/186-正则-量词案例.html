@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>正则-量词案例</title>
+</head>
+<body>
+	合法年份1000-2999：<input type="text" id="txt1">
+	<button id="btn1">检测</button>
+	手机号码：<input type="text" id="txt2">
+	<button id="btn2">检测</button>
+	密码(字母开头，长度6-12位)：<input type="text" id="txt3">
+	<button id="btn3">检测</button>
+</body>
+<script>
+	var oTxt1 = document.getElementById('txt1');
+	var oTxt2 = document.getElementById('txt2');
+	var oTxt3 = document.getElementById('txt3');
+	var oBtn1 = document.getElementById('btn1');
+	var oBtn2 = document.getElementById('btn2');
+	var oBtn3 = document.getElementById('btn3');
+
+	oBtn1.onclick = function(){
+		var val1 = oTxt1.value;
+		var reg1 = /^[1|2]\d{3}$/;
+		if(reg1.test(val1)){
+			alert("合法");
+		}else{
+			alert("不合法");
+		}
+		oTxt1.value = "";
+	}
+	oBtn2.onclick = function(){
+		var val2 = oTxt2.value;
+		var reg2 = /^1[3456789]\d{9}$/;
+		if(reg2.test(val2)){
+			alert("合法");
+		}else{
+			alert("不合法");
+		}
+		oTxt2.value = "";
+	}
+	oBtn3.onclick = function(){
+		var val3 = oTxt3.value;
+		var reg3 = /^[a-zA-Z]\w{5,11}$/;
+		if(reg3.test(val3)){
+			alert("合法");
+		}else{
+			alert("不合法");
+		}
+		oTxt3.value = "";
+	}
+</script>
+</html>

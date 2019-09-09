@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>函数参数</title>
+</head>
+<body>
+	
+</body>
+<script>
+	
+	function show(x,y='world'){
+		console.log(x,y);
+	}
+	show('hello')
+	
+
+	let i=1
+	function show1(x=++i){
+		console.log(x)
+	}
+	show1(5);
+	show1();
+
+	function show2(url,{method='GET',data='name=Tom'}={}){
+		console.log(method,data);
+	}
+	show2('https://www.baidu.com',{method:'POST'})
+</script>
+</html>

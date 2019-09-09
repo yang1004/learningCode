@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>异步任务</title>
+</head>
+<body>
+	
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	//1.Ajax
+	$.get('https://api.github.com/users/yang1004',(data)=>{
+		// console.log(data);
+		$.get(data.followers_url,(data)=>{
+			console.log(data);
+			/*
+			$.get(data[0].followers_url,(data)=>{
+				console.log(data)
+			})
+			*/
+		})
+	});
+	console.log('after get ajax data');
+
+	//2.DOM事件
+	const image = new Image();
+
+	image.onload  = function(){
+		console.log('image loaded');
+	}
+	image.onerror = function(){
+		console.log('image error');
+	}
+
+	image.src = 'img/1.jpg';
+
+	console.log('after get image');
+
+	//定时器
+	setTimeout(()=>{
+		console.log('Timer...')
+	},0);
+	console.log('after timer...')
+	console.log('do something...')
+</script>
+</html>

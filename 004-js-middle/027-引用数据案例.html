@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>引用数据案例</title>
+</head>
+<body>
+	<button id="btn">按钮</button>
+</body>
+<script>
+	bindEvent();
+	function bindEvent(){
+		var oBtn = document.getElementById('btn');
+		//var id = oBtn.id
+		oBtn.onclick = function(){
+			alert(oBtn.id);//引用document.getElementById('btn')上的属性
+			//alert(id);
+		}
+	}
+
+	/*
+	互相引用导致内存不能释放
+	var p1 = {
+		name:"tom"
+	}
+	var p2 = {
+		name:"leo"
+	}
+
+	p1.obj1 = p2;
+	console.log(p1);
+	p2.obj2 = p1;
+	console.log(p2);
+	*/
+</script>
+</html>

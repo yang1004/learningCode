@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>月历</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			width: 330px;
+			height: 520px;
+			margin: 100px auto;
+			background-color: gray;
+			box-sizing: border-box;
+		}
+		li{
+			float: left;
+			width: 100px;
+			height: 100px;
+			margin: 5px;
+			list-style: none;
+			background-color: #000;
+			color: #fff;
+			font-weight: bolder;
+			line-height: 100px;
+			text-align: center;
+			cursor: pointer;
+		}
+		.plan{
+			margin-left: 5px;
+			margin-top: 10px;
+		}
+		.active{
+			background-color: #fff;
+			color: #000;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<div id="btn">
+			<ul>
+				<li class="active">1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+				<li>6</li>
+				<li>7</li>
+				<li>8</li>
+				<li>9</li>
+				<li>10</li>
+				<li>11</li>
+				<li>12</li>
+			</ul>
+		</div>
+		<div class="plan">
+			<h2>1月</h2>
+			<p>睡觉</p>
+		</div>
+	</div>
+</body>
+<script>
+	var aLi = document.getElementsByTagName('li');
+	var oPlan = document.querySelector('.plan');
+	var arr = ["睡觉","吃饭","打豆豆","去踏青","去游泳","打游戏","睡觉","吃饭","打豆豆","去踏青","去游泳","打游戏"]
+	for(var i=0;i<aLi.length;i++){
+		aLi[i].index = i;
+		aLi[i].onmouseover=function(){
+			for(var j=0;j<aLi.length;j++){
+				aLi[j].className = "";
+			}
+			this.className="active";
+			oPlan.innerHTML = "<h2>" + (this.index+1) + "月</h2><p>" + arr[this.index] + "</p>"
+		}
+	}
+</script>
+</html>

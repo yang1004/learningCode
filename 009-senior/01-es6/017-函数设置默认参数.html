@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>函数设置默认参数</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*
+	function show(name,age){
+		var name = name || 'Tom';
+		var age = age || 18;
+
+		console.log(name,age);
+	}
+	show();
+	*/
+
+	/*
+	function show(name='Tom',age=18){
+		console.log(name,age);
+	}
+	show('Leo',99);
+	*/
+
+	/*
+	function show(age,name='Tom'){
+		console.log(name,age);
+	}
+	show(18);
+	*/
+
+	/*
+	let i = 1;
+	function show(x = ++i){
+		console.log(x);
+	}
+	show();
+	i = 5;
+	show();
+	*/
+
+	function request(url,{method='get',data='id=000'}={}){
+		console.log(url,method,data);
+	}
+	request('https://www.baidu.com',{method:'post',data:'id=123'});
+	request('https://www.baidu.com');
+</script>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>onload和DOMContentLaoded区别</title>
+	<style>
+		div{
+			width: 100px;
+			height: 100px;
+			border: 1px solid #000;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+	<img src="./tmall.png" alt="">
+</body>
+<script>
+		console.log(1111);
+		window.onload=function(){
+			console.log(11111);
+		}
+		// document.addEventListened = function{
+		// 	console.log('222222');
+		// }
+</script>
+</html>

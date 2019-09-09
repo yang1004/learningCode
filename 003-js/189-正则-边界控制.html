@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>正则-边界控制</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var str = "this is a cat,that is a dog,there is a pig";
+	var reg1 = /is/g;
+	var reg2 = /\bis\b/g;
+	var reg3 = /\Bis/g;
+
+	console.log("reg1::",str.replace(reg1,"*"));
+	console.log("reg2::",str.replace(reg2,"*"));//单词转换
+	console.log("reg3::",str.replace(reg3,"*"));//非单词转换
+</script>
+</html>

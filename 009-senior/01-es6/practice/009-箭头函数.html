@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>箭头函数</title>
+</head>
+<body>
+	
+</body>
+<script>
+	let fn = (n1,n2)=>{
+		console.log(n1,n2)
+	}
+	fn(1,2);
+
+	let sum = (n1,n2)=>n1+n2
+	console.log(sum(4,5));
+
+	let show = x=>x;
+	console.log(show(10));
+
+	let arr = [4,2,6,12,5,8,9,10];
+
+	/*
+	arr.sort(function(n1,n2){
+		return n1-n2;
+	})
+	*/
+
+	arr.sort((n1,n2)=>n1-n2)
+
+	console.log(arr)
+
+
+	function Timer1(id){
+		this.id = id;
+		setTimeout(function(){
+			console.log(this,this.id);
+		},100);
+	}
+	var id = 55;
+
+	function Timer2(id){
+		this.id = id;
+		setTimeout(()=>{
+			console.log(this,this.id);
+		},100);
+	}
+	new Timer1(99);
+	new Timer2(100);
+
+
+
+	/*//箭头函数没有原型对象,所以不能用箭头函数来定义构造函数
+	const Person = (name,age)=>{
+		this.name = name;
+		this.age = age;
+	}
+	const p = new Person('Tom',18);
+	*/
+
+	/*//箭头函数没有arguments
+	function Arguments1(){
+		console.log(arguments);
+	}
+	Arguments1();
+	const Arguments2 = ()=>{
+		console.log(arguments);
+	}
+	Arguments2();
+	*/
+
+	/*//箭头函数没有命名提升
+	show1();
+	show2();
+	function show1(){
+		console.log(111)
+	}
+	const show2 = ()=>{
+		console.log(222)
+	}
+	*/
+</script>
+</html>

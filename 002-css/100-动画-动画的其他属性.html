@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>动画的其他属性</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father{
+			width: 600px;
+			height: 1000px;
+			border: 1px solid black;
+		}
+		.father div{
+			width: 100px;
+			height: 100px;
+			margin-top: 20px;
+			background-color: red;
+			animation-name: boxe;
+			animation-duration: 2s;
+			animation-delay: 1s;
+			animation-iteration-count:infinite;
+			animation-direction: alternate;
+		}
+		div:nth-child(1){
+			animation-timing-function: ease;
+		}
+		div:nth-child(2){
+			animation-timing-function: linear;
+		}
+		div:nth-child(3){
+			animation-timing-function: ease-in;
+		}
+		div:nth-child(4){
+			animation-timing-function: ease-out;
+		}
+		div:nth-child(5){
+			animation-timing-function: ease-in-out;
+		}
+		div:nth-child(6){
+			animation-timing-function: cubic-bezier(1,1,2,2);
+		}
+		@keyframes boxe{
+			from{
+				width: 100px;
+			}
+			to{
+				width: 500px;
+			}
+		}
+		.father:hover div{
+			animation-play-state: paused;
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div>ease</div>
+		<div>linear</div>
+		<div>ease-in</div>
+		<div>ease-out</div>
+		<div>ease-in-out</div>
+		<div>cubic-bezier(1,1,2,2)</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数组</title>
+</head>
+<body>
+	<div>div1</div>
+	<div>div2</div>
+	<div>div3</div>
+	<div>div4</div>
+	<div>div5</div>
+	<div>div6</div>
+	<div>div7</div>
+	<div>div8</div>
+	<div>div9</div>
+	<div>div10</div>
+</body>
+<script>
+	
+	const likeArr = {
+		0:'data1',
+		1:'data2',
+		length:2
+	}
+
+	console.log('likeArr::',likeArr);
+	console.log(Array.from(likeArr));
+
+	const aBox = document.getElementsByTagName('div');
+	console.log('aBox::',aBox);
+	console.log([...aBox]);
+	console.log(Array.from(aBox));
+
+	function fn(){
+		console.log('arguments::',arguments);
+		console.log(Array.from(arguments));
+		console.log([...arguments]);
+	}
+	fn(11,22);
+	
+
+	const arr = [11,22,33,53,24,15,40];
+	console.log(arr.find(n=>n>25));//找到第一个符合条件的值,找不到返回undefined
+	console.log(arr.findIndex(n=>n>25))//找到第一个符合条件的值的下标,找不到返回-1
+	console.log(arr.includes(33,3));//(搜索的值,[搜索的开始索引]),返回一个布尔值
+</script>
+</html>

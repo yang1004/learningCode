@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>同步异步案例</title>
+</head>
+<body>
+	<button id="btn">打印</button>
+</body>
+<script>
+	var a = 4;
+	var oBtn = document.getElementById('btn');
+	console.log(a);
+	for(var i=0;i<a;i++){
+		setTimeout(function(){
+			console.log(i);
+		},2000)
+	}
+	oBtn.onclick = function(){
+		console.log("hahha");
+	}
+	console.log("123");
+</script>
+</html>

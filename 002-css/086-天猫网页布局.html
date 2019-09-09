@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>天猫网页布局</title>
+	<style type="text/css">
+		*{
+			margin:0px;
+			padding: 0px;
+		}
+		header{
+			position: fixed;
+			width: 1000px;
+			height: 50px;
+			top: 20px;
+			line-height: 50px;
+			background-color: gray;
+			left: 50%;
+			margin-left: -500px;
+			z-index: 1;
+		}
+		header ul li{
+			list-style: none;
+			/*display: inline-block;*/
+			float: right;
+			width: 20%;
+			text-align: center;
+		}
+		header ul li:nth-child(3){
+			background-color: red;
+		}
+		img{
+			position: absolute;
+			left: 50%;
+			margin-left: -20px;
+			margin-top: -19px;
+		}
+		.box1{
+			position: relative;
+			width: 830px;
+			height: 440px;
+			background-image: url(./ad1.jpg);
+			margin-top: 80px;
+			cursor: pointer;
+		}
+		.arrow1{
+			position: absolute;
+			width: 50px;
+			height: 80px;
+			background-color: gray;
+			opacity: 0.5;
+			top: 50%;
+			margin-top: -40px;
+		}
+		.arrow2{
+			position: absolute;
+			width: 50px;
+			height: 80px;
+			background-color: gray;
+			opacity: 0.5;
+			top: 50%;
+			margin-top: -40px;
+			left: 830px;
+			margin-left: -50px;
+		}
+		.arr{
+			line-height: 80px;
+			text-align: center;
+			font-size: 30px;
+			color: white;
+			cursor: pointer;
+			display: none;
+		}
+		.box1:hover .arr{
+			display: block;
+		}
+		.box2{
+			width: 1000px;
+			height: 3000px;
+			margin-top: 50px;
+			background-color: blue;
+		}
+		.box2 div{
+			position: absolute;
+			width: 100px;
+			height: 200px;
+			background-color: red;
+			position: fixed;
+		}
+		.box11{
+			left: 0;
+			top: 50%;
+			margin-top: -100px;
+		}
+		.box22{
+			right: 0;
+			bottom: 50%;
+			margin-bottom: -100px;
+		}
+		.txt{
+			margin-left: auto;
+			margin-right: auto
+		}
+		.box1 .a1 li{
+			width: 20px;
+			height: 20px;
+			border-radius: 10px;
+			border: 1px solid black;
+			list-style: none;
+			float: left;
+			text-align: center;
+			position: relative;
+			top: 410px;
+			left: 670px;
+			margin-right: 10px;
+		}
+		.box1 .a1 li a{
+			text-decoration: none;
+		}
+		footer a{
+
+			width: 100px;
+			height: 100px;
+			background-color: gray;
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			position: fixed;
+			line-height: 100px;
+			text-align: center;
+			text-decoration: none;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<ul>
+			<li>天猫会员</li>
+			<li>品牌街</li>
+			<li>电器城 <img src="./tmall.png"></li>
+			<li>营业厅</li>
+			<li>魅力惠</li>
+		</ul>
+	</header>
+	<section class="box1 txt">
+		<div class="arrow1 arr">&lt;</div>
+		<div class="arrow2 arr">&gt;</div>
+		<ul class="a1">
+			<li><a href="#">1</a></li>
+			<li><a href="#">2</a></li>
+			<li><a href="#">3</a></li>
+			<li><a href="#">4</a></li>
+			<li><a href="#">5</a></li>
+		</ul>
+	</section>
+	<section class="box2 txt">
+		<div class="box11"></div>
+		<div class="box22"></div>我是内容
+	</section>
+	<footer>
+		<a href="#">回到顶部</a>
+	</footer>
+</body>
+</html>

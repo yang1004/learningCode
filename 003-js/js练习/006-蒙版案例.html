@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>蒙版案例</title>
+	<style>
+		#longin{
+			position: absolute;
+			left: 550px;
+			top: 200px;
+			width: 300px;
+			height: 400px;
+			background-color: #ccc;
+			z-index: 999;
+			display: none;
+		}
+		#mask{
+			position: fixed;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			background-color: rgba(0,0,0,0.5);
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<button id="btn">登陆</button>
+	<div id="longin"></div>
+	<div id="mask"></div>
+</body>
+<script>
+	var oBtn = document.getElementById('btn');
+	var oMask = document.getElementById('mask');
+	var oLongin = document.getElementById('longin');
+
+	oBtn.onclick = function(ev){
+		oMask.style.display = "block";
+		oLongin.style.display = "block";
+		ev.stopPropagation();
+	}
+	/*
+	oMask.onclick = function(){
+		oMask.style.display = "none";
+		oLongin.style.display = "none";
+	}
+	*/
+
+	oLongin.onclick = function(ev){
+		ev.stopPropagation();
+	}
+	document.onclick = function(){
+		oMask.style.display = "none";
+		oLongin.style.display = "none";
+
+	}
+</script>
+</html>

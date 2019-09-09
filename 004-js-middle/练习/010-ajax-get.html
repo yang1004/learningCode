@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>请求数据</title>
+</head>
+<body>
+	<button id="btn">请求数据</button>
+</body>
+<script>
+	var oBtn = document.getElementById('btn');
+
+	oBtn.onclick = function(){
+		//新建ajax对象(买一个电话)
+		var oAjax = new XMLHttpRequest();
+
+		//ajax对象建立连接
+		// oAjax.open("GET","http://127.0.0.1:3000/009-ajax.json",true);
+		oAjax.open("GET","http://127.0.0.1:3000/?name=Leo",true);
+
+		//ajax对象发送请求(问问题)
+		oAjax.send();
+
+		//返回数据(回答问题)
+		oAjax.onreadystatechange = function(){
+			// console.log(oAjax.readyState);
+			if(oAjax.readyState == 4){//数据完全返回
+				// console.log(oAjax.readyState);
+				if(oAjax.status == 200){
+					console.log(oAjax.responseText);
+					var strToObj = JSON.parse(oAjax.responseText);
+					console.log(strToObj.name);
+				}
+			}
+		}
+	}
+</script>
+</html>

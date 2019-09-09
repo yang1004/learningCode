@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>箭头函数中的this</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*
+	function Timer(id){
+		this.id = id;
+		setTimeout(function(){
+			console.log(this,this.id);
+		},100);
+	}
+	var id = 55;
+	new Timer(99);
+	*/
+
+	function Timer(id){
+		this.id = id;
+		setTimeout(() => {//把函数this改变 相当于bind(this)
+			console.log(this,this.id);
+		},100);
+	}
+	var id = 55;
+	new Timer(99);
+</script>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>字符串</title>
+</head>
+<body>
+	<button id="btn">生成</button>
+</body>
+<script>
+	var oBtn = document.getElementById('btn');
+	const data = [{name:"Tom"},{name:"King"},{name:"Anmy"}];
+
+	oBtn.onclick = function(){
+		var html = '';
+		html += '<ul>';
+		for(let i=0,len=data.length;i<len;i++){
+			// html += '<li>'+data[i].name+'</li>';
+			html += `<li>${data[i].name}</li>`;
+		}
+		html += '</ul>';
+		document.body.innerHTML = html;
+	}
+
+	console.log('x');
+	console.log('x'.padStart(5,'abc'));
+	console.log('x'.padEnd(5,'abc'));
+</script>
+</html>

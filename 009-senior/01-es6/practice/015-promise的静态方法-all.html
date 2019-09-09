@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>promise的静态方法-all</title>
+</head>
+<body>
+	
+</body>
+<script>
+	const p1 = Promise.resolve('p1');
+	const p2 = Promise.resolve('p2');
+	const p3 = Promise.resolve('p3');
+	const p4 = Promise.resolve('p4');
+	const p5 = Promise.resolve('p5');
+	const p6 = Promise.resolve('p6');
+	const p7 = Promise.resolve('p7');
+	const p8 = Promise.resolve('p8');
+	const p9 = Promise.reject('p9');
+
+	/*
+	const p10 = Promise.all([p1,p2,p3,p4,p5,p6,p7,p8]);
+	// console.log(p10)
+	p10.then(data=>{
+		console.log(data)
+	})
+	*/
+
+	const p11 = Promise.all([p1,p2,p3,p4,p5,p6,p7,p8,p9]);
+	console.log(p11)
+	p11.catch(err=>{
+		console.log(err)//返回值为第一个reject的实例
+	})
+</script>
+</html>

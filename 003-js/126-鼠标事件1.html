@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>鼠标事件1</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			position: absolute;
+			width: 100px;
+			height: 100px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+<script>
+	var oBox = document.getElementById('box');
+
+	document.addEventListener('mousemove',function(ev){
+		// console.log(isLeft);
+		oBox.style.left = ev.clientX-50 + 'px';
+		oBox.style.top = ev.clientY-50 + 'px';
+	},false);
+</script>
+</html>

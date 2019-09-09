@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>调查问卷拖拽案例</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.container{
+			width: 1000px;
+			margin: 50px auto;
+		}
+		.title{
+			width: 500px;
+			height: 800px;
+			float: left;
+			text-align: center;
+		}
+		.target-list{
+			width: 500px;
+			height: 800px;
+			float: right;
+			border-left: 1px solid red;
+			box-sizing: border-box;
+		}
+		.target{
+			width: 100%;
+			height: 50px;
+			line-height: 50px;
+			border: 1px dashed gray;
+			padding-left: 10px;
+			box-sizing: border-box;
+			margin-bottom: 10px;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="title">
+			<h1>调查问卷</h1>
+		</div>
+		<div class="target-list">
+			<div class="target" draggable=true>
+				<label for="">姓名</label>
+				<input type="text">
+			</div>
+			<div class="target" draggable=true>
+				<label for="">年龄</label>
+				<input type="text">
+			</div>
+			<div class="target" draggable=true>
+				<label for="">爱好</label>
+				<input type="checkbox">打篮球
+				<input type="checkbox">踢足球
+			</div>
+		</div>
+	</div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		var dom = null;
+		var $dom = null;
+		$('.container')
+		.on('dragstart',".target",function(ev){
+			// console.log(ev.target);
+			dom = ev.target.cloneNode(true);
+		})
+		$('.title')
+		.on('drop',function(){
+			$(this).append(dom)
+		})
+		.on('dragover',function(ev){
+			ev.preventDefault();
+		})
+	})
+</script>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>限制输入数字</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+	</style>
+</head>
+<body>
+	请输入手机号:<input type="text" id="txt">
+</body>
+<script>
+	var oTxt = document.getElementById('txt');
+
+	document.onkeydown = function(ev){
+		// console.log(ev.keyCode);
+		if((ev.keyCode<48 || ev.keyCode>57) && ev.keyCode != 8 && ev.keyCode != 37 && ev.keyCode != 39){
+			return false;
+		}
+	}
+</script>
+</html>

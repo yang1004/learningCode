@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JSON和js的区别</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var json1 = '{"name":"tom","age":18}';//不能添加函数
+	var obj = {name:"tom",age:18,sayHi:function(){}};
+
+	console.log("json1.name::",json1.name);
+	console.log("obj.name::",obj.name);
+
+	var jsonToObj = JSON.parse(json1);//JSON转换obj
+	console.log("jsonToObj::",jsonToObj);
+	console.log("jsonToObj.name::",jsonToObj.name);
+	var objToJson = JSON.stringify(obj);//obj转换JSON
+	console.log("objToJson::",objToJson);
+	console.log("objToJson.name::",objToJson.name);
+</script>
+</html>

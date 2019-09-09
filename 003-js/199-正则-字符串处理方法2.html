@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>正则-字符串处理方法2</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var str = "    ABCDa1b2ac    3d45a6FGHR    ";
+	var reg = /\d/g;
+
+	console.log(str);
+	console.log(str.replace(reg,function(match,index,origin){
+		// console.log(match,index,origin);
+		return "$";
+	}))
+
+	console.log(str.charAt(3));//查找下标为3的元素
+	console.log(str.charCodeAt(4));//查找下标为3的元素返回元素编码
+	console.log(str.indexOf("a"));//根据字符返回位置,从前向后找,找不到返回-1
+	console.log(str.lastIndexOf("a"));//根据字符返回位置,从后向前找,找不到返回-1
+
+	console.log(encodeURIComponent("https://baidu.com"));//URI编码
+	console.log(decodeURIComponent("https%3A%2F%2Fbaidu.com"));//URI解码
+
+	console.log(str.concat("ffffff"));//在后面连接字符串
+
+	console.log(str.slice(1,4));
+	//截取字符串 str.slice(起始下标,结束下标) 可以为负数 包括起始下标不包括结束下标
+	console.log(str.substr(1,4));
+	//截取字符串 str.substr(起始下标,长度) 可以为负数 
+	console.log(str.substring(1,4));
+	//截取字符串 str.substring(起始下标,结束下标) 不可以为负数 包括起始下标不包括结束下标
+	
+	console.log(str.toLowerCase());//字符串转换为小写
+	console.log(str.toUpperCase());//字符串转换为大写
+
+	console.log(str.trim());//去除字符串两边的空白  中间的不去除
+</script>
+</html>

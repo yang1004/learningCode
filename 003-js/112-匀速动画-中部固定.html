@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>匀速动画-中部固定</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			width: 3000px;
+			height: 3000px;
+		}
+		#box{
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			width: 100px;
+			height: 100px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+<script src="./js/animation.js"></script>
+<script>
+	var oBox = document.getElementById('box');
+
+	function getScrollTop(){
+		return window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+	}
+
+	window.onload = window.onresize = window.onscroll = function(){
+		var h = 0;
+		console.log(oBox.offsetTop);
+		var middle = oBox.offsetTop/2;
+		if(document.compatMode == 'CSS1Compat'){
+			h = document.documentElement.clientHeight;
+		}else{
+			h = document.body.clientHeight;
+		}
+		var iTop = parseInt((h - oBox.offsetHeight)*0.5 + getScrollTop());
+		animation(oBox,"top",iTop);
+	}
+</script>
+</html>

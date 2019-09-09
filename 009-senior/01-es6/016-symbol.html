@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>symbol</title>
+</head>
+<body>
+	
+</body>
+<script>
+	let s1 = Symbol('Tom');
+	let s2 = Symbol('Amny');
+	console.log(s1)
+	console.log(s2)
+	console.log(s1 == s2);
+
+	let obj = {
+		name:'Tony',
+		[s1]:'Tom',
+		[s2]:'Amny'
+	}
+	console.log(obj)
+	console.log(obj[s1])
+	console.log(obj[s2])
+
+	for(let key in obj){
+		console.log(key);//symbol不能枚举
+	}
+
+	// console.log(Reflect.ownKeys(obj))
+	let keys = Reflect.ownKeys(obj);
+	for(let key in keys){
+		console.log(obj[keys[key]])
+	}
+</script>
+</html>

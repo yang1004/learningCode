@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>生成元素</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<button id="btn">生成元素</button>
+</body>
+<script>
+	var oBtn = document.getElementById('btn')
+
+	oBtn.onclick = function(){
+		var oBox = document.createElement('div');
+		// console.log(oBox);
+		// console.log(document.body);
+		document.body.appendChild(oBox);
+	}
+</script>
+</html>

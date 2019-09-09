@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>创建对象方法汇总</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//利用对象数组去重
+	var arr1 = [1,3,6,2,5,3,6,2];
+	var newArr = new Array();
+	var obj1 = {};
+	for(var i=0;i<arr1.length;i++){
+		obj1[arr1[i]] = "";
+	}
+	for(arrt in obj1){
+		newArr.push(arrt*1);//把	arrt属性传入newArr
+	}
+	console.log("newArr::",newArr);
+
+	//字面量创建对象
+	var obj2 = {
+		name:"Tom",
+		age:18,
+		sayName:function(){
+			console.log("I am "+this.name);
+		}
+	}
+	obj2.sex = "male";//添加属性
+	delete obj2.age;//删除属性
+	console.log("obj2::",obj2);
+
+	//JSON和js区别
+	var json = '{"name":"Tom","age":18}';//不能添加函数
+	var obj3 = {name:"Tom",age:18,sayName:function(){}};
+	console.log("json::",json);
+	console.log("obj3::",obj3);
+	var jsonToObj = JSON.parse(json);
+	var obj3ToJson = JSON.stringify(obj3);
+	console.log("jsonToObj::",jsonToObj);
+	console.log("obj3ToJson::",obj3ToJson);
+
+	//静态方法和实例方法
+	var arr2 = new Array(1,5,3);
+	Math.ceil(1.2);//静态方法(构造函数.方法（）)
+	console.log(arr2.sort(function(n1,n2){return n1-n2}));
+	//实例方法(对象实例.方法())
+	
+	//js内置构造函数
+	var arr3 = new Array();
+	arr3.name = "Tom";
+	arr3.age = 18;
+	arr3.sayName = function(){
+		console.log("I am "+this.name);
+	}
+	console.log("arr3::",arr3);
+
+	//Object创建对象
+	var obj4 = new Object();
+	obj4.name = "Tom";
+	obj4.age = 18;
+	obj4.sayName = function(){
+		console.log("I am "+this.name);
+	}
+	console.log("obj4::",obj4);
+
+	//工厂模式创建对象
+	function addPerson(name1,age1){
+		var newObj = new Object();
+		newObj.name = name1;
+		newObj.age = age1;
+		newObj.sayName = function(){
+			console.log("I am "+this.name);
+		}
+		return newObj;
+	}
+	var person1 = addPerson("Leo",18);
+	var person2 = addPerson("Toy",18);
+	console.log("person1::",person1);
+	console.log("person2::",person2);
+	console.log("person1.sayName == person2.sayName::",person1.sayName == person2.sayName)
+
+</script>
+</html>

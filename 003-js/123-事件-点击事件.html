@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件-点击事件</title>
+</head>
+<body>
+	<button id="btn">点击</button>
+	<button id="btnoff">接触事件</button>
+</body>
+<script>
+	var oBtn = document.getElementById('btn');
+	var oBtnOff = document.getElementById('btnoff');
+
+	function Tom(){
+		alert("Tom click");
+	}
+	function Leo(){
+		alert("Leo click");
+	}
+
+	//0级点击事件
+	// oBtn.onclick = Tom;
+	// oBtn.onclick = Leo;
+
+	//1级点击事件
+	oBtn.addEventListener('click',Tom,false);
+	oBtn.addEventListener('click',Leo,false);
+	oBtn.addEventListener('click',function(){
+		alert('Jane click');
+	},false);
+
+	//解除事件
+	oBtnOff.addEventListener('click',function(){
+		oBtn.removeEventListener('click',Tom,false);
+		oBtn.removeEventListener('click',Leo,false);
+	},false);
+</script>
+</html>

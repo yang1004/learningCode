@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>面向对象高级-原型链</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function Person(name,age){
+		this.name = name;
+		this.age = age;
+	}
+	Person.prototype.sayName = function(){
+		console.log("I am "+this.name);
+	}
+	Person.prototype.sayAge = function(){
+		console.log("I am "+this.age+" years old");
+	}
+
+	var p1 = new Person("Tom",18);
+	console.log("p1::",p1);
+	console.log("p1.__proto__::",p1.__proto__);
+	var p2 = new Person("Leo",20);
+	console.log("p2::",p2);
+	console.log("p2.__proto__::",p2.__proto__);
+
+	console.log("Person.prototype::",Person.prototype);
+	console.log("Person.prototype.__proto__::",Person.prototype.__proto__)
+
+	console.log("Object.prototype::",Object.prototype)
+	console.log("Object.prototype.__proto__::",Object.prototype.__proto__)
+
+</script>
+</html>

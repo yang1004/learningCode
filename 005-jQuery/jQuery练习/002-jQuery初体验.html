@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery初体验</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			border: 1px solid #000;
+			margin-bottom: 10px;
+		}
+		.box{
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<button id="btn">变色</button>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		// console.log($('#btn')[0]);
+		$('#btn')[0].onclick = function(){
+			// console.log("111");
+			// $('div').css("background","red");
+			$('div').toggleClass("box");
+		}
+	})
+</script>
+</html>

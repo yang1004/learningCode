@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>逻辑错误-主动抛出异常</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function sum(num){
+		try{
+			var result = 0;
+			if(isNaN(parsetInt(num))){
+				throw new Error("is not a number...");
+			}
+			for(var i=0;i<num;i++){
+				result += i;
+			}
+			return result;
+		}
+		catch(err){
+			console.log(err)
+		}
+		finally{
+			console.log("today is a good day......")
+		}
+	}
+console.log(111)
+	console.log(sum("a"))
+	console.log(222)
+</script>
+</html>

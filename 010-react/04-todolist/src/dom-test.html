@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Dom test</title>
+</head>
+<body>
+	<div id="root">
+		<h1>hello</h1>
+		<p></p>
+	</div>
+</body>
+<script>
+	var root = document.getElementById('root');
+
+	function tick(){
+		const html = `<h1>hello</h1>
+					 <p>${new Date().toLocaleTimeString()}</p>`
+		root.innerHTML = html
+	}
+	tick()
+	setInterval(tick,1000)
+</script>
+</html>

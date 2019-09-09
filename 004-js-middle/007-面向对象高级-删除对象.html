@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>面向对象高级-删除对象</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function Person(name,age){
+		this.name = name;
+		this.age = age;
+	}
+	Person.prototype.sayName = function(){
+		console.log("I am "+this.name);
+	}
+	Person.prototype.sayAge = function(){
+		console.log("I am "+this.age+" years old");
+	}
+	Person.prototype.LEGS = 2;
+	var p1 = new Person('tom',18);
+
+	console.log(p1);
+	p1.sex = "male";
+	console.log(Person.prototype.LEGS);
+	delete Person.prototype.LEGS;
+	console.log(p1.LEGS);
+	console.log(delete p1.hobby);//没有的属性直接返回true
+	console.log(delete p1.age);//有的属性删除并返回true
+	console.log(p1);
+</script>
+</html>

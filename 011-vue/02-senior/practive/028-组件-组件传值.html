@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>028-组件-组件传值.html</title>
+</head>
+<body>
+	<div id="app">
+		<todo-item task="睡觉"></todo-item>
+		<todo-item task="吃饭"></todo-item>
+	</div>
+	<template id="todo-item">
+		<p>{{task}}</p>
+	</template>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	var TodoItem = Vue.extend({
+		template:'#todo-item',
+		data:function(){
+			return {
+				
+			}
+		},
+		// props:['task'],
+		props:{
+			task:String
+		}
+	})
+	Vue.component('todo-item',TodoItem)
+
+	var vm = new Vue({
+		el:'#app',
+		data:{
+			
+		}
+	})
+</script>
+</html>

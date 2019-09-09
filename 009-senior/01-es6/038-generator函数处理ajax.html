@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>generator函数处理ajax</title>
+</head>
+<body>
+	
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+
+	const getAjaxPromise = (url)=>new Promise((resolve,reject)=>{
+		$.ajax({
+			url:url,
+			success:(data)=>{
+				resolve(data)
+			},
+			error:(jqXhr,statusMsg)=>{
+				reject(statusMsg)
+			}
+		})
+	})
+
+	function * gen(url){
+		const data1 = yield getAjaxPromise(url);
+
+		const data2 = yield getAjaxPromise(data1);
+
+		const data3 = yield getAjaxPromise(data2);
+
+		console.log('use data:',data3);
+	}
+
+	const g = gen('https://api.github.com/users/kuazhu');
+	// console.log(g.next())
+	g.next().value.then(data=>{
+		// console.log(data.followers_url);
+		return g.next(data.followers_url).value;
+	})
+	.then(data=>{
+		// console.log(data)
+		return g.next(data[0].followers_url).value;
+	})
+	.then(data=>{
+		// console.log(data)
+		g.next(data)
+	})
+</script>
+</html>

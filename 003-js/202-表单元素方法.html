@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单元素方法</title>
+</head>
+<body>
+	<form action="">
+		用户名：<input type="text" name="username" autocomplete="off">
+		<p id="mask"></p>
+	</form>
+</body>
+<script>
+	var oForm = document.forms[0];
+	var oUsername = oForm.username;
+	var oMask = document.getElementById('mask');
+
+	oUsername.onfocus = function(){
+		oMask.style.color = "blue";
+		oMask.innerHTML = "请输入7-14位有效字符";
+	}
+
+	oUsername.onblur = function(){
+		var oVal = oUsername.value;
+		var reg = /^.{7,14}$/;
+
+		if(reg.test(oVal)){
+			oMask.style.color = "green";
+			oMask.innerHTML = "合法";
+		}else{
+			oMask.style.color = "red";
+			oMask.innerHTML = "输入的用户名不合法";
+		}
+	}
+</script>
+</html>

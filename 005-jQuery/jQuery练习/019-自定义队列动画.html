@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自定义队列动画</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			opacity: 0.1;
+		}
+	</style>
+</head>
+<body>
+	<button>开始动画</button>
+	<div></div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		$('button').on('click',function(){
+			/*
+			$('div').animate({width:300},1000,function(){
+				console.log("width:" + this.style.width);
+			});
+			$('div').animate({height:300},1000,function(){
+				console.log("height:" + this.style.height);
+			});
+			$('div').animate({opacity:1},1000,function(){
+				console.log("opacity:" + this.style.opacity);
+			});
+			*/
+			
+			/*
+			$('div').animate({width:300},1000,function(){
+				console.log("width:" + this.style.width);
+				$('div').animate({height:300},1000,function(){
+					console.log("height:" + this.style.height);
+					$('div').animate({opacity:1},1000,function(){
+						console.log("opacity:" + this.style.opacity);
+					});
+				});
+			});
+			*/
+		
+			$('div').animate({width:300},1000,function(){
+				console.log("width:" + this.style.width);
+			}).animate({height:300},1000,function(){
+				console.log("height:" + this.style.height);
+			}).animate({opacity:1},1000,function(){
+				console.log("opacity:" + this.style.opacity);
+			});
+		})
+	})
+</script>
+</html>

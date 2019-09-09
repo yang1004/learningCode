@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>动画其他属性2</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father{
+			width: 200px;
+			height: 200px;
+			border: 1px solid black;
+			margin: 50px auto;
+		}
+		.son{
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			animation: boxe 2s 1s linear;
+			/*animation-fill-mode: none;*/
+			/*animation-fill-mode: backwards;*/
+			/*animation-fill-mode: forwards;*/
+			animation-fill-mode: both;
+		}
+		@keyframes boxe{
+			0%{
+				transform: rotate(10deg);
+			}
+			25%{
+				transform: rotate(30deg);
+			}
+			50%{
+				transform: rotate(45deg);
+			}
+			75%{
+				transform: rotate(60deg);
+			}
+			100%{
+				transform: rotate(85deg);
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="son"></div>
+	</div>
+</body>
+</html>

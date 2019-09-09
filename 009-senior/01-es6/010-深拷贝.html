@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>深拷贝</title>
+</head>
+<body>
+	
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	const obj = {
+		name:'Tom',
+		age:18,
+		friend:{
+			name:'Leo'
+		},
+		pets:[
+			'Dog','Cat'
+		]
+	}
+
+	/*
+	//1.直接复制 浅拷贝
+	const obj1 = obj;
+	obj1.name = "King";
+	*/
+
+	/*
+	//2.扩展运算 浅拷贝
+	const obj1 = {...obj};
+	obj1.name = "King";
+	obj1.friend.name = "Peter";
+	obj1.pets.push('Tigger');
+	*/
+
+	/*
+	//3.空对象拷贝 浅拷贝
+	const obj1 = {};
+	for(var key in obj){
+		obj1[key] = obj[key];
+	}
+	obj1.name = "King";
+	obj1.friend.name = "Peter";
+	obj1.pets.push('Tigger');
+	*/
+	function getData(data){
+		if(data instanceof Array){
+			return 'Array';
+		}else if(data instanceof Object){
+			return 'Object';
+		}else{
+			return data;
+		}
+	}
+	function deepCopy(data){
+		let type = getData(data);
+		// console.log(type)
+		let result;
+		if(type == 'Object'){
+			result = {};
+		}else if(type == 'Array'){
+			result = [];
+		}else{
+			return data;
+		}
+		for(let key in data){
+			let val = data[key];
+			let valType = getData(val);
+			if(valType == "Object" || valType == "Array"){
+				result[key] = deepCopy(val);
+			}else{
+				result[key] = val;
+			}
+		}
+		return result;
+	}
+
+	const obj1 = deepCopy(obj);
+	obj1.name = "King";
+	obj1.friend.name = "Peter";
+	obj1.pets.push('Tigger');
+	
+
+	/*
+	let obj1 = JSON.parse(JSON.stringify(obj));
+	obj1.name = "King";
+	obj1.friend.name = "Peter";
+	obj1.pets.push('Tigger');
+	*/
+
+	/*
+	const obj1 = $.extend(true,{},obj);
+	obj1.name = "King";
+	obj1.friend.name = "Peter";
+	obj1.pets.push('Tigger');
+	*/
+
+	console.log(obj);
+	console.log(obj1);
+</script>
+</html>

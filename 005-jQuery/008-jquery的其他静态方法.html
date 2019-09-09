@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jquery的其他静态方法</title>
+</head>
+<body>
+	
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		var arr = " ab c ";
+
+		console.log(arr);
+		console.log($.trim(arr));
+
+		console.log($.isWindow(window));
+		console.log($.isWindow({}));
+
+		console.log($.isArray([1,2,3,4]));
+		console.log($.isArray({0:"aa",1:"bb",2:"cc",length:3}));
+
+		console.log($.isFunction(function(){}));
+		console.log($.isFunction({}));
+
+		var p1 = {name:"Tom"};
+		var p2 = {name:"Leo",age:18};
+		// console.log($.extend(p1,p2));
+		// console.log("p1::",p1,"p2::",p2);
+		console.log($.extend({},p1,p2));
+		console.log("p1::",p1,"p2::",p2);//从后往前合并，只改变第一个的值
+
+		function show(){
+			console.log(this);
+		}
+		show();
+		var res = $.proxy(show,{name:"King",sex:"male"});
+		console.log(res);
+		res();
+	})
+</script>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>026-组件-注册局部组件</title>
+</head>
+<body>
+	<div id="test1">
+		<button-counter></button-counter>
+		<button-counter></button-counter>
+		<button-counter></button-counter>
+		<button-score v-if="score>20"></button-score>
+		<p>{{score}}</p>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	var vm1 = new Vue({
+		el:"#test1",
+		data:{
+			score:30
+		},
+		components:{
+			'button-counter':{
+				data(){
+					return {
+						count:0
+					}
+				},
+				template:'<button @click="count++">我被点击了{{count}}次</button>'
+			},
+			'button-score':{
+				data(){
+					return {
+						score:0
+					}
+				},
+				template:'<button @click="score=score+10">成绩为{{score}}</button>'
+			}
+		}
+	})
+</script>
+</html>

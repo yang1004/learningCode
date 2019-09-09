@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>044-自定义指令-局部</title>
+	<link rel="stylesheet" href="css/animate.css">
+</head>
+<body>
+	<div id="test">
+		<input v-focus type="text">
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	var vm = new Vue({
+		el:"#test",
+		directives:{
+			'focus':{
+				inserted:function(el){
+					el.focus()
+				}
+			}
+		}
+	})
+</script>
+</html>

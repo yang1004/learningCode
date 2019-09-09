@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数组的扩展运算</title>
+</head>
+<body>
+	<ul>
+		<li>li1</li>
+		<li>li2</li>
+		<li>li3</li>
+		<li>li4</li>
+		<li>li5</li>
+		<li>li6</li>
+		<li>li7</li>
+		<li>li8</li>
+		<li>li9</li>
+		<li>li10</li>
+	</ul>
+</body>
+<script>
+	/*
+	var arr = [11,22,33];
+	console.log(arr);
+	console.log(...arr);
+	*/
+
+	/*
+	function sum(n1,n2){
+		return n1+n2;
+	}
+	console.log(sum(1,2))
+	var arr1 = [3,4];
+	console.log(sum(...arr1))
+	console.log(sum.apply(null,arr1))
+	*/
+
+	/*
+	function sum(...arr){
+		let total = 0;
+		for(var i=0,len=arr.length;i<len;i++){
+			total += arr[i];
+		}
+		return total;
+	}
+	console.log(sum(1,2,3,4,7,20));
+	*/
+
+	const arr = [11,55,88,33,120];
+
+	// console.log(Math.max(1,2,9));
+	// console.log(Math.max.apply(null,arr));
+	// console.log(Math.max(...arr));
+	
+	/*
+	//浅copy
+	const arr1 = arr;
+	arr1.push(99);
+	*/
+
+	/*
+	//深copy1
+	const arr1 = [];
+	for(let i=0,len=arr.length;i<len;i++){
+		arr1.push(arr[i]);
+	}
+	arr1.push(99);
+	*/
+
+	/*
+	//深copy2
+	const arr1 = arr.concat();
+	arr1.push(99);
+	*/
+
+	/*
+	//深copy3
+	const arr1 = arr.slice();
+	arr1.push(99);
+	*/
+
+	//深copy4
+	const arr1 = [...arr];
+	arr1.push(99);
+
+	console.log("arr::",arr);
+	console.log("arr1::",arr1);
+
+	var aLi = document.getElementsByTagName('li');
+
+	console.log(aLi);
+	var arr2 = [...aLi];
+	console.log(arr2);
+</script>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>弹性布局案例三</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box{
+			width: 100vw;
+			height: 100vh;
+			display: flex;
+			flex-wrap: wrap;
+		}
+		.top{
+			width: 100vw;
+			height: 20vh;
+			background-color: red;
+		}
+		.middle{
+			display: flex;
+			width: 100vw;
+			flex-wrap: nowrap;
+		}
+		.nav{
+			width: 20vw;
+			height: 60vh;
+			background-color: green;
+		}
+		.main{
+			flex-grow: 1;
+		}
+		.right{
+			width: 20vw;
+			height: 60vh;
+			background-color: yellow;
+		}
+		.bottom{
+			width: 100vw;
+			height: 20vh;
+			background-color: blue;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="top">top</div>
+		<div class="middle">
+			<div class="nav">nav</div>
+			<div class="main">main</div>
+			<div class="right">right</div>
+		</div>
+		<div class="bottom">bottom</div>
+	</div>
+	
+</body>
+</html>

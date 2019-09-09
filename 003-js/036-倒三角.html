@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>倒三角</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.str{
+			display: inline-block;
+			width: 20px;
+			height: 20px;
+		}
+	</style>
+</head>
+<body>
+	
+</body>
+<script>
+	for(var i=0;i<6;i++){
+		for(var k=0;k<5-i;k++){
+			document.write("<span class='str'></span>");
+		}
+		for(var j=0;j<=i;j++){
+			document.write("<span class='str'>*</span>");
+			
+		}
+		document.write("<br>");
+	}
+</script>
+</html>

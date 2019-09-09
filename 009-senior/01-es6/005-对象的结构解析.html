@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>对象的结构解析</title>
+</head>
+<body>
+	
+</body>
+<script>
+	let options = {
+		interval:500,
+		mode:"js"
+	}
+	/*
+	let {interval:interval1,mode:mode1} = options;
+	console.log(interval1);
+	console.log(mode1);
+	*/
+
+	/*
+	// let {interval:interval,mode:mode} = options;
+	let {interval,mode} = options;
+	console.log(interval);
+	console.log(mode);
+	*/
+
+	
+	let {interval,mode,age=18} = options;
+	console.log(interval);
+	console.log(mode);
+	console.log(age);
+</script>
+</html>

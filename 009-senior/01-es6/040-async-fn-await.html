@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>async-fn-await</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*
+	async function fn(){
+
+		const data1 = await 'data1';//await只在async函数中有效
+
+		console.log('get data1=',data1);
+
+		console.log('do something...');
+
+		return 'result data'
+	}
+
+	fn().then(data=>{
+		console.log(data)
+	})
+	*/
+
+	const promise = new Promise((resolve,reject)=>{
+		setTimeout(()=>{
+			resolve('resolve data');
+		},200);
+	});
+
+
+	
+	async function fn(){
+		try{
+			const data1 = await promise;//将异步变成同步
+			console.log('get data1=',data1);
+			console.log('do something...');
+		}catch(err){
+			console.log('handle err',err)
+		}
+		
+
+		// console.log('get data1=',data1);
+
+		// console.log('do something...');
+
+		return 'result data'
+	}
+	fn().then(data=>{
+		console.log(data)
+	})
+</script>
+</html>

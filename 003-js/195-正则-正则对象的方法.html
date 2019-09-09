@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>正则-正则对象的方法</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var str = "a1b2c34";
+	var reg = /[a-z]/g;//全局匹配
+	// var reg = /[a-z]/;//非全局匹配
+	 
+	console.log(str);
+	console.log(reg.lastIndex);
+	console.log(reg.test(str));
+	console.log(reg.lastIndex);
+	console.log(reg.test(str));
+	console.log(reg.lastIndex);
+	console.log(reg.test(str));
+	console.log(reg.lastIndex);
+	console.log(reg.test(str));
+	console.log(reg.lastIndex);
+	console.log(reg.test(str));
+</script>
+</html>

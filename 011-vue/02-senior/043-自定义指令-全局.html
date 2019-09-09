@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>043-自定义指令-全局</title>
+	<link rel="stylesheet" href="css/animate.css">
+</head>
+<body>
+	<div id="test1">
+		<input v-focus type="text">
+	</div>
+	<div id="test2">
+		<input v-focus type="text">
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	Vue.directive('focus',{
+		inserted:function(el){
+			el.focus()
+		}
+	})
+	var vm = new Vue({
+		el:"#test1",
+		data:{
+			
+		}
+	})
+	var vm = new Vue({
+		el:"#test2",
+		data:{
+			
+		}
+	})
+</script>
+</html>

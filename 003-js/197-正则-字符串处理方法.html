@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>正则-字符串处理方法</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var str1 = "day day is good day";
+	var reg1 = /day/;
+
+	console.log(str1.search(reg1));//匹配到的项在第几个
+	console.log(str1.search("a"));
+	
+	var str2 = "aa2019-05-29bbb2019-05-30cc";
+	var reg2 = /\d{4}-\d{2}-\d{2}/g;
+
+	console.log(str2.match(reg2));
+
+	var str3 = "abcd girfe vrg bko";
+	var reg3 = /\s/g;
+
+	console.log(str3.split(reg3));
+
+	//回文
+	var str4 = "aabaa";
+	function isH(str){
+		console.log(str == str.split('').reverse().join(""))
+	}
+	isH(str4);
+</script>
+</html>

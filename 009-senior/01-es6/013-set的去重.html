@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>set的去重</title>
+</head>
+<body>
+	
+</body>
+<script>
+	const arr = [11,22,33,44,55,33];
+	/*
+	function getArray(arr){
+		let result = [];
+		for(let i=0;i<arr.length;i++){
+			let isDup = false;
+			for(let j=0;j<result.length;j++){
+				if(arr[i] == result[j]){
+					isDup = true;
+					break;
+				}
+			}
+			if(!isDup){
+				result.push(arr[i]);
+			}
+		}
+		return result;
+	}
+	const newArr = getArray(arr);
+	console.log(arr)
+	console.log(newArr)
+	*/
+
+	/*
+	function getObject(arr){
+		let obj = {};
+		let result = [];
+		for(let key in arr){
+			// console.log(arr[key])
+			obj[arr[key]] = "";	
+		}
+		// console.log(obj) 
+		for(let attr in obj){
+			result.push(attr*1)
+		}
+		return result;
+	}
+	const newArr = getObject(arr);
+	console.log(arr)
+	console.log(newArr)
+	*/
+
+	function getSet(arr){
+		let result = [];
+		let s = new Set([...arr])
+		for(let key of s.keys()){
+			result.push(key)
+		}
+		return result;
+	}
+	const newArr = getSet(arr);
+	console.log(arr)
+	console.log(newArr)
+
+
+
+</script>
+</html>

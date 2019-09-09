@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>正则-匹配模式</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var str = "12345";
+	var reg1 = /\d{2,4}/g;//贪婪模式
+	var reg2 = /\d{3,4}?/g;//非贪婪模式
+	var reg3 = /\d{2,4}?/g;
+	var reg4 = /\d{2,3}/g;
+
+	console.log("reg1::",str.replace(reg1,"*"));
+	console.log("reg2::",str.replace(reg2,"*"));
+	console.log("reg3::",str.replace(reg3,"*"));
+	console.log("reg4::",str.replace(reg4,"*"));
+</script>
+</html>

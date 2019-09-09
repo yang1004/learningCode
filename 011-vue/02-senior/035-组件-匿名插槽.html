@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>035-组件-匿名插槽</title>
+</head>
+<body>
+	<div id="test">
+		<layout>我是首页主要内容</layout>
+	</div>
+	<template id="layout">
+		<div>
+			<nav>导航部分</nav>
+			<slot>主要内容</slot>
+			<slot>主要内容</slot>
+			<footer>底部部分</footer>
+		</div>
+	</template>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	Vue.component('layout',{
+		template:'#layout',
+	})
+	var vm = new Vue({
+		el:"#test",
+		data:{
+			
+		}
+	})
+</script>
+</html>

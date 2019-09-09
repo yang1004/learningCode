@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>隐式转换</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var a = "123";
+	console.log(a + 1);
+	console.log(typeof (a + 1));
+
+	var b = "123";
+	console.log(b - 1);
+	console.log(typeof (b - 1));
+
+	var c = "123";
+	console.log(c * 1);
+	console.log(typeof (c * 1));
+
+	var d = "123";
+	console.log(d / 1);
+	console.log(typeof (d / 1));
+
+	var e = "as123";
+	console.log(e / 1);
+	console.log(typeof (e / 1));
+
+	if("1" == 1){
+		console.log('yes');
+	}
+	if("1" === 1){
+		console.log('yes');
+	}
+	else{
+		console.log('no')
+	}
+</script>
+</html>

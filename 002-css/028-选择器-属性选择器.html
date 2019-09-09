@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>属性选择器</title>
+	<style type="text/css">
+		/*[title]{
+			color: red;
+		}*/
+		/*[title="kuazhu.com"]{
+			color: green;
+			font-size: 24px;
+		}*/
+		/*[title |= "kuazhu"]{
+			color: red;
+		}*/
+		/*只找到kuazhu和kuazhu-的元素*/
+		/*[title ^= "kuazhu"]{
+			color: yellow;
+		}*/
+		/*找到kuazhu开头的所有元素*/
+		/*[title $= "com"]{
+			font-size: 20px;
+		}*/
+		/*找到com结尾的所有元素*/
+		[title ~= "kuazhu"]{
+			color: red;
+		}
+		/*只找到kuazhu和带空格的元素*/
+		[title *= "com"]{
+			color: green;
+		}
+		/*找到所有包括com的元素*/
+	</style>
+</head>
+<body>
+	<a href="#" title="#">#</a>
+	<br>
+	<a href="#" title="kuazhu">kuazhu</a>
+	<br>
+	<a href="#" title="kuazhu.com">kuazhu.com</a>
+	<br>
+	<a href="#" title="kuazhu-com">kuazhu-com</a>
+	<br>
+	<a href="#" title="kuazhu&com">kuazhu&com</a>
+	<br>
+	<a href="#" title="com">com</a>
+	<br>
+	<a href="#" title="kuazhu.com.cn">kuazhu.com.cn</a>
+	<br>
+	<a href="#" title="kuazhu com">kuazhu com</a>
+	<br>
+</body>
+</html>

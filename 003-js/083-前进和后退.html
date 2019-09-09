@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>前进和后退</title>
+</head>
+<body>
+	<button id="btnBank">后退</button>
+	<button id="btnGo">前进</button>
+</body>
+<script>
+	var oBtnGo = document.getElementById('btnGo');
+	var oBtnBank = document.getElementById('btnBank');
+	oBtnGo.onclick = function(){
+		history.go(1);
+	}
+	oBtnBank.onclick = function(){
+		history.go(-1);
+	}
+</script>
+</html>

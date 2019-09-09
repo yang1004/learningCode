@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>面向对象高级-查看属性的权限</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function Person(name,age){
+		this.name = name;
+		this.age = age;
+	}
+	var p1 = new Person('tom',18);
+	Person.prototype.LEGS = 2;
+	Object.defineProperties(p1,{
+		HANDS:{
+			value:2,
+			enumerable:true,
+			writable:true,
+			configurable:true
+		},
+		FOOTS:{
+			value:2,
+			enumerable:true,
+			writable:false,
+			configurable:true
+		}
+
+	})
+	console.log(p1);
+
+	console.log(Object.getOwnPropertyDescriptor(p1,"FOOTS"));
+	console.log(Object.getOwnPropertyDescriptor(p1,"name"));
+	console.log(Object.getOwnPropertyDescriptor(p1,"LEGS"));//原型链上的属性无法找到
+</script>
+</html>

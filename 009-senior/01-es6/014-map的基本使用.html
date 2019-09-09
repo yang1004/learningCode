@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>map的基本使用</title>
+</head>
+<body>
+	
+</body>
+<script>
+	let map = new Map();
+	let obj1 = {id:'0001'};
+	let obj2 = {id:'0002'};
+	map.set("name","Tom");
+	map.set(obj1,"Hello");
+	map.set(obj2,"你好");
+
+	console.log(map.get(obj1))
+	console.log(map.get(obj2))
+	console.log(map.get("age"))//没有返回undefined
+
+	console.log(map.delete(obj1));
+
+	console.log(map.has(obj2));
+
+	// map.clear();
+
+	console.log(map);
+</script>
+</html>

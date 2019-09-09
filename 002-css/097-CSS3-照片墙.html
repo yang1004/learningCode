@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>照片墙</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		ul{
+			width: 100%;
+			height: 400px;
+			line-height: 400px;
+			margin-top: 100px;
+			background-color: skyblue;
+			text-align: center;
+			
+		}
+		li{
+			position: relative;
+			width: 200px;
+			height: 250px;
+			display: inline-block;
+			vertical-align: middle;
+			transition: all 500ms;
+			opacity: 0.5;
+		}
+		img{
+			width: 100%;
+			height: 100%;
+			border: 5px solid #fff;
+			box-sizing: border-box;
+		}
+		li:nth-child(1){
+			transform: rotate(30deg);
+		}
+		li:nth-child(2){
+			transform: rotate(-25deg);
+		}
+		li:nth-child(3){
+			transform: rotate(15deg);
+		}
+		li:nth-child(4){
+			transform: rotate(50deg);
+		}
+		li:hover{
+			transform: rotate(0deg);
+			transform: scale(1.2);
+			z-index: 1;
+			opacity: 1;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li><img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2983563768,2670979143&fm=26&gp=0.jpg"></li>
+		<li><img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3663492817,3178343812&fm=26&gp=0.jpg"></li>
+		<li><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1555220213925&di=f40da71d5b9d3cf2bf172b8d28f9a7eb&imgtype=0&src=http%3A%2F%2Fimg4q.duitang.com%2Fuploads%2Fitem%2F201505%2F22%2F20150522162003_ZUKax.thumb.700_0.jpeg"></li>
+		<li><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1555220213924&di=139653c97d38ce876db4a02b3a83a72c&imgtype=0&src=http%3A%2F%2Fimg5q.duitang.com%2Fuploads%2Fitem%2F201505%2F22%2F20150522161912_rT2jL.thumb.700_0.jpeg"></li>
+	</ul>
+</body>
+</html>

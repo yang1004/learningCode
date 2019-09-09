@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Promise的静态方法-resolve</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//不带任何参数，直接返回一个resolve状态的Promise对象
+	const p1 = Promise.resolve();
+	console.log("p1::",p1);
+
+	//如果参数是Promise实例,那么Promise.resolve将不做任何修改、原封不动地返回这个实例 
+	const p2 = Promise.resolve(p1);
+	console.log("p2::",p2);
+	console.log("p1==p2",p1==p2);
+
+	const obj1 = {
+		then:function(){
+			console.log('then fn of obj1');
+		}
+	}
+	const p3 = Promise.resolve(obj1);
+	console.log("p3::",p3);
+	const obj2 = {
+		notThen:function(){
+			console.log('notThen fn of obj1');
+		}
+	}
+	const p4 = Promise.resolve(obj2);
+	console.log("p4::",p4);
+
+	const p5 = Promise.resolve('abc');
+	console.log("p5::",p5);
+</script>
+</html>

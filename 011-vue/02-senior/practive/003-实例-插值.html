@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>003-实例-插值.html</title>
+</head>
+<body>
+	<div id="app">
+		<p>{{message}}</p>
+		<p v-text="result">{{message}}</p>
+		<p v-once>{{message}}</p>
+		<p>{{rawHtml}}</p>
+		<p v-html="rawHtml"></p>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	var vm = new Vue({
+		el:'#app',
+		data:{
+			message:'hello',
+			result:"hi",
+			rawHtml:"<h1>我是大标题</h1>"
+		},
+		
+	})
+
+</script>
+</html>

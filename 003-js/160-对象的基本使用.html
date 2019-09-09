@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>对象的基本使用</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var arr = {
+		name:"Tom",
+		age:18,
+		friend:["Leo","Toy"],
+		sayHi:function(){
+			console.log("Hi"+this.name)
+		}
+	}
+	console.log(arr);
+	arr.sex = "male";
+	console.log(arr);
+	delete arr.friend;//删除属性
+	console.log(arr);
+	arr.sayHi();
+
+</script>
+</html>

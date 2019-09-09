@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h1>express</h1>
+	<button id="get1">express get1</button>
+	<button id="get2">express get2</button>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		$('#get1').on('click',function(){
+			$.ajax({
+				url:"/users/52/books/1234",
+				type:"get",
+				success:function(result){
+					console.log(result)
+				}
+			})
+		})
+
+		$('#get2').on('click',function(){
+			$.ajax({
+				url:"/?users=50&books=6789",
+				type:"get",
+				success:function(result){
+					console.log(result)
+				}
+			})
+		})
+
+	})
+</script>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>表单标签基础</title>
+</head>
+<body>
+	<h1>用户登陆</h1>
+	<form action="https://www.baidu.com" method="get">
+		<p>
+			<label for="username">用户名：</label>
+			<input type="text" name="username" id="username">
+		</p>
+		<p>
+			<label for="password">密码：</label>
+			<input type="password" name="password" id="password">
+		</p>
+		<p>
+			所在城市：
+			<select name="city">
+				<optgroup label="直辖市">
+					<option value="bj">北京市</option>
+					<option value="sh" selected>上海市</option>
+					<option value="tj">天津市</option>
+				</optgroup>
+			</select>
+		</p>
+		<p>
+			<input type="submit" name="登陆">
+		</p>
+	</form>
+</body>
+</html>

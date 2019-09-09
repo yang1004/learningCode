@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单元素的属性</title>
+</head>
+<body>
+	<form action="https://baidu.com" target="_blank">
+		<div>
+			用户名：<input type="text" name="username" value="Tom">
+		</div>
+		<div>
+			密码：<input type="password" name="password">
+		</div>
+		<div>
+			性别：
+			<input type="radio" name="sex" value="male">男
+			<input type="radio" name="sex" value="female">女
+		</div>
+		<div>
+			兴趣爱好：
+			<input type="checkbox" name="hobby" value="basketball">篮球
+			<input type="checkbox" name="hobby" value="football">足球
+		</div>
+		<div>
+			住址：
+			<select name="city" id="">
+				<option value="sh">上海</option>
+				<option value="sz">深圳</option>
+				<option value="bj">北京</option>
+				<option value="gz">广州</option>
+			</select>
+		</div>
+		<div>
+			<input type="submit" value="提交">
+		</div>
+	</form>
+</body>
+<script>
+	var aForms = document.forms;//获取表单form
+	var oForm = aForms[0];
+	var oUsername = oForm.username;
+
+	// oUsername.disabled = true;//禁用表单元素，针对全部表单元素，值不会提交
+	// oUsername.readOnly = true;//禁用表单元素，针对input/textarea元素，值会提交
+	
+	var oSex = oForm.sex;
+	oSex[1].checked = true;
+
+	var oHobby = oForm.hobby;
+	oHobby[0].checked = true;
+	oHobby[1].checked = true;
+
+	var oCity = oForm.city;
+	oCity.options[3].selected = true;//selected默认被选中
+
+	console.log(oCity);
+</script>
+</html>

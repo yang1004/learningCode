@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>鼠标事件-滚动条调节元素属性</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#father{
+			position: relative;
+			width: 400px;
+			height: 30px;
+			margin: 100px auto;
+			background-color: #ccc;
+		}
+		#son{
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 30px;
+			height: 30px;
+			background-color: #f00;
+		}
+		#box{
+			width: 100px;
+			height: 100px;
+			background-color: blue;
+		}
+	</style>
+</head>
+<body>
+	<div id="father">
+		<div id="son"></div>
+	</div>
+	<div id="box"></div>
+</body>
+<script>
+	var oFather = document.getElementById('father');
+	var oSon = document.getElementById('son');
+	var oBox = document.getElementById('box');
+
+	oSon.onmousedown = function(ev){
+		var disX = ev.clientX - oSon.offsetLeft;
+		var disY = ev.clientY - oSon.offsetTop;
+		var l = 0;
+
+		document.onmousemove = function(ev){
+			l = ev.clientX-disX;
+			if(l < 0){
+				l = 0;
+			}else if(l > oFather.offsetWidth - oSon.offsetWidth){
+				l = oFather.offsetWidth - oSon.offsetWidth;
+			}
+			var num = l / (oFather.offsetWidth - oSon.offsetWidth);
+			oSon.style.left = l + 'px';
+			oBox.style.width = 100 + 200*num + 'px';
+			oBox.style.height = 100 + 200*num + 'px';
+		}
+		document.onmouseup = function(ev){
+			document.onmousemove = null;
+			document.onmouseup = null;
+		}
+		
+	}
+</script>
+</html>

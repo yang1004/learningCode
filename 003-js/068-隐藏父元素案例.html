@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>隐藏父元素案例</title>
+</head>
+<body>
+	<ul id="list">
+		<li>1<a href="#">隐藏</a></li>
+		<li>2<a href="#">隐藏</a></li>
+		<li>3<a href="#">隐藏</a></li>
+		<li>4<a href="#">隐藏</a></li>
+		<li>5<a href="#">隐藏</a></li>
+		<li>6<a href="#">隐藏</a></li>
+		<li>7<a href="#">隐藏</a></li>
+	</ul>
+</body>
+<script>
+	var oLi = document.getElementsByTagName('li');
+	var oA = document.getElementsByTagName('a');
+	// console.log(oLi);
+	// for(var i=0;i<oLi.length;i++){
+	// 	oLi[i].onclick = function(){
+	// 		this.style.display = "none";
+	// 	}
+	// }
+	for(var i=0;i<oA.length;i++){
+		oA[i].onclick = function(){
+			this.parentNode.style.display = "none";
+		}
+	}
+</script>
+</html>

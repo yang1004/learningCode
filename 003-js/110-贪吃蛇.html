@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>贪吃蛇</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			position: absolute;
+			top: 100px;
+			left: 0;
+			width: 100px;
+			height: 20px;
+			background-color: red;
+		}
+		.line{
+			position: absolute;
+			top: 0;
+			left: 400px;
+			width: 1px;
+			height: 400px;
+			background-color: #000;
+		}
+		#btn4{
+			margin-left: 50px;
+		}
+		#btn5{
+			margin-left: 50px;
+		}
+	</style>
+</head>
+<body>
+	<button id="btn4">向上动画</button>
+	<br>
+	<button id="btn1">向左动画</button>
+	<button id="btn2">停止动画</button>
+	<button id="btn3">向右动画</button>
+	<br>
+	<button id="btn5">向下动画</button>
+	<div id="box"></div>
+</body>
+<script>
+	var oBtn1 = document.getElementById('btn1');
+	var oBtn2 = document.getElementById('btn2');
+	var oBtn3 = document.getElementById('btn3');
+	var oBtn4 = document.getElementById('btn4');
+	var oBtn5 = document.getElementById('btn5');
+	var oBox = document.getElementById('box');
+	var time = 0;
+
+	oBtn1.onclick = function(){
+		clearInterval(time);
+		oBox.style.width = "100px";
+		oBox.style.height = "20px";
+		time = setInterval(function(){
+			oBox.style.left = oBox.offsetLeft + -10 + "px";
+		},30)
+	}
+
+	oBtn2.onclick = function(){
+		clearInterval(time);
+	}
+
+	oBtn3.onclick = function(){
+		clearInterval(time);
+		oBox.style.width = "100px";
+		oBox.style.height = "20px";
+		time = setInterval(function(){
+			oBox.style.left = oBox.offsetLeft + 10 + "px";
+		},30)
+	}
+
+	oBtn4.onclick = function(){
+		clearInterval(time);
+		oBox.style.width = "20px";
+		oBox.style.height = "100px";
+		time = setInterval(function(){
+			oBox.style.top = oBox.offsetTop + -10 + "px";
+		},30)
+		// console.log(oBox.offsetTop);
+	}
+
+	oBtn5.onclick = function(){
+		clearInterval(time);
+		oBox.style.width = "20px";
+		oBox.style.height = "100px";
+		time = setInterval(function(){
+			oBox.style.top = oBox.offsetTop + 10 + "px";
+		},30)
+	}
+</script>
+</html>

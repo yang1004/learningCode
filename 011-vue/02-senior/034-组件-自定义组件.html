@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>034-组件-自定义组件</title>
+</head>
+<body>
+	<div id="test">
+		<button-counter @total-item-event="totalCount"></button-counter>
+		<button-counter @total-item-event="totalCount"></button-counter>
+		<button-counter @total-item-event="totalCount"></button-counter>
+		<p>总共点击了{{total}}次</p>
+	</div>
+	<template id="button-count">
+		<button @click="btnClick()">我被点击了{{count}}次</button>
+	</template>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	var buttonCounter = {
+		data(){
+			return {
+				count:0
+			}
+		},
+		template:'#button-count',
+		methods:{
+			btnClick(){
+				this.count++
+				this.$emit('total-item-event')//触发名为'total-item-event'的事件
+			}
+		}
+	}
+	Vue.component('button-counter',buttonCounter)
+	var vm = new Vue({
+		el:"#test",
+		data:{
+			total:0
+		},
+		methods:{
+			totalCount(){
+				this.total++
+			}
+		}
+	})
+</script>
+</html>

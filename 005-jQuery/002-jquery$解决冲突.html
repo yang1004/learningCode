@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jquery基本使用</title>
+</head>
+<body>
+	
+</body>
+<script>
+	(function(w){
+		function $(){
+			console.log($);
+		}
+		w.$ = $;
+	})(window);
+</script>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	// console.log($);
+	/*
+	jQuery.noConflict();
+	console.log($);
+	console.log(jQuery);
+	*/
+	var kz = jQuery.noConflict();//设置变量名指向jQuery
+	console.log(kz);
+	console.log($);
+</script>
+</html>

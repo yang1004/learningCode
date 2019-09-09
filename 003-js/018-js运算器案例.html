@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js运算器案例</title>
+</head>
+<body>
+	<input type="text" id="oBox1">+
+	<input type="text" id="oBox2">-
+	<input type="text" id="oBox3">*
+	<input type="text" id="oBox4">/
+	<input type="text" id="oBox5">=
+	<input type="text" id="oBox6">
+	<button id="oBox7">计算</button>
+</body>
+<script>
+	var input1 = document.getElementById("oBox1")
+	var input2 = document.getElementById("oBox2")
+	var input3 = document.getElementById("oBox3")
+	var input4 = document.getElementById("oBox4")
+	var input5 = document.getElementById("oBox5")
+	var input6 = document.getElementById("oBox6")
+	var btn = document.getElementById("oBox7")
+
+	btn.onclick = function(){
+		var oVa1 = parseFloat(input1.value)
+		var oVa2 = parseFloat(input2.value)
+		var oVa3 = parseFloat(input3.value)
+		var oVa4 = parseFloat(input4.value)
+		var oVa5 = parseFloat(input5.value)
+		// var oVa6 = parseFloat(input6.value)
+		input6.value = oVa1+oVa2-oVa3*oVa4/oVa5;
+	}
+</script>
+</html>

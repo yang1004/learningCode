@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>015-v-on-原始DOM事件阻止事件冒泡</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+	</style>
+</head>
+<body>
+	<div id="test">
+		<a @click="clickTB($event)" href="https://www.taobao.com">淘宝</a>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	// console.log(Vue)
+	var vm = new Vue({
+		el:"#test",
+		data:{
+			
+		},
+		methods:{
+			clickTB(ev){
+				ev.preventDefault()
+				console.log('go TB...')
+			}
+		}
+	})
+
+</script>
+</html>

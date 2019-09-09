@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件对象-共同事件属性</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#father{
+			width: 400px;
+			height: 400px;
+			margin: 50px auto;
+			background-color: red;
+			overflow: hidden;
+		}
+		#son{
+			width: 200px;
+			height: 200px;
+			margin: 100px auto;
+			background-color: green;
+		}
+	</style>
+</head>
+<body>
+	<div id="father">
+		<div id="son"></div>
+	</div>
+</body>
+<script>
+	var oFather = document.getElementById('father');
+	var oSon = document.getElementById('son');
+
+	oFather.onclick = function(ev){
+		console.log(ev.target);//点击的元素
+		console.log(ev.currentTarget);//事件绑定的元素
+		console.log(ev.type);//事件的类型
+	}
+</script>
+</html>

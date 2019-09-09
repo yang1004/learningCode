@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>向下加速度运动</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#father{
+			position: relative;
+			width: 1000px;
+			height: 500px;
+			margin: 30px auto;
+			border: 1px solid #000;
+			box-sizing: border-box;
+		}
+		#son{
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 50px;
+			height: 50px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="father">
+		<div id="son"></div>
+	</div>
+</body>
+<script>
+	var oFather = document.getElementById('father');
+	var oSon = document.getElementById('son');
+	var a = 0;
+	var time = 0;
+	var timer = 0;
+
+	window.onclick = function(){
+		
+		time = setInterval(function(){
+			a = a + 2;
+			// console.log(a);
+			if(oSon.offsetTop >= (oFather.offsetHeight - oSon.offsetHeight)){
+				oSon.style.top = (oFather.offsetHeight - oSon.offsetHeight) + 'px';
+				console.log(oFather.offsetHeight - oSon.offsetHeight)
+				clearInterval(time);
+			}else{
+				oSon.style.top = oSon.offsetTop + a + 'px';
+			}
+			
+		},50);
+	}
+	
+	document.onkeydown = function(ev){
+		// console.log(ev.keyCode);
+		if(ev.keyCode == 32){
+			oSon.style.top = oSon.offsetTop - 8 + 'px';
+			oSon.style.left = oSon.offsetLeft + 8 + 'px';
+			clearInterval(time);
+			time = setInterval(function(){
+				a = 5;
+				// console.log(a);
+				if(oSon.offsetTop >= (oFather.offsetHeight - oSon.offsetHeight)){
+					oSon.style.top = (oFather.offsetHeight - oSon.offsetHeight) + 'px';
+					clearInterval(time);
+				}else{
+					oSon.style.top = oSon.offsetTop + a + 'px';
+				}
+			},50)
+		}
+	}
+</script>
+</html>

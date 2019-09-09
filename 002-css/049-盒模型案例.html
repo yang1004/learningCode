@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>盒模型案例</title>
+	<style type="text/css">
+		*{
+			margin: 0px;
+			padding: 0px;
+		}
+		.father{
+			width: 600px;
+			height: 600px;
+			border: 1px solid black;
+			margin: 0 auto;
+			padding-top: 100px;
+			box-sizing: border-box;
+		}
+		.son{
+			width: 400px;
+			height: 400px;
+			border: 1px solid black;
+			margin: 0 auto;
+		}
+		img{
+			width: 200px;
+			height: 200px;
+			vertical-align: middle;
+		}
+		div{
+			line-height: 400px;
+			text-align: center;
+			
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="son">
+			<img src="./css样式/图片.jpg">
+		</div>
+	</div>
+</body>
+</html>

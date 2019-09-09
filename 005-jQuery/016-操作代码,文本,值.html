@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>操作代码/文本/值</title>
+</head>
+<body>
+	<div>我是内容</div>
+	<div>
+		我是内容
+		<p>
+			我是段落
+		</p>
+	</div>
+	<input type="text" id="txt">
+	<button id="btn">按钮</button>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		// $('div').html("<h2>我是标题</h2>");
+		// $('div').eq(0).html("<h2>我是标题</h2>");
+		
+		// $('div').text("<h2>我是标题</h2>");
+		// $('div').eq(0).text("<h2>我是标题</h2>");
+
+		var oTxt = document.getElementById('txt');
+		var oBtn = document.getElementById('btn');
+
+		oBtn.onclick = function(){
+			// console.log(oTxt.value);
+			// console.log($(oTxt).val());
+			console.log($(oTxt).val("aaaaa"));
+		}
+	})
+</script>
+</html>

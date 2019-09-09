@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>面向对象高级-单个属性的定义</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function Person(name,age){
+		this.name = name;
+		this.age = age;
+	}
+	Person.prototype.LEGS = 2;
+	var p1 = new Person('tom',18);
+
+	Object.defineProperty(p1,"sex",{
+		value:"male",
+		enumerable:false,//是否可以枚举,默认是false
+		writable:true,//是否可写(赋值),默认是false
+		configurable:false//是否可删除,是否可以修改属性的权限，默认是false
+		});
+	console.log(p1);
+
+	for(attr in p1){
+		console.log(attr);
+	}
+</script>
+</html>

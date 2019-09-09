@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>set</title>
+</head>
+<body>
+	
+</body>
+<script>
+	let s = new Set();
+	s.add(11);
+	s.add(22);
+	s.add(33);
+	s.delete(22);
+	console.log(s.has(11));
+	console.log(s.has(22));
+	// s.clear();
+	console.log(s)
+
+	const arr = [11,22,33,11,44,55];
+	let arr1 = new Set(arr);
+	console.log(arr1);
+
+	for(key of s.keys()){
+		console.log("key::",key)
+	}
+	for(value of s.values()){
+		console.log("value::",value)
+	}
+	for(entrie of s.entries()){
+		console.log("entrie::",entrie)
+	}
+	s.forEach(function(value,index){
+		console.log("index="+index+";value="+value)
+	})
+
+
+	//数组去重
+	const arr2 = [11,55,22,33,55,22,88];
+	//1
+	function getArray(arr){
+		let result = [];
+		for(let i=0;i<arr.length;i++){
+			let isDup = false;
+			for(let j=0;j<result.length;j++){
+				if(arr[i] == result[j]){
+					isDup = true;
+					break;
+				}
+			}
+			if(!isDup){
+				result.push(arr[i]);
+			}
+		}
+		return result;
+	}
+	console.log(getArray(arr2))
+	//2
+	function getObject(arr){
+		let obj = {};
+		let result = [];
+		for(let i=0;i<arr.length;i++){
+			obj[arr[i]] = "";
+		}
+		// console.log(obj)
+		for(let key in obj){
+			result.push(parseFloat(key))
+		}
+		return result;
+	}
+	console.log(getObject(arr2))
+	//3
+	let s1 = new Set(arr2);
+	let arr3 = [...s1];
+	console.log(arr3);
+</script>
+</html>

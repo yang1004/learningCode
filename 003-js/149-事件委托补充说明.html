@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件委托补充说明</title>
+</head>
+<body>
+	<button id="btn">添加元素</button>
+	<ul id="list">
+		<li>1<a class="oA" href="#">删除</a></li>
+		<li>2<a class="oA" href="#">删除</a></li>
+		<li>3<a class="oA" href="#">删除</a></li>
+		<li>4<a class="oA" href="#">删除</a></li>
+		<li>5<a class="oA" href="#">删除</a></li>
+		<li>6<a class="oA" href="#">删除</a></li>
+		<li>7<a class="oA" href="#">删除</a></li>
+	</ul>
+</body>
+<script>
+
+	var oUl = document.getElementById('list');
+	var oBtn = document.getElementById('btn');
+
+	oBtn.onclick = function(){
+		var aLi = document.createElement('li');
+		oUl.appendChild(aLi);
+		aLi.innerHTML = "new li";
+		var aA = document.createElement('a');
+		aLi.appendChild(aA);
+		aA.href = "#";
+		aA.innerHTML = "删除";
+		aA.className = "oA";
+	}
+
+	/*
+	var oUl = document.getElementById('list');
+	var oA = document.getElementsByTagName('a');
+
+	for(var i=0;i<oA.length;i++){
+		oA[i].onclick = function(){
+			oUl.removeChild(this.parentNode);
+		}
+	}
+	*/
+
+	oUl.onclick = function(ev){
+		// console.log(ev.target);
+		var oTarget = ev.target;
+		if(oTarget.className == "oA"){
+			oUl.removeChild(oTarget.parentNode);
+		}
+		
+	}
+
+</script>
+</html>

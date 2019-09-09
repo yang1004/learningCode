@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>匀速动画-多物体同时运动</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father{
+			width: 800px;
+			height: 1000px;
+			margin: 100px auto;
+		}
+		#box1{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			margin: 10px;
+		}
+		#box2{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			margin: 10px;
+		}
+		#box3{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			margin: 10px;
+			opacity: 0.2;
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div id="box1"></div>
+		<div id="box2"></div>
+		<div id="box3"></div>
+	</div>
+</body>
+<script>
+	var oBox1 = document.getElementById('box1');
+	var oBox2 = document.getElementById('box2');
+	var oBox3 = document.getElementById('box3');
+	var oNum = 0;
+
+	oBox1.onmouseover = function(){
+		clearInterval(oBox1.time);
+		oBox1.time = setInterval(function(){
+			if(oBox1.offsetWidth > 400){
+				oNum = -7;
+			}else{
+				oNum = 7;
+			}
+			if(Math.abs(400 - oBox1.offsetWidth) < oNum){
+				oBox1.style.width = "400px";
+				clearInterval(oBox1.time);
+			}else{
+				oBox1.style.width = oBox1.offsetWidth + oNum + "px";
+			}
+		},30)
+	}
+
+	oBox2.onmouseover = function(){
+		clearInterval(oBox2.time);
+		oBox2.time = setInterval(function(){
+			if(oBox2.offsetHeight > 400){
+				oNum = -7;
+			}else{
+				oNum = 7;
+			}
+			if(Math.abs(400 - oBox2.offsetHeight) < oNum){
+				oBox2.style.height = "400px";
+				clearInterval(oBox2.time);
+			}else{
+				oBox2.style.height = oBox2.offsetHeight + oNum + "px";
+			}
+		},30)
+	}
+
+	oBox3.onmouseover = function(){
+		clearInterval(oBox3.time);
+		oBox3.time = setInterval(function(){
+			var aOpacity = parseFloat(getComputedStyle(oBox3,false)['opacity']);
+			aOpacity = Math.round(aOpacity*100);
+			if(aOpacity > 100){
+				oNum = -7;
+			}else{
+				oNum = 7;
+			}
+			if(Math.abs(100 - aOpacity) < oNum){
+				oBox3.style.opacity = "1";
+				clearInterval(oBox3.time);
+			}else{
+				oBox3.style.opacity = (aOpacity + oNum)/100;
+			}
+		},300)
+	}
+</script>
+</html>

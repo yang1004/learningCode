@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>工厂模式创建对象</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function addPerson(name,age){
+		var obj = {};
+		obj.name = name;
+		obj.age = age;
+		obj.sayName = function(){
+			console.log("I am "+this.name);
+		}
+		obj.sayAge = function(){
+			console.log("I am "+this.age+" years old");
+		}
+		return obj;
+	}
+
+	var person1 = addPerson("Tom",18);
+	var person2 = addPerson("Leo",18);
+
+	person1.sayName();
+	person1.sayAge();
+	console.log(person1);
+	person2.sayName();
+	person2.sayAge();
+	console.log(person2);
+	// console.log(addPerson("Tom",18));
+	// console.log(addPerson("Leo",88));
+	 
+	console.log(person1.sayName == person2.sayName);
+</script>
+</html>

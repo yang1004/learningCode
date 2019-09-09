@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>排序案例</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var arr=[1,5,9,7,6,3,4,2];
+	console.log("1:::",arr);
+	var a = 0;
+
+	for(var i=0;i<arr.length;i++){
+		for(var j=i;j<arr.length;j++){
+			if(arr[i]>arr[j]){
+				a = arr[i];
+				arr[i] = arr[j];
+				arr[j] = a;
+			}
+		}
+	}
+	console.log(arr);
+</script>
+</html>

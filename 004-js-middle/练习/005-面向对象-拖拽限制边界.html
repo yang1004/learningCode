@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>面向对象-拖拽限制边界</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+	</style>
+</head>
+<body>
+	
+</body>
+<script>
+	function Drag(options){
+		this.width = options.width;
+		this.height = options.height;
+		this.background = options.background;
+		this.box = null;
+
+		//设置静态页面
+		this.init();
+
+		//拖拽事件
+		this.bindEvent()
+	}
+
+	Drag.prototype = {
+		init:function(){
+			// console.log(this)
+			this.box = document.createElement('div');
+			this.box.style.width = this.width + 'px';
+			this.box.style.height = this.height + 'px';
+			this.box.style.background = this.background;
+			this.box.style.position = "absolute";
+			document.body.appendChild(this.box);
+		},
+		bindEvent:function(){
+			this.box.onmousedown = function(ev){
+				var oEvent = ev || event;
+				this.disX = oEvent.clientX - this.box.offsetLeft;
+				this.disY = oEvent.clientY - this.box.offsetTop;
+				// console.log(this.disX)
+				// console.log(this.disY)
+				 
+				document.onmousemove = this.fnMove.bind(this);
+
+				document.onmouseup = this.fnUp;
+			}.bind(this)
+		},
+		fnMove:function(ev){
+			var oEvent = ev || event;
+			this.box.style.left = oEvent.clientX - this.disX + 'px';
+			this.box.style.top = oEvent.clientY - this.disY + 'px';
+		},
+		fnUp:function(){
+			document.onmousedown = null;
+			document.onmousemove = null;
+		}
+	}
+
+	function LiminDrag(options){
+		Drag.call(this,options);
+	}
+	LiminDrag.prototype = Object.create(Drag.prototype);
+
+	LiminDrag.prototype.fnMove = function(ev){
+		var oEvent = ev || event;
+		var l = oEvent.clientX - this.disX;
+		var t = oEvent.clientY - this.disY;
+		if(l < 0){
+			l = 0;
+		}else if(l > window.innerWidth - this.box.offsetWidth){
+			l = window.innerWidth - this.box.offsetWidth;
+		}
+		if(t < 0){
+			t = 0;
+		}else if(t > window.innerHeight - this.box.offsetHeight){
+			t = window.innerHeight - this.box.offsetHeight;
+		}
+		this.box.style.left = l + 'px';
+		this.box.style.top = t + 'px';
+	}
+
+
+	new Drag({
+		width:100,
+		height:100,
+		background:"red"
+	})
+
+	new Drag({
+		width:200,
+		height:200,
+		background:"blue"
+	})
+
+	new LiminDrag({
+		width:300,
+		height:300,
+		background:"green"
+	})
+</script>
+</html>

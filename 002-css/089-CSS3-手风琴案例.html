@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>手风琴案例</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box{
+			width: 800px;
+			height: 280px;
+			border: 1px solid black;
+			margin: 0 auto;
+			list-style: none;
+			overflow: hidden;
+		}
+		li{
+			width: 150px;
+			height: 280px;
+			float: left;
+			transition-duration: 1s;
+			transition-duration: width;
+			/*transform: width 1s 0s ease;*/
+		}
+		ul:hover li{
+			width: 100px
+		}
+		ul li:hover{
+			width: 400px;
+		}
+	</style>
+</head>
+<body>
+	<ul class="box">
+		<li><img src="https://img.alicdn.com/tfs/TB1B4gpQxnaK1RjSZFtXXbC2VXa-520-280.png_q90_.webp"></li>
+		<li><img src="https://aecpm.alicdn.com/tfscom/TB1dPf7IpYqK1RjSZLeXXbXppXa.jpg"></li>
+		<li><img src="https://aecpm.alicdn.com/simba/img/TB1JNHwKFXXXXafXVXXSutbFXXX.jpg"></li>
+		<li><img src="https://aecpm.alicdn.com/simba/img/TB183NQapLM8KJjSZFBSutJHVXa.jpg"></li>
+		<li><img src="https://img.alicdn.com/tfs/TB1NXHYQCzqK1RjSZFLXXcn2XXa-520-280.jpg_q90_.webp"></li>
+	</ul>
+</body>
+</html>

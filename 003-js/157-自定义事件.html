@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自定义事件</title>
+</head>
+<body>
+	<button id="btn">弹出</button>
+</body>
+<script>
+	var oBtn = document.getElementById('btn');
+	var ev = new Event('Alert');//事件对象 = new Event(自定义事件类型)
+
+	oBtn.addEventListener('Alert',function(){
+		alert('a');
+	},false);
+
+	oBtn.dispatchEvent(ev);//触发事件
+</script>
+</html>

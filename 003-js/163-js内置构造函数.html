@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js内置构造函数</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var arr = new Array();
+	arr.name = "tom";
+	arr.age = 18;
+	arr.change = function(){};
+	arr.sort = function(){
+		console.log("Hello");
+		return 111;
+	}
+	console.log("arr",arr);
+	console.log("arr.sort",arr.sort);
+	console.log("arr.sort()",arr.sort());//返回函数返回值，sort把sort函数覆盖
+</script>
+</html>

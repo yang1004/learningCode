@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Vue Test</title>
+</head>
+<body>
+	<div id="test">
+		<p ref="p1">{{message}}</p>
+		<p v-text="message"></p>
+		<p v-once>{{message}}</p>
+		<p>{{rawHtml}}</p>
+		<p v-html="rawHtml"></p>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	// console.log(Vue)
+	var vm = new Vue({
+		el:"#test",
+		data:{
+			message:"hello",
+			rawHtml:"<h1>我是大标题</h1>"
+		}
+	})
+
+</script>
+</html>

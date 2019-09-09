@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>promise处理DOM事件</title>
+</head>
+<body>
+	
+</body>
+<script>
+	const getImgData = (src)=>new Promise((resolve,reject)=>{
+		let img = new Image();
+		img.onload = function(){
+			resolve('img is success...');
+		}
+		img.onerror = function(){
+			reject('img is error...');
+		}
+
+		img.src = src;
+	})
+
+	getImgData('../img/1.png')
+	.then(data=>{
+		console.log(data)
+	})
+	.catch(err=>{
+		console.log(err)
+	})
+</script>
+</html>

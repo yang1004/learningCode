@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>封闭空间作用3-构建对象</title>
+</head>
+<body>
+	
+</body>
+<script>
+	(function(w){
+		function Person(name,age){
+			this.name = name;
+			this.age = age;
+		}
+		/*
+		Person.prototype.sayName = function(){
+			console.log("I am "+this.name);
+		}
+		Person.prototype.sayAge = function(){
+			console.log("I am "+this.age+" years old");
+		}
+		*/
+		Person.prototype = {
+			constructor:Person,
+			sayName:function(){
+				console.log("I am "+this.name);
+			},
+			sayAge:function(){
+				console.log("I am "+this.age+" years old");
+			}
+		}
+		console.log(Person.prototype)
+		w.Person = Person;
+	})(window);
+
+	(function(w){
+		function Student(name,age){
+			this.name = name;
+			this.age = age;
+		}
+		/*
+		Student.prototype.sayName = function(){
+			console.log("I am "+this.name);
+		}
+		Student.prototype.sayAge = function(){
+			console.log("I am "+this.age+" years old");
+		}
+		Student.prototype.sayHobby = function(){
+			console.log("I like play "+this.hobby);
+		}
+		*/
+		Student.prototype = {
+			constructor:Student,
+			sayName:function(){
+				console.log("I am "+this.name);
+			},
+			sayAge:function(){
+				console.log("I am "+this.age+" years old");
+			},
+			sayHobby:function(){
+				console.log("I like play "+this.hobby);
+			}
+		}
+		console.log(Student.prototype)
+		w.Student = Student;
+	})(window);
+	
+	var p1 = new Person("Tom",18);
+	console.log(p1);
+	var s1 = new Student("Leo",20);
+	console.log(s1);
+</script>
+</html>

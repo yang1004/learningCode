@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>函数作为参数</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function sum(n1,n2,fn){
+		var result = n1+n2;
+		fn(result);
+	}
+	sum(1,2,function(a){
+		console.log(a);
+	});
+</script>
+</html>

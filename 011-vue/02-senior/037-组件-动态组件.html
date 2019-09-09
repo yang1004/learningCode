@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>037-组件-动态组件</title>
+</head>
+<body>
+	<div id="test">
+		<button @click="currentComponent='tab-home'">home</button>
+		<button @click="currentComponent='tab-active'">active</button>
+		<component :is="currentComponent"></component>
+	</div>
+	<template id="tab-home">
+		<div>
+			home
+		</div>
+	</template>
+	<template id="tab-active">
+		<div>
+			active
+		</div>
+	</template>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	Vue.component('tab-home',{
+		template:'#tab-home',
+	})
+	Vue.component('tab-active',{
+		template:'#tab-active',
+	})
+	var vm = new Vue({
+		el:"#test",
+		data:{
+			currentComponent:"tab-home"
+		}
+	})
+</script>
+</html>

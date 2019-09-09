@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js网页换肤案例</title>
+	<link id="skin" rel="stylesheet" href="./css/mn.css">
+	<script>
+		function toSkinMN(){
+			document.getElementById('skin').href='./css/mn.css'
+		}
+		function toSkinMan(){
+			document.getElementById('skin').href='./css/man.css'
+		}
+	</script>
+</head>
+<body>
+	<button onclick="toSkinMN()">美女皮肤</button>
+	<button onclick="toSkinMan()">猛男皮肤</button>
+</body>
+</html>

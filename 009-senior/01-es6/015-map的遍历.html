@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>map的遍历</title>
+</head>
+<body>
+	
+</body>
+<script>
+	let map = new Map();
+	let obj1 = {id:'0001'};
+	let obj2 = {id:'0002'};
+	map.set("name","Tom");
+	map.set(obj1,"Hello");
+	map.set(obj2,"你好");
+
+	// console.log(map.keys());
+	
+	for(let key of map.keys()){
+		console.log("map.keys()::",key);
+	}
+	for(let value of map.values()){
+		console.log("map.values()::",value);
+	}
+	for(let entries of map.entries()){
+		console.log("map.entries()::",entries);
+	}
+
+	map.forEach(function(value,key){
+		console.log('key=',key,";",'value=',value)
+	})
+</script>
+</html>

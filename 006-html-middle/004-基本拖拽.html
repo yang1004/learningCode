@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>基本拖拽</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#toggle{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+		}
+		#box{
+			width: 400px;
+			height: 400px;
+			background-color: gray;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+	<div id="toggle" draggable="true"></div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+
+		$('#toggle').on('dragstart',function(){//被拖动元素开始拖动时触发
+			// console.log("toggle:::dragstart");
+		})
+		.on('drag',function(){//被拖动元素拖动时触发
+			// console.log("toggle:::drag");
+		})
+		.on('dragend',function(){//被拖动元素拖动松开鼠标时触发
+			// console.log("toggle:::dragend");
+		})
+
+		$('#box').on('drop',function(){//容器中放置被拖动元素时触发
+			// console.log("box:::drop");
+			$('#box').append($('#toggle'));
+		})
+		.on('dragover',function(ev){//在容器中拖动触发
+			// console.log("box:::dragover");
+			ev.preventDefault();
+		})
+		.on('dragenter',function(){//拖动元素进入容器时触发
+			// console.log(this)
+			$(this).css({background:"green"});
+		})
+		.on('dragleave',function(){//拖动元素离开容器时触发
+			$(this).css({background:"gray"});
+		})
+		.on('dragend',function(){//容器中松开鼠标时触发
+			// console.log("box:::dragend");
+		})
+		.on('drag',function(){//容器中拖动元素触发
+			// console.log("box:::drag");
+		})
+
+
+	})
+</script>
+</html>

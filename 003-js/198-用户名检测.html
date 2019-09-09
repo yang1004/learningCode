@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>用户名检测</title>
+	<style>
+		p{
+			color: gray;
+		}
+	</style>
+</head>
+<body>
+	请输入用户名：<input type="text" id="txt">
+	<p id="content"></p>
+</body>
+<script>
+	var oTxt = document.getElementById('txt');
+	var oContent = document.getElementById('content');
+	var reg1 = /[\u4e00-\u9fa5]/g;
+	var reg2 = /^[0-9]+$/;
+	
+
+	oTxt.onfocus = function(){
+		oContent.innerHTML = "长度最多是7个汉字或14个字符2,不能是纯数字";
+
+	}
+	oTxt.onblur = function(){
+		var val = oTxt.value;
+		oContent.innerHTML = "";
+		// console.log(val.replace(reg2,"a").length)
+		var valLen = val.replace(reg1,"aa").length;
+		// console.log(valLen);
+		if(valLen>14 || reg2.test(val)){
+			oContent.innerHTML = "用户名非法";
+			oContent.style.color = "red";
+		}else{
+			oContent.innerHTML = "用户名合法";
+			oContent.style.color = "green";
+		}
+
+	}
+</script>
+</html>

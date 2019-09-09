@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery的静态方法-map</title>
+</head>
+<body>
+	<div>1</div>
+	<div>2</div>
+	<div>3</div>
+	<div>4</div>
+	<div>5</div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		var arr = [36,7,57,54,8,34,64];
+		/*
+		var res = arr.map(function(value,index){
+			console.log("index value",index,value);
+			return value*10;
+		});
+		console.log(res);
+		*/
+		/*
+		var res = $.map(arr,function(value,index){
+			console.log("index value",index,value);
+			return value;
+		});
+		console.log(res);
+		*/
+	
+		var linkArr = {0:"aa",1:"bb",2:"cc",length:3};
+		/*
+		对象没有map方法
+		var res = linkArr.map(function(value,index){
+			console.log("index value",index,value);
+			return value*10;
+		});
+		console.log(res);
+		*/
+		/*
+		var res = $.map(linkArr,function(value,index){
+			console.log("index value",index,value);
+			return value;
+		});
+		console.log(res);
+		*/
+		
+		var oBox = document.getElementsByTagName('div');
+		var res = $.map(oBox,function(value,index){
+			console.log("index value",index,value);
+			return value;
+		});
+		console.log(res);
+		//变成数组
+	})
+</script>
+</html>

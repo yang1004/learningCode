@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>请求数据</title>
+</head>
+<body>
+	<button id="btn">请求数据</button>
+	<input type="text" id="txt">
+	<ul id="list"></ul>
+</body>
+<script>
+	var oUl = document.getElementById('list');
+	function handleBand(data){
+		// console.log(data);
+		oUl.innerHTML = "";
+		var data = data.result;
+		for(var i=0;i<data.length;i++){
+			var oLi = document.createElement('li');
+			oLi.innerHTML = data[i][0];
+			oUl.appendChild(oLi);
+		}
+	}
+
+	var oBtn = document.getElementById('btn');
+	var oTxt = document.getElementById('txt');
+
+	oTxt.oninput = function(){
+		var val = oTxt.value;
+		var script = document.createElement('script');
+		script.src = "https://suggest.taobao.com/sug?code=utf-8&q="+val+"&_ksTS=1560769235235_455&callback=handleBand&k=1&area=c2c&bucketid=11";
+		document.body.appendChild(script);
+	}
+
+	oBtn.onclick = function(){
+		// alert("Hello World!!!!");
+		var script = document.createElement('script');
+		script.src = "http://127.0.0.1:3001/?getData=handleBand";
+		document.body.appendChild(script);
+
+	}
+</script>
+</html>

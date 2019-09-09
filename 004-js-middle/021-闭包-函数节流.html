@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>闭包-函数节流</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			width: 100%;
+			height: 3000px;
+		}
+	</style>
+</head>
+<body>
+	
+</body>
+<script>
+	var a = 0;
+
+	function throttle(fn,time){
+		var lastTime = Date.now();//定义上一次打印的时间
+		return function(){
+			var nowTime = Date.now();//定义当前时间
+			if(nowTime - lastTime > time){//如果时间差大于一秒钟
+				fn();//打印a++
+				lastTime = Date.now();//把上次打印时间定义成当前时间
+			}
+		}
+	}
+
+	window.onscroll = throttle(function(){
+		console.log(a++);
+	},1000);
+</script>
+</html>

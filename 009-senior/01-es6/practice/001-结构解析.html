@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>结构解析</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*
+	// let [a,b,c] = [1,2,3];
+	// console.log(a,b,c)
+	
+	let [a,[b,c],d] = [1,[2,undefined],4]
+	console.log("a,b,c,d::",a,b,c,d)
+
+	let [a1,[b1,c1],d1] = [1,[2],4]
+	console.log("a1,b1,c1,d1::",a1,b1,c1,d1)
+
+	let [a2,[b2,c2],d2] = [1,[2,null],4]
+	console.log("a2,b2,c2,d2::",a2,b2,c2,d2)
+	*/
+
+
+
+	let {js,mode,delay} = {mode:"slide",js:true,delay:200};
+	console.log("js::",js,"mode::",mode,"delay::",delay)
+
+	const {name="Tom",age,sex} = {age:20}//没设置值就是undefined
+	console.log("name::",name,"age::",age,"sex::",sex);
+
+	let id1 = {id:'0001'};
+	const {person,obj1} = {person:"Tom",obj1:id1};
+	console.log("person::",person,"obj1::",obj1);
+	const obj2 = obj1;
+	console.log(obj2)
+	obj2.friend = "Anmy";
+	console.log(obj1)
+</script>
+</html>

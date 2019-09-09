@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>留言板案例</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		li{
+			list-style: none;
+			border-bottom: 1px dotted #ff6700;
+		}
+		.box{
+			width: 300px;
+			margin: 50px auto;
+		}
+		a{
+			float: right;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<textarea id="txt" cols="30" rows="10"></textarea>
+		<button id="btn">发布</button>
+		<ul id="list">
+			<!-- <li>11111111<a href="#">删除</a></li> -->
+		</ul>
+	</div>
+</body>
+<script>
+	var oTxt = document.getElementById('txt');
+	var oBtn = document.getElementById('btn');
+	var oUl = document.getElementById('list');
+
+	oBtn.onclick = function(){
+		var val = oTxt.value;
+		//生成li
+		var aLi = document.createElement('li');
+		aLi.innerHTML = val;
+		oUl.insertBefore(aLi,oUl.firstChild);
+		oTxt.value = "";
+		var oA = document.createElement('a');
+		oA.href = "javascript:;";
+		oA.innerHTML = "删除";
+		aLi.appendChild(oA);
+		oA.onclick = function(){
+			oUl.removeChild(aLi);
+		}
+	}
+
+</script>
+</html>

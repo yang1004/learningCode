@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>040-动画-单元素</title>
+	<style>
+		.fade-enter-active, .fade-leave-active {
+		  transition: opacity .5s;
+		}
+		.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+		  opacity: 0;
+		}
+	</style>
+</head>
+<body>
+	<div id="test">
+		<button @click="show = !show">显示/隐藏</button>
+		<transition name="fade" appear>
+			<p v-if="show">home</p>
+		</transition>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	var vm = new Vue({
+		el:"#test",
+		data:{
+			show:true
+		},
+	})
+</script>
+</html>

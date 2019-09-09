@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>鼠标事件2-多物体随鼠标移动</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100px;
+			height: 100px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+</body>
+<script>
+	var aBox = document.getElementsByTagName('div')
+	console.log(aBox);
+
+	function getScrollTop(){
+		return window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+	}
+
+	function getScrollLeft(){
+		return window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft;
+	}
+
+
+	document.onmousemove = function(ev){
+		aBox[0].style.left = getScrollLeft() + ev.clientX + 'px';
+		aBox[0].style.top = getScrollTop() + ev.clientY + 'px';
+		// console.log(111);
+		for(var i=(aBox.length-1);i>0;i--){
+			// console.log(111);
+			aBox[i].style.left = aBox[i-1].offsetLeft + 10 + 'px';
+			aBox[i].style.top = aBox[i-1].offsetTop + 10 + 'px';
+		}
+	};
+</script>
+</html>

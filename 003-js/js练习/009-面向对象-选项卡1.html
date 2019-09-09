@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>面向对象-选项卡1</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		li{
+			list-style: none;
+		}
+		#btn{
+			overflow: hidden;
+			margin-bottom: 30px;
+		}
+		#btn li{
+			float: left;
+			width: 100px;
+			line-height: 40px;
+			text-align: center;
+		}
+		#content li{
+			width: 300px;
+			height: 300px;
+			line-height: 300px;
+			border: 1px solid #000;
+			text-align: center;
+			display: none;
+		}
+		.active{
+			color: #ff6700;
+			border-bottom: 2px solid #ff6700;
+		}
+	</style>
+</head>
+<body>
+	<ul id="btn">
+		<li class="active">热门</li>
+		<li>电视影音</li>
+		<li>电脑</li>
+		<li>家居</li>
+	</ul>
+	<ul id="content">
+		<li style="display: block;">1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+	</ul>
+</body>
+<script>
+	function Tab(){
+		//获取元素
+		this.aBtn = document.querySelectorAll('#btn li');
+		this.aContent = document.querySelectorAll('#content li');
+
+		this.fnEvent();
+	}
+
+	Tab.prototype.fnEvent = function(){
+		var lastIndex = 0;
+		for(var i=0;i<this.aBtn.length;i++){
+			/*
+			this.aBtn[i].index = i;
+			var _this = this;
+			this.aBtn[i].onmouseover = function(){
+				for(var i=0;i<_this.aBtn.length;i++){
+					_this.aBtn[i].className = "";
+					_this.aContent[i].style.display = "none";
+				}
+				// console.log(this)
+				this.className = "active";
+				_this.aContent[this.index].style.display = "block";
+			}
+			*/
+		
+			(function(i,_this){
+				_this.aBtn[i].onmouseover = function(){
+					_this.aBtn[lastIndex].className = "";
+					_this.aContent[lastIndex].style.display = "none";
+					// console.log(this)
+					this.className = "active";
+					_this.aContent[i].style.display = "block";
+					lastIndex = i;
+				}
+			})(i,this);
+		}
+	}
+
+	new Tab();
+</script>
+</html>

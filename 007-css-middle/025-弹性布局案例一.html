@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>弹性布局案例一</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father{
+			width: 500px;
+			height: 1000px;
+			border: 1px solid #000;
+			display: flex;
+			flex-wrap: wrap;
+			align-content: flex-start;
+		}
+		.son{
+			width: 100px;
+			height: 100px;
+			box-sizing: border-box;
+			border: 1px solid #f21;
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="son"></div>
+		<div class="son"></div>
+		<div class="son"></div>
+		<div class="son"></div>
+		<div class="son"></div>
+		<div class="son"></div>
+		<div class="son"></div>
+		<div class="son"></div>
+		<div class="son"></div>
+		<div class="son"></div>
+		<div class="son"></div>
+	</div>
+</body>
+</html>

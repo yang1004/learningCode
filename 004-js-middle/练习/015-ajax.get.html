@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ajax.get</title>
+</head>
+<body>
+	<button id="btn">请求数据</button>
+</body>
+<script>
+	/*
+	var oBtn = document.getElementById('btn')
+
+	oBtn.onclick = function(){
+		//1.生成Ajax对象（买一个电话）
+		var oAjax = new XMLHttpRequest();
+		// console.log(oAjax)
+
+		//2.建立连接(拨号码)
+		oAjax.open('GET','009-ajax.json',true);
+
+		//设置请求头
+		oAjax.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+
+		//3.发送数据(问问题)
+		oAjax.send();
+
+		//4.返回数据(回答问题)
+		oAjax.onreadystatechange = function(){
+			// console.log(oAjax.readyState)
+			if(oAjax.readyState == 4){
+				if(oAjax.status == 200){
+					// console.log(oAjax.responseText);
+					var strToObj = JSON.parse(oAjax.responseText);
+					console.log(strToObj.name)
+				}
+			}
+		}
+	}
+	*/
+
+
+	/*
+	var oBtn = document.getElementById('btn');
+
+	oBtn.onclick = function(){
+		//1.生成Ajax对象
+		var oAjax = new XMLHttpRequest();
+
+		//2.建立连接
+		oAjax.open('GET','009-ajax.json',true);
+
+		//设置请求头
+		oAjax.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+
+		//3.发送数据
+		oAjax.send();
+
+		//4.接受数据
+		oAjax.onreadystatechange = function(){
+			if(oAjax.readyState == 4){
+				if(oAjax.status == 200){
+					// console.log(oAjax.responseText);
+					var strToObj = JSON.parse(oAjax.responseText);
+					console.log(strToObj)
+				}
+			}
+		}
+	}
+	*/
+
+
+
+	var oBtn = document.getElementById('btn');
+
+	oBtn.onclick = function(){
+		//1.生成Ajax对象
+		var oAjax = new XMLHttpRequest();
+
+		//2.建立连接
+		oAjax.open('GET','009-ajax.json',true);
+
+		//设置请求头
+		oAjax.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+
+		//3.发送数据
+		oAjax.send();
+
+		//4.返回数据
+		oAjax.onreadystatechange = function(){
+			if(oAjax.readyState == 4){
+				if(oAjax.status == 200){
+					// console.log(oAjax.responseText);
+					var strToObj = JSON.parse(oAjax.responseText);
+					console.log(strToObj)
+				}
+			}
+		}
+	}
+</script>
+</html>

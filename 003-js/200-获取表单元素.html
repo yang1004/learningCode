@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>获取表单元素</title>
+</head>
+<body>
+	<form action="https://baidu.com">
+		<div>
+			用户名：<input type="text" name="username">
+		</div>
+		<div>
+			密码：<input type="password" name="password">
+		</div>
+	</form>
+</body>
+<script>
+	var aForms = document.forms;//获取表单form
+	var oForm = aForms[0];
+	var aElements = oForm.elements;
+	var userName1 = aElements[0];
+	var passWord = aElements[1];
+	var userName2 = aElements["username"];
+	var userName3 = aElements.username;
+	var userName4 = oForm.username;
+
+	console.log("userName1::",userName1);
+	console.log("userName2::",userName2);
+	console.log("userName3::",userName3);
+	console.log("userName4::",userName4);
+	console.log(passWord);
+</script>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>筛选元素-过滤器</title>
+</head>
+<body>
+	<div>div1</div>
+	<div>div2</div>
+	<div class="div3">div3</div>
+	<div>div4</div>
+	<div>div5</div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+
+		console.log($('body .div3'));//通过选择器找到节点
+
+		console.log($('div:eq(4)'));//:eq(下标)
+	})
+</script>
+</html>

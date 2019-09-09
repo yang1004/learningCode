@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>基本拖拽</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			width: 400px;
+			height: 400px;
+			background-color: gray;
+		}
+		#toggle{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+	<div id="toggle" draggable="true"></div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		$('#box').on('drop',function(){
+			// console.log(111);
+			$('#box').append($('#toggle'));
+		}).on('dragover',function(ev){
+			ev.preventDefault();
+		}).on('dragenter',function(){
+			$(this).css({background:"green"});
+		}).on('dragleave',function(){
+			$(this).css({background:"gray"});
+		})
+	})
+</script>
+</html>

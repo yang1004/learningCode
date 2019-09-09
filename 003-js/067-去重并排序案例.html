@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>去重并排序案例</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var arr = [1,12,13,24,35,23,12,24,13,15,17];
+	console.log(arr);
+	var newArr = new Array();
+	for(var i=0;i<arr.length;i++){
+		if(newArr.indexOf(arr[i],0) == -1){
+			newArr.push(arr[i]);
+		}
+	}
+	console.log(newArr);
+	for(var a=0;a<newArr.length;a++){
+		var result = 0;
+		for(var b=a;b<newArr.length;b++){
+			if(newArr[a]>newArr[b]){
+				result = newArr[a];
+				newArr[a] = newArr[b];
+				newArr[b] = result;
+			}
+		}
+	}
+	console.log(newArr);
+</script>
+</html>

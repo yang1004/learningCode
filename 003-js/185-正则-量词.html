@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>正则-量词</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var str = "fe 689 y2 457 fwq 21 5";
+	var reg1 = /\d{3}/g; //前面原子恰好出现n次
+	var reg2 = /\d{2,}/g; //前面原子最少出现n次
+	var reg3 = /\d{1,2}/g; //前面原子最少出现n次,最多出现m次
+	var reg4 = /\d+/g; //前面原子最少出现1次 等价{1,}
+	var reg5 = /\d?/g; //前面原子最少出现0次,最多出现一次 等价{0,1}
+	var reg6 = /\d*/g; //前面原子最少出现0次 {0,}
+
+	console.log(str.replace(reg1,"*"));
+	console.log(str.replace(reg2,"*"));
+	console.log(str.replace(reg3,"*"));
+	console.log(str.replace(reg4,"*"));
+	console.log(str.replace(reg5,"*"));
+	console.log(str.replace(reg6,"*"));
+</script>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>匀速动画透明度控制</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			position: absolute;
+			top: 30px;
+			left: 0px;
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			opacity: 0.2;
+		}
+		.line{
+			position: absolute;
+			top: 0;
+			left: 400px;
+			width: 1px;
+			height: 400px;
+			background-color: #000;
+		}
+	</style>
+</head>
+<body>
+	<button id="btn">开始动画</button>
+	<div id="box"></div>
+	<div class="line"></div>
+</body>
+<script>
+	var oBtn = document.getElementById('btn');
+	var oBox = document.getElementById('box');
+	var time = 0;
+	var oNum = 0;
+
+	oBtn.onclick = function(){
+		clearInterval(time);
+		time = setInterval(function(){
+			var aOpacity = parseFloat(getComputedStyle(oBox,false)['opacity']);
+			aOpacity = Math.round(aOpacity*100);
+			if(aOpacity > 100){
+				oNum = -7;
+			}else{
+				oNum = 7;
+			}
+			if(Math.abs(100 - aOpacity) < oNum){
+				oBox.style.opacity = "1";
+				clearInterval(time);
+			}else{
+				oBox.style.opacity = (aOpacity + oNum)/100;
+			}
+		},300)
+		
+		
+	}
+</script>
+</html>

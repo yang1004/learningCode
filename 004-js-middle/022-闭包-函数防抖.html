@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>闭包-函数防抖</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			width: 100%;
+			height: 3000px;
+		}
+	</style>
+</head>
+<body>
+	
+</body>
+<script>
+	var a = 0;
+	var timer = null;
+
+	function debounce(fn,delaty){
+		console.log(111)
+		return function(){
+			clearTimeout(timer);//每次进来清除定时器
+			timer = setTimeout(fn,delaty);
+			// console.log(222)
+		}
+	}
+
+	/*
+	window.onscroll = function(){
+		console.log(a++);
+	}
+	*/
+
+	window.onscroll = debounce(function(){//一直打印移动时间小于延迟时间 然后清除定时器
+		console.log(a++);
+	},300);
+</script>
+</html>

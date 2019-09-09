@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>010-v-for-列表渲染.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		li{
+			list-style: none;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<table>
+			<tr>
+				<th>名字</th>
+				<th>年龄</th>
+				<th>爱好</th>
+			</tr>
+			<tr v-for="person in persons">
+				<td>{{person.name}}</td>
+				<td>{{person.age}}</td>
+				<td>
+					<ul v-for="hobby in person.hobbies">
+						<li>{{hobby}}</li>
+					</ul>
+				</td>
+			</tr>
+		</table>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	var vm = new Vue({
+		el:'#app',
+		data:{
+			persons:[
+				{
+					name:"张三",
+					age:18,
+					hobbies:["打篮球","踢足球","画画"]
+				},
+				{
+					name:"李四",
+					age:28,
+					hobbies:["打篮球","写代码","画画"]
+				},
+				{
+					name:"王五",
+					age:20,
+					hobbies:["打豆豆","踢足球","画画"]
+				}
+			]
+		},
+		
+	})
+
+</script>
+</html>

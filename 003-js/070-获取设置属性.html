@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>获取设置属性</title>
+</head>
+<body>
+	<input type="text" id="text">
+	<button id="btn">设置属性</button>
+	<textarea id="txt" cols="30" rows="10"></textarea>
+</body>
+<script>
+	var oText = document.getElementById('text');
+	var oBtn = document.getElementById('btn')
+	var oTxt = document.getElementById('txt');
+	console.log(oBtn);
+	oBtn.onclick = function(){
+		var aVal = oText["value"];
+		console.log(aVal);
+		oTxt.value = aVal;
+	}
+</script>
+</html>

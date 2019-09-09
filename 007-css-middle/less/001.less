@@ -1,0 +1,134 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+div{
+	margin-bottom: 10px;
+}
+
+//定义变量
+@c:#f21;
+@w:100px;
+@h:100px;
+
+/*
+body {
+  background-color: @c;
+}
+*/
+
+.box1{
+	width: @w;
+	height: @h;
+	background-color: @c;
+}
+
+.box2{
+	.box1
+}
+
+.border-r{
+	-ms-border-radius:10px;
+	-webkit-border-radius:10px;
+	-o-border-radius:10px;
+	-moz-border-radius:10px;
+	border-radius:10px;
+}
+.border-r-defin(@r:10px){
+	-ms-border-radius:@r;
+	-webkit-border-radius:@r;
+	-o-border-radius:@r;
+	-moz-border-radius:@r;
+	border-radius:@r;
+}
+
+.box3{
+	.border-r-defin(20px);
+}
+
+.box4{
+	.border-r-defin();
+}
+
+/*
+.triangle{
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 10px;
+	border-color: #f21 transparent transparent transparent;
+}
+*/
+
+//匹配模式
+//@_代表任意匹配
+.triangle(@_,@w,@c){
+	width: 0;
+	height: 0;
+	border-style: solid;
+}
+.triangle(left,@w,@c){
+	border-width: @w;
+	border-color: transparent transparent transparent @c;
+}
+.triangle(right,@w,@c){
+	border-width: @w;
+	border-color: transparent @c transparent transparent;
+}
+.triangle(top,@w,@c){
+	border-width: @w;
+	border-color: @c transparent transparent transparent;
+}
+.triangle(bottom,@w,@c){
+	border-width: @w;
+	border-color: transparent transparent @c transparent;
+}
+
+.box5{
+	.triangle(top,20px,#ff0)
+}
+
+ul{
+	width: 600px;
+	list-style: none;
+	margin: 100px auto;
+	li{
+		width: 100%;
+		height: 30px;
+		line-height: 30px;
+		span{
+			float: left;
+			color: #f0f;
+		}
+		a{
+			float: right;
+			color: #f21;
+		}
+		&:hover{
+			background-color: #ccc;
+			cursor: pointer;
+		}
+	}
+}
+
+.box6(@s){
+	//运算
+	// font-size: 30px+@s;
+	// font-size: 30px-@s;
+	// font-size: 30px*@s;
+	// font-size: 30px/@s;
+	font-size: ~'30px';//避免编译
+}
+.box7{
+	.box6(10)
+}
+
+//设置属性和值
+.set(@attr,@val){
+	@{attr}:unit(@val,px)
+}
+.box8{
+	.set(width,100);
+	.set(height,100);
+	background-color: red;
+}

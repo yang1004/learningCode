@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>主动报错案例2</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var arr = ["tom","leo","Alice"];
+	function show(name){
+		try{
+			if(!isNaN(parseInt(name))){
+				throw new Error("this name is a number......")
+			}
+			for(var i=0;i<arr.length;i++){
+				if(arr[i] == name){
+					break;
+				}
+			}
+			arr.push(name);
+			return arr;
+		}
+		catch(err){
+			console.log(err);
+		}
+		finally{
+			console.log("hello");
+		}
+	}
+
+	console.log(show("jack"))
+	console.log(show(3))
+</script>
+</html>

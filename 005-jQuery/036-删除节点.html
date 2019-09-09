@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>删除节点</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			border: 1px solid #000;
+		}
+	</style>
+</head>
+<body>
+	<button>删除1</button>
+	<button>删除2</button>
+	<button>删除3</button>
+	<div>
+		我是内容
+		<h2>我是标题</h2>
+	</div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		$('div').on('click',function(){
+			alert('div click...');
+		});
+		$('button').eq(0).on('click',function(){
+			var $div = $('div').remove();
+			// console.log($div);
+			$('body').append($div);
+		});//删除节点并移除事件
+		$('button').eq(1).on('click',function(){
+			var $div = $('div').empty();
+		});//删除节点内容
+		$('button').eq(2).on('click',function(){
+			var $div = $('div').detach();
+			// console.log($div);
+			$('body').append($div);
+		});//删除节点不移除事件
+	})
+</script>
+</html>

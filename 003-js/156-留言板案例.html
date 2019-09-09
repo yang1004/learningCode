@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>留言板案例</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box{
+			width: 300px;
+			margin: 50px auto;
+		}
+		li{
+			line-height: 40px;
+			height: 40px;
+			list-style: none;
+			color: pink;
+			border-bottom: 1px dotted #000;
+		}
+		a{
+			float: right;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<textarea id="txt" cols="30" rows="10"></textarea>
+		<button id="btn">发布</button>
+		<ul id="list">
+			<!-- <li>11111<a href="#">删除</a></li> -->
+		</ul>
+	</div>
+</body>
+<script src="./js/animation.js"></script>
+<script>
+	var oTxt = document.getElementById('txt');
+	var oBtn = document.getElementById('btn');
+	var oUl = document.getElementById('list');
+	var aLi = oUl.children;
+
+
+
+	function addLi(){
+		var sVal = oTxt.value;
+		var newLi = document.createElement('li');
+		oUl.insertBefore(newLi,oUl.firstChild);
+		newLi.innerHTML = sVal;
+		// newLi.style.height = 0;
+		var newA = document.createElement('a');
+		newLi.appendChild(newA);
+		newA.href = "javascript:;";
+		newA.innerHTML = "删除";
+		oTxt.value = "";
+
+		//a标签点击事件
+		newA.onclick = function(){
+			oUl.removeChild(newLi);
+		}
+		// animation(newLi,"height",40);
+	}
+	oBtn.onclick = addLi;
+
+	//添加键盘事件
+	oTxt.onkeydown = function(ev){
+		// console.log(ev.keyCode);
+		if(ev.keyCode == 13 && ev.ctrlKey){
+			addLi();
+		}
+	}
+</script>
+</html>

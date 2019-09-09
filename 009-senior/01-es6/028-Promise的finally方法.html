@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Promise的finally方法</title>
+</head>
+<body>
+	
+</body>
+<script>
+	const promise = new Promise((resolve,reject)=>{
+		setTimeout(function(){
+			// resolve('ok');
+			reject('err');
+		},0)
+	})
+
+	promise.then(data=>{
+		console.log('success data:',data);
+	})
+	.catch(err=>{
+		console.log('error data:',err);
+	})
+	.finally(()=>{
+		console.log('finally......')
+	})
+</script>
+</html>

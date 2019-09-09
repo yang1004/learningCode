@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Vue Test</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		p{
+			margin-top: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div id="test">
+		<p>我是文字</p>
+		<p style="background-color: green;color: red;">style="background-color: green;color: red;"</p>
+		<p :style="{backgroundColor:'green',color:'red'}">:style="{backgroundColor:'green',color:'red'}"</p>
+		<p :style="{backgroundColor:bc,color:cl}">:style="{backgroundColor:bc,color:cl}"</p>
+		<p :style="[{backgroundColor:'green'},{color:'red'}]">:style="[{backgroundColor:'green'},{color:'red'}]"</p>
+		<p :style="[{backgroundColor:bc},{color:cl}]">:style="[{backgroundColor:bc},{color:cl}]"</p>
+		<p :style="objStyle">:style="objStyle"</p>
+		<p :style="arrStyle">:style="arrStyle"</p>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	// console.log(Vue)
+	var vm = new Vue({
+		el:"#test",
+		data:{
+			bc:'green',
+			cl:'red',
+			objStyle:{
+				backgroundColor:'green',
+				color:'red'
+			},
+			arrStyle:[
+				{
+					backgroundColor:'green'
+				},
+				{
+					color:'red'
+				}
+			]
+		}
+	})
+
+</script>
+</html>

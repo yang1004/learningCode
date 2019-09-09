@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>面向对象-选项卡</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		li{
+			list-style: none;
+		}
+		#btn{
+			overflow: hidden;
+			margin-bottom: 30px;
+		}
+		#btn li{
+			float: left;
+			width: 100px;
+			line-height: 40px;
+			text-align: center;
+		}
+		#content li{
+			width: 300px;
+			height: 300px;
+			line-height: 300px;
+			border: 1px solid #000;
+			text-align: center;
+			display: none;
+		}
+		.active{
+			color: #ff6700;
+			border-bottom: 2px solid #ff6700;
+		}
+	</style>
+</head>
+<body>
+	<ul id="btn">
+		<li class="active">热门</li>
+		<li>电视影音</li>
+		<li>电脑</li>
+		<li>家居</li>
+	</ul>
+	<ul id="content">
+		<li style="display: block;">1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+	</ul>
+</body>
+<script>
+
+	function Tab(){
+		//获取ul中的每个li
+		this.aBtn = document.querySelectorAll('#btn li');
+		this.aContent = document.querySelectorAll('#content li');
+		
+		//绑定事件
+		this.clickEvent();
+	}
+
+	Tab.prototype.clickEvent = function(){
+		for(var i=0;i<this.aBtn.length;i++){
+			var _this = this;
+			this.aBtn[i].index = i;
+			this.aBtn[i].onclick = function(){
+				_this.fnClick(this);
+			}
+		}
+	}
+
+	//点击事件
+	Tab.prototype.fnClick = function(oBtn){
+		for(var j=0;j<this.aBtn.length;j++){
+			this.aBtn[j].className = "";
+			this.aContent[j].style.display = "none";
+
+		}
+		oBtn.className = "active";
+		this.aContent[oBtn.index].style.display = "block";
+	}
+
+	new Tab();
+</script>
+</html>

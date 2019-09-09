@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>正则-原子筛选</title>
+</head>
+<body>
+	<input type="text" id="txt">
+	<button id="btn">发布</button>
+	<ul id="list">
+		
+	</ul>
+</body>
+<script>
+	/*
+	var str = "qwe rty uio pwe qtw";
+	var reg1 = /q/g;
+	var reg2 = /t/g;
+	var reg3 = /q|t/g;
+
+	console.log(str.replace(reg1,"*"));
+	console.log(str.replace(reg2,"*"));
+	console.log(str.replace(reg3,"*"));
+	*/
+
+	var oTxt = document.getElementById('txt');
+	var oBtn = document.getElementById('btn');
+	var oList = document.getElementById('list');
+
+	oBtn.onclick = function(){
+		var val = oTxt.value;
+		var oLi = document.createElement('li');
+		var reg = /淘宝|掏宝|某宝|taobao/g;
+		oLi.innerHTML = val.replace(reg,"*");
+		oList.insertBefore(oLi,oList.firstChild);
+		oTxt.value = "";
+	}
+</script>
+</html>

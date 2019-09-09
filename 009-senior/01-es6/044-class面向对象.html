@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>class面向对象</title>
+</head>
+<body>
+	
+</body>
+<script>
+	class Person{
+		constructor(name,age){
+			this.name = name;
+			this.age = age;
+		}
+		sayName(){
+			console.log('My name is '+this.name)
+		}
+		sayAge(){
+			console.log('I am '+this.age+' years old');
+		}
+		static sayHi(){//静态方法
+			console.log('hello')
+		}
+	}
+
+	const p1 = new Person('Tom',18);
+	console.log(p1);
+	p1.sayName();
+	p1.sayAge();
+	Person.sayHi();
+
+	class Student extends Person{//class继承
+		constructor(name,age,major){
+			super(name,age);//继承父类
+			this.major = major;
+		}
+		sayMajor(){
+			console.log('I am form '+this.major)
+		}
+	}
+
+	const s1 = new Student('Leo',20,'Computer');
+	console.log(s1);
+	s1.sayName();
+	s1.sayAge();
+	s1.sayMajor();
+	Student.sayHi();
+</script>
+</html>

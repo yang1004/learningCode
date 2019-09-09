@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ES8对象的新增方法</title>
+</head>
+<body>
+	
+</body>
+<script>
+	const {
+		keys,
+		entries,
+		values,
+		getOwnPropertyDescriptors,
+		assign,
+		is
+	} = Object;
+
+	Object.prototype.test = 'test';
+
+	const obj = {
+		name:'Tom',
+		age:20,
+		friend:{
+			name:'King'
+		}
+	}
+	Object.defineProperty(obj,'contry',{
+		value:'China'
+	})
+	console.log(obj);
+	console.log(getOwnPropertyDescriptors(obj));
+	console.log('keys()',Object.keys(obj));
+	console.log('entries()',Object.entries(obj));
+	console.log('values()',Object.values(obj));
+
+	/*
+	const result = assign({},obj);
+	result.name = 'Leo';
+	result.friend.name = 'Peter';
+	console.log('obj::',obj)
+	console.log('result::',result)
+	console.log('result==obj::',result==obj)
+	*/
+
+
+	const DEFAULT = {
+		js:true,
+		interval:500
+	}
+	const options = {
+		js:false
+	}
+
+	const target = {};
+
+	const result = assign(target,DEFAULT,options);
+
+	console.log(target)
+	console.log(DEFAULT)
+	console.log(options)
+	console.log(result)
+	console.log(target==result)
+
+
+	console.log('+0===-0',+0===-0);
+	console.log('is(+0,-0)',is(+0,-0));
+
+	console.log('NaN===NaN',NaN===NaN);
+	console.log('is(NaN,NaN)',is(NaN,NaN));
+</script>
+</html>

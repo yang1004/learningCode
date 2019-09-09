@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>面对对象高级-继承1</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function Person(name,age){
+		this.name = name;
+		this.age = age;
+	}
+	Person.prototype.sayName = function(){
+		console.log("I am "+this.name);
+	}
+	Person.prototype.sayAge = function(){
+		console.log("I am "+this.age+" years old");
+	}
+
+	function Studen(name,age,hobby){
+		//继承Person的属性
+		Person.call(this,name,age);
+		this.hobby = hobby;
+	}
+	Studen.prototype = Person.prototype;//指针指向 添加父元素原型也会添加
+	Studen.prototype.sayHobby = function(){
+		console.log("I like play "+this.hobby);
+	}
+
+	var s1 = new Studen("tom",18,"basketball");
+	console.log(s1);
+	s1.sayName();
+	s1.sayAge();
+	s1.sayHobby();
+
+	var p1 = new Person("leo",18);
+	console.log(p1);
+	p1.sayName();
+	p1.sayAge();
+	p1.sayHobby();
+</script>
+</html>

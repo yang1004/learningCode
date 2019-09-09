@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>活动结束倒计时</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			background-color: #000;
+		}
+		div{
+			font-size: 40px;
+			margin: 100px auto;
+			color: #fff;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<div id="timer">
+		<!-- 距离活动结束还有14小时24分钟30秒 -->
+	</div>
+</body>
+<script>
+	function toStr(num){
+		return num<10 ? "0"+num : ""+num;
+	}
+	var timer = document.getElementById('timer');
+	var endTimer = new Date("2019-5-16 12:00:00");
+	var time = 0;
+	 
+
+	function countDowm(){
+		var allMinSeconds = endTimer.getTime() - Date.now();
+		if(allMinSeconds<=0){
+			allMinSeconds = 0;
+			clearInterval(time);
+		}
+		var allSeconds = parseInt(allMinSeconds / 1000);
+		var iHours = parseInt(allSeconds / 3600);
+		var iMinutes = parseInt(allSeconds % 3600 / 60);
+		var iSeconds = parseInt(allSeconds % 3600 % 60);
+		timer.innerHTML = "距离活动结束还有" + toStr(iHours) + "小时" + toStr(iMinutes) + "分钟" + toStr(iSeconds) + "秒";
+	}
+	time = setInterval(countDowm,1000);
+	countDowm();
+</script>
+</html>

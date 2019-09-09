@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>无限旋转</title>
+	<style>
+		#box{
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			margin: 100px auto;
+		}
+		
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+<script>
+	
+	window.onload = function(){
+		var oBox = document.getElementById('box');
+		oBox.style.transform='rotate(360deg)';
+		oBox.style.transition='300ms';
+	}
+	
+</script>
+</html>

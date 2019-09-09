@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>请求数据</title>
+</head>
+<body>
+	<button id="btn">请求数据</button>
+</body>
+<script>
+	function handleBand(data){
+		console.log(data);
+	}
+
+	var oBtn = document.getElementById('btn');
+
+	oBtn.onclick = function(){
+		// alert("Hello World!!!!");
+		var script = document.createElement('script');
+		script.src = "http://127.0.0.1:3001/?getData=handleBand";
+		document.body.appendChild(script);
+
+	}
+</script>
+<!-- <script src="http://127.0.0.1:3001/?getData=handleBand"></script> -->
+</html>

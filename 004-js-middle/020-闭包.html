@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>闭包</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function fn1(){
+		var a = 1;
+		add = function(){
+			a++;
+		}//全局变量
+		return function fn2(){
+			// console.log(a);
+			return a;
+		}
+	}
+	var result = fn1();//result = function fn2(){return a}
+	console.log(result());//返回a  a = 1
+	add();//a = 2
+	console.log(result());//a = 2
+</script>
+</html>

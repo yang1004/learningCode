@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>网页布局案例2</title>
+	<style type="text/css">
+		*{
+			margin: 0px;
+			padding: 0px;
+		}
+		.father1{
+			width: 100%;
+			height: 100px;
+			background-color: red;
+		}
+		.father2{
+			width: 100%;
+			height: 100px;
+			background-color: blue;
+		}
+		li{
+			width: 100px;
+			height: 100px;
+			display: inline-block;
+			line-height: 100px;
+			text-align: center;
+		}
+		.son1{
+			float: left;
+			/*display:inline;*/
+		}
+		.son2{
+			float: right;
+		}
+		.son11{
+			float: left;
+			margin-left: 100px;
+		}
+		.son33{
+			float: right;
+			margin-right: 100px;
+		}
+		img{
+			width: 100px;
+			height: 100px;
+		}
+		.son22{
+			float: left;
+			height: 100px;
+			/*border: 1px solid black;*/
+			margin-left: 353px;
+			line-height: 100px;
+		}
+	</style>
+</head>
+<body>
+	<div class="father1">
+		<div class="son1">
+			<ul class="ul1">
+				<li>第一</li>
+				<li>第二</li>
+				<li>第三</li>
+				<li>第四</li>
+				<li>第五</li>
+			</ul>
+		</div>
+		<div class="son2">
+			<ul class="ul2">
+				<li>第六</li>
+				<li>第七</li>
+				<li>第八</li>
+				<li>第九</li>
+			</ul>
+		</div>
+	</div>
+	<div class="father2">
+		<div class="son11">
+			<img src="http://img4.imgtn.bdimg.com/it/u=2771352558,1684099274&fm=26&gp=0.jpg">
+		</div>
+		<div class="son22">
+			<input type="" name="">
+			<input type="submit" name="搜索">
+		</div>
+		<div class="son33">
+			<img src="http://img5.imgtn.bdimg.com/it/u=2329844802,994915445&fm=26&gp=0.jpg">
+		</div>
+	</div>
+</body>
+</html>

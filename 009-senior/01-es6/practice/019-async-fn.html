@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>async-fn</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*
+	async function fn(){
+		return 'async data...';
+	}
+	fn().then(data=>{
+		console.log(data)//data为函数return的值
+	})
+	*/
+
+	/*
+	async function fn(){
+
+	}
+	const p = fn();
+	console.log(p)//返回一个promise对象
+	*/
+
+	let p1 = null;
+	async function fn(){
+		p1 = Promise.resolve('ok');
+		return p1;
+	}
+
+	const p2 = fn();
+
+	console.log(p1)
+	console.log(p2)
+	console.log(p1==p2)
+
+	p2.then(data=>{
+		console.log("p2::",data)
+	})
+	p1.then(data=>{
+		console.log("p1::",data)
+	})
+</script>
+</html>

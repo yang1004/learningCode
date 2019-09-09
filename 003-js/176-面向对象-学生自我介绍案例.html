@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>学生自我介绍案例</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function Students(options){
+		this.name = options.name;
+		this.age = options.age;
+		this.professional = options.professional;
+
+		if(!Students.prototype.SayProfessional){
+			Students.prototype.SayProfessional = function(){
+				console.log("My name is " + this.name + ", I am a " + this.professional + " major");
+			}
+		}
+	}
+
+	var ZhangSan = new Students({
+		name:"ZhangSan",
+		age:18,
+		professional:"DianQi"
+	})
+	console.log(ZhangSan);
+	ZhangSan.SayProfessional();
+
+	var LiSi = new Students({
+		name:"LiSi",
+		age:19,
+		professional:"ShiPin"
+	})
+	console.log(LiSi);
+	LiSi.SayProfessional();
+
+	var WangWu = new Students({
+		name:"WangWu",
+		age:21,
+		professional:"HuaGong"
+	})
+	console.log(WangWu);
+	WangWu.SayProfessional();
+</script>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Promise的静态方法-race</title>
+</head>
+<body>
+	
+</body>
+<script>
+	const getTimerPromise = (delay)=>new Promise((resolve,reject)=>{
+		setTimeout(()=>{
+			resolve('timer '+delay+' success data');
+		},delay);
+	})
+
+	const p1 = new Promise((resolve,reject)=>{
+		setTimeout(()=>{
+			reject('timer '+100+' error data');
+		},100);
+	})
+
+	const p = [200,300,400,1200].map(delay=>getTimerPromise(delay));
+
+	p.push(p1);
+
+	console.log(p)
+		
+	const promise = Promise.race(p);
+
+	promise.then(data=>{
+		console.log(data);
+	})
+	.catch(err=>{
+		console.log(err)
+	})
+</script>
+</html>

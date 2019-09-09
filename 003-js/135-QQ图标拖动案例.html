@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>QQ图标拖动案例</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			position: absolute;
+			width: 75px;
+			height: 72px;
+			/*background-color: red;*/
+			background-image: url(./images/QQlogo.jpg);
+			background-repeat: no-repeat;
+			background-size: 50px 72px;
+			background-position: center center;
+		}
+		.newbox{
+			position: absolute;
+			left: 0;
+			top: 0;
+			background-image: url(./images/QQlogo.jpg);
+			background-repeat: no-repeat;
+			background-size: 50px 72px;
+			background-position: center center;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+<script>
+	var oBox = document.getElementById('box');
+
+	oBox.onmousedown = function(ev){
+		var disX = ev.clientX - oBox.offsetLeft;
+		var disY = ev.clientY - oBox.offsetTop;
+		var l = 0;
+		var t = 0;
+		var newBox = document.createElement('div');
+		document.body.appendChild(newBox);
+		newBox.className = "newbox";
+		newBox.style.width = oBox.offsetWidth + 'px';
+		newBox.style.height = oBox.offsetHeight + 'px';
+		newBox.style.left = oBox.offsetLeft + 'px';
+		newBox.style.top = oBox.offsetTop + 'px';
+		oBox.style.opacity = 0.8;
+
+		document.onmousemove = function(ev){
+			l = ev.clientX-disX;
+			t = ev.clientY-disY;
+			if(l < 0){
+				l = 0;
+			}else if(l > window.innerWidth - newBox.offsetWidth){
+				l = window.innerWidth - newBox.offsetWidth;
+			}
+			if(t < 0){
+				t = 0;
+			}else if(t > window.innerHeight - newBox.offsetHeight){
+				t = window.innerHeight - newBox.offsetHeight;
+			}
+			newBox.style.left = l + 'px';
+			newBox.style.top = t + 'px';
+		}
+		document.onmouseup = function(ev){
+			document.onmousemove = null;
+			document.onmouseup = null;
+			oBox.style.left = newBox.offsetLeft + 'px';
+			oBox.style.top = newBox.offsetTop + 'px';
+			oBox.style.zIndex = 999;
+			oBox.style.opacity = 1;
+			document.body.removeChild(newBox);
+		}
+		
+	}
+</script>
+</html>

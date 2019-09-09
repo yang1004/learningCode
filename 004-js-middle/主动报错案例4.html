@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>主动报错案例2</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var result = 0;
+	function show(num){
+		
+		try{
+			if(isNaN(parseInt(num))){
+				throw new Error("this name is not a number......")
+			}
+			if(num > 0){
+				result = num*show(num-1);
+			}
+			
+			return result;
+		}
+		catch(err){
+			console.log(err);
+		}
+		finally{
+			console.log("111");
+		}
+	}
+	debugger
+	console.log(show("jack"))
+	// console.log(show(3))
+</script>
+</html>

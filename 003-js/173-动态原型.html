@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动态原型</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function createPerson(name,age){
+		this.name = name;
+		this.age = age;
+		if(!createPerson.prototype.sayName){
+			console.log(11);
+			createPerson.prototype.sayName = function(){
+				console.log("I am "+this.name);
+			}
+		}
+		if(!createPerson.prototype.sayAge){
+			console.log(22);
+			createPerson.prototype.sayAge = function(){
+				console.log("I am "+this.age +" years old");
+			}
+		}
+		//生成一次之后都会有该属性
+	}
+	
+
+	var person1 = new createPerson("Tom",18);
+	person1.sayName();
+	person1.sayAge();
+	console.log(person1);
+
+	var person2 = new createPerson("Leo",88);
+	person2.sayName();
+	person2.sayAge();
+	console.log(person2);
+
+	var person3 = new createPerson("Jane",28);
+	console.log(person3);
+
+	var person4 = new createPerson("KangKang",19);
+	console.log(person4);
+
+	var person5 = new createPerson("Luxi",24);
+	console.log(person5);
+
+	var person6 = new createPerson("Jimi",16);
+	console.log(person6);
+
+	console.log(person1.sayName == person2.sayName);
+</script>
+</html>

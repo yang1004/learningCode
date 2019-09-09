@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery的核心函数$的调用</title>
+</head>
+<body>
+	<div class="box">box1</div>
+	<div class="box">box2</div>
+	<div id="box3">box3</div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	var res = $(function(){
+		var oBox3 = document.getElementById('box3');
+		//接收字符串为选择器
+		// console.log($('.box'));
+		// console.log($('#box'));
+		// 接收字符串为HTML代码
+		// console.log($('<h1>我是h1</h1>'));
+		// 接收DOM元素
+		// console.log($(oBox3));
+		$(oBox3).css("color","red");
+	});
+
+	//接收函数返回jQuery对象
+	// console.log(res);
+</script>
+</html>

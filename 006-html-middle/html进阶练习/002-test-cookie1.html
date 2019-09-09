@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test-cookie</title>
+</head>
+<body>
+	test cookie!!!
+</body>
+<script>
+	function setCookie(key,val,iDate){
+		var oDate = new Date();
+		oDate.setDate(oDate.getDate() + iDate);
+		document.cookie = key+"="+val+";Expires="+oDate;
+	}
+	// document.cookie = "username=Tom";
+	// document.cookie = "age=20";
+	setCookie("username","Tom",10);
+	setCookie("age",20,10);
+	//获取cookie
+	function getCookie(key){
+		var str = document.cookie;
+		// console.log(str)
+		var attr1 = str.split(";");
+		for(var i=0;i<attr1.length;i++){
+			var attr2 = attr1[i].split("=");
+			if(key.trim() == attr2[0].trim()){
+				return attr2[1];
+				break;
+			}
+		}
+	}
+	console.log(getCookie("age"));
+	//删除cookie
+	function removeCookie(key){
+		setCookie(key,false,-1);
+	}
+	removeCookie("age")
+</script>
+</html>

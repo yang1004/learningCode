@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>兼容处理</title>
+	<style>
+		body{
+			width: 100%;
+			height: 3000px;
+			background-color: green;
+		}
+	</style>
+</head>
+<body>
+	
+</body>
+<script>
+	function newEvent(){
+		console.log("body click");
+	}
+
+	addEvent(document.body,"click",newEvent);
+	removeEvent(document.body,"click",newEvent);
+	function addEvent(elem,eventType,handel){
+		if(elem.addEventListener){
+			elem.addEventListener(eventType,handel,false);
+		}else{
+			elem.attachEvent("on"+eventType,handel);
+		}
+	}
+	//解除事件
+	function removeEvent(elem,eventType,handel){
+		if(elem.addEventListener){
+			elem.removeEventListener(eventType,handel,false);
+		}else{
+			elem.detachEvent("on"+eventType,handel);
+		}
+	}
+	
+</script>
+</html>

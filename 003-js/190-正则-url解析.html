@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>正则-url解析</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var str = "this is a website: https://www.baidu.com";
+	var reg = /([a-z0-9]+):\/\/([a-z]+)\.(\w+)\.([a-z]{2,5})/;
+
+	console.log("str::",str);
+	console.log("reg::",str.match(reg));
+</script>
+</html>

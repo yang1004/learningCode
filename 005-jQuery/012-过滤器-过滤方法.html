@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>过滤器-过滤方法</title>
+	<style>
+		div:nth-child(3){
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="div1">div1</div>
+	<div>div2</div>
+	<div>div3</div>
+	<div>div4</div>
+	<div>div5</div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		console.log($('div').eq(3));//选择索引对应的DOM元素
+
+		console.log($('.div1').siblings());//jQuery对象中包含元素之外的兄弟元素
+
+		console.log($('div:hidden'));//匹配所有不可见元素
+
+		console.log($('div:visible'));//匹配所有可见元素
+	})
+</script>
+</html>

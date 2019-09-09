@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ajax2</title>
+</head>
+<body>
+	<button>发送请求</button>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		$('button').on('click',function(){
+			// alert('button click...')
+			$.ajax({
+				url:"http://127.0.0.1:3001",
+				dataType:"jsonp",
+				jsonp:"callback",
+				success:function(data,msg,jqXHR){
+					console.log("1::::");
+					console.log("data",data);
+					console.log(msg);
+					console.log(jqXHR);
+				},
+				error:function(jqXHR,msg){
+					console.log("2::::");
+					console.log(msg);
+					console.log(jqXHR);
+				}
+			})
+		})
+	})
+</script>
+</html>

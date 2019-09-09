@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>其他伪类选择器</title>
+	<style type="text/css">
+		p:before{
+			content: "hello,";
+		}
+		p:after{
+			content: ",哈啰!"
+		}
+		[type="text"]:focus{
+			outline-color: red;
+		}
+		[type="checkbox"]:checked{
+			/*color: yellow;*/
+			width: 50px;
+		}
+	</style>
+</head>
+<body>
+	<p>你好</p>
+	<input type="text">
+	<input type="checkbox" name="">
+</body>
+</html>

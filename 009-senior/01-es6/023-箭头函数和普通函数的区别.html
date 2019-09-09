@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>箭头函数和普通函数的区别</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*//箭头函数没有原型对象,所以不能用箭头函数来定义构造函数
+	const Person = (name,age) => {
+		this.name = name;
+		this.age = age;
+	}
+	const p = new Person('Tom',18)
+	*/
+
+	/*
+	function show(n1,n2){
+		console.log(arguments);
+	}
+	show(1,2);
+	*/
+
+	/*//箭头函数中没有arguments
+	const show = (n1,n2) => {
+		console.log(arguments);
+	}
+	show(1,2);
+	*/
+
+	/*//箭头函数不存在命名提升
+	show(1,2);
+	const show = (n1,n2) => {
+		console.log(n1,n2);
+	}
+	*/
+</script>
+</html>

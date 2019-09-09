@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>发布作业</title>
+</head>
+<body>
+	
+</body>
+<script>
+	(function(w){
+		function Teacher(name){
+			this.name = name;
+
+			this.students = [];
+		}
+		Teacher.prototype = {
+			constructor:Teacher,
+			sayName:function(){
+				console.log("I am "+ this.name);
+			},
+			addStudent:function(student){
+				this.students.push(student);
+			},
+			publish:function(msg){
+				for(var i=0;i<this.students.length;i++){
+					this.students[i].listen(msg);
+				}
+			}
+		}
+		w.Teacher = Teacher;
+	})(window);
+
+	(function(w){
+		function Student(name,teacher){
+			this.name = name;
+			teacher.addStudent(this);
+		}
+		Student.prototype = {
+			constructor:Student,
+			sayName:function(){
+				console.log("I am "+ this.name);
+			},
+			listen:function(msg){
+				console.log(this.name + ":: " + msg);
+			}
+		}
+		w.Student = Student;
+	})(window);
+
+	var t1 = new Teacher("teacherWang");
+	var s1 = new Student("Tom",t1);
+	var s1 = new Student("King",t1);
+	var s1 = new Student("Anny",t1);
+
+	console.log(t1);
+	t1.publish("tody is a good time");
+</script>
+</html>

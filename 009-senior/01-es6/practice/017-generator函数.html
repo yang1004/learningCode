@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>generator函数</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function * gen(){
+		console.log('in fn generator...');
+		const y1 = yield 'data1';
+		console.log('do something after data1...');
+		console.log('y1::',y1);
+		const y2 = yield 'data2';
+		console.log('do something after data2...');
+		console.log('y2::',y2);
+		const y3 = yield 'data3';
+		// console.log('y3::',y3);
+		console.log('end...');
+		return y3;
+	}
+
+	const g = gen();
+	// console.log(g)
+	/*
+	console.log(g.next());
+	console.log(g.next(10));
+	console.log(g.next(20));
+	console.log(g.next(30));
+	// g.next(30)
+	*/
+
+	for(let v of g){
+		console.log(v)
+	}
+</script>
+</html>

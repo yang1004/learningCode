@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>async-ajax</title>
+</head>
+<body>
+	
+</body>
+<script src="../js/jquery-1.12.4.js"></script>
+<script>
+	const getAjaxData = url=>new Promise((resolve,reject)=>{
+		$.ajax({
+			url:url,
+			success:data=>{
+				resolve(data);
+			},
+			error:(jqXhr,statusMsg)=>{
+				reject(statusMsg)
+			}
+		})
+	})
+
+	/*
+	async function getPrice(name){
+		const user = await getAjaxData('../data/'+name+'.json');
+
+		const order = await getAjaxData('../data/'+user.orderNo+'.json');
+
+		return order;
+	}
+	getPrice('a')
+	.then(data=>{
+		console.log(data)
+	})
+	console.log(111)
+	async function getUser(){
+		const uA = getAjaxData('../data/a.json');
+		const uB = getAjaxData('../data/b.json');
+
+		const userA = await uA;
+		const userB = await uB;
+		return [userA,userB];
+	}
+	getUser().then(data=>{
+		console.log(data)
+	})
+	console.log(222)
+	*/
+
+	async function getGithubData(url){
+		const data1 = await getAjaxData(url);
+
+		const data2 = await getAjaxData(data1.followers_url);
+
+		const data3 = await getAjaxData(data2[0].followers_url);
+
+		return data3;
+	}
+
+	getGithubData('https://api.github.com/users/kuazhu')
+	.then(data=>{
+		console.log(data)
+	})
+</script>
+</html>

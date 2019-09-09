@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+	<title>屏幕尺寸适配-vw-vh</title>
+	<style>
+		/*
+		做项目时顺序:
+		1.设计稿给出px尺寸和模拟机型 例如iPhone6 图片150px fontsize24px
+		2.算出比例
+		3.1rem = 37.5px
+		  150/37.5 = 4rem;
+		  24/37.5 = 0.6rem;
+		 */
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		img{
+			width: 4rem;
+			float: left;
+		}
+		p{
+			font-size: 0.64rem;
+		}
+	</style>
+</head>
+<body>
+	<img src="images/ma.png" alt="">
+	<p>我是段落</p>
+</body>
+<script src="js/rem.js"></script>
+</html>

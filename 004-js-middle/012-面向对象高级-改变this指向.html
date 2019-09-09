@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>面向对象高级-改变this指向</title>
+</head>
+<body>
+	<button id="btn">按钮</button>
+</body>
+<script>
+	var oBtn = document.getElementById('btn');
+	function show(n1,n2){
+		console.log(this,n1,n2);
+	}
+
+	show();
+
+	show.call({name:"tom"},1,2);
+	show.call(oBtn,1,2);
+
+	show.apply({name:"leo"},[1,2]);//传参用数组括起来
+	show.apply(oBtn,[1,2]);
+
+	show.bind({name:"jane"})(1,2);
+	show.bind(oBtn)(1,2);//第一个括号修改this  第二个传参
+
+	show.call(null,1,2);
+	show.apply(null,[1,2]);
+	show.bind(null)(1,2);//null表示不改变this 
+</script>
+</html>

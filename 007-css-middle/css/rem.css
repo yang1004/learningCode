@@ -1,0 +1,23 @@
+/*
+做项目时顺序:
+1.设计稿给出px尺寸和模拟机型 例如iPhone6 图片150px fontsize24px
+2.算出比例
+3.1rem = 37.5px
+  150/37.5 = 4rem;
+  24/37.5 = 0.6rem;
+ */
+* {
+  margin: 0;
+  padding: 0;
+}
+img {
+  width: 4rem;
+  margin: 0.26666667rem 0.53333333rem 0.8rem 1.06666667rem;
+  border-color: red;
+  border-style: solid;
+  border-width: 0.02666667rem 0.05333333rem 0.08rem 0.10666667rem;
+  float: left;
+}
+p {
+  font-size: 0.64rem;
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>024-计算属性-帧听器</title>
+</head>
+<body>
+	<div id="test">
+		<input type="text" v-model="fullName">
+		<p>firstName:{{firstName}}</p>
+		<p>lastName:{{lastName}}</p>
+		<p>fullName:{{fullName}}</p>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	// console.log(Vue)
+	var vm = new Vue({
+		el:"#test",
+		data:{
+			firstName:'Wen',
+			lastName:'Tom',
+		},
+		methods:{
+			
+		},
+		computed:{
+			fullName:{
+				get(){
+					return this.firstName + ' ' + this.lastName
+				},
+				set(newName){
+					var name = newName.split(' ')
+					this.firstName = name[0]
+					this.lastName = name[name.length - 1]
+				}
+			}
+		},
+		watch:{
+			fullName(){
+				console.log('fullName has change...')
+			}
+		}
+	})
+	vm.$watch('fullName',function(){
+		console.log('2::fullName has change...')
+	})
+</script>
+</html>

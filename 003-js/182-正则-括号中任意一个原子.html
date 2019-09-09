@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>正则-括号中任意一个原子</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*
+	var str = "dau4h2bkvyk423bgv5j3";
+	var reg1 = /[abcdefg]/g;
+	var reg2 = /[a|b|c|d|e|f|g]/g;
+	var reg3 = /[a-z]/g;
+	var reg4 = /[0-9]/g;
+	var reg5 = /[a-z0-9]/g;
+
+	console.log(str);
+	console.log(str.replace(reg1,"*"));
+	console.log(str.replace(reg2,"*"));
+	console.log(str.replace(reg3,"*"));
+	console.log(str.replace(reg4,"*"));
+	console.log(str.replace(reg5,"*"));
+	*/
+
+	var str = "你好hello世界";
+	var reg = /[\u4e00-\u9fa5]/g;
+	console.log(str);
+	console.log(str.length);
+	console.log(str.replace(reg,"*"));
+	console.log(str.replace(reg,"aa").length);
+</script>
+</html>

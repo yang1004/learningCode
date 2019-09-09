@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>031-组件-从data中给组件传值</title>
+</head>
+<body>
+	<div id="test">
+		<todo-item
+			v-for="(item,index) in items"
+			:task="item.task"
+			:key="item.id"
+			:index="index"
+		>
+			
+		</todo-item>
+	</div>
+	<template id="todo-item">
+		<div>{{task}}</div>
+	</template>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	var TodoIem = Vue.extend({
+		data(){
+			return {
+				
+			}
+		},
+		template:'#todo-item',
+		props:{
+			task:String,
+			index:Number
+		}
+	})
+	Vue.component('todo-item',TodoIem)
+	var vm = new Vue({
+		el:"#test",
+		data:{
+			items:[
+				{
+					id:1,
+					task:"睡觉"
+				},
+				{
+					id:2,
+					task:"吃饭"
+				}
+			]
+		},
+	})
+</script>
+</html>

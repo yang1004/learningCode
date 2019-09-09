@@ -1,0 +1,69 @@
+<import src="./article-item-template/article-item-template.wxml"/>
+<view>
+  <swiper indicator-dots="true"
+  autoplay="true" interval="5000" duration="500" circular="true">
+      <swiper-item>
+        <image src="/images/swiper/XG1.jpg" class="slide-image"/>
+      </swiper-item>
+      <swiper-item>
+        <image src="/images/swiper/XG2.jpg" class="slide-image"/>
+      </swiper-item>
+      <swiper-item>
+        <image src="/images/swiper/XG3.jpg" class="slide-image"/>
+      </swiper-item>
+      <swiper-item>
+        <image src="/images/swiper/XG4.jpg" class="slide-image"/>
+      </swiper-item>
+  </swiper>
+  <!--
+  <view class='article-wrap'>
+    <view class='article-item'>
+      <view class='article-head'>
+        <image class='article-head-avatar' src='/images/logo/9.jpeg'></image>
+        <text class='article-head-date'>2019-05-06</text>
+      </view>
+      <text class='article-title'>我是文章标题</text>
+      <image class='article-img' src='/images/article/GF1.jpeg'></image>
+      <text class='article-desc'>我是描述</text>
+      <view class='article-footer'>
+        <image class='article-footer-icon' src='/images/icon/star.jpg'></image>
+        <text class='article-footer-text'>20</text>
+        <image class='article-footer-icon' src='/images/icon/view.jpg'></image>
+        <text class='article-footer-text'>33</text> 
+      </view>
+    </view>
+  </view>
+  -->
+  <!-- <text>{{text}}</text> -->
+  <!-- <view wx:for="{{articles}}">
+    {{index}}:{{item.title}}
+  </view> -->
+  <!-- <view wx:for="{{articles}}" wx:for-item="article" wx:for-index="idx">
+    {{idx}}:{{article.title}}
+  </view> -->
+  <!-- <block wx:for="{{articles}}" wx:for-item="article" wx:for-index="idx" wx:key="idx">
+    {{idx}}:{{article.title}}
+  </block> -->
+  <view class='article-wrap'>
+    <block wx:for="{{articles}}" wx:for-item="article" wx:for-index="idx" wx:key="idx">
+      <!--
+      <view class='article-item'>
+        <view class='article-head'>
+          <image class='article-head-avatar' src='{{article.avatar}}'></image>
+          <text class='article-head-date'>{{article.date}}</text>
+        </view>
+        <text class='article-title'>{{article.title}}</text>
+        <image class='article-img' src='{{article.img}}'></image>
+        <text class='article-desc'>{{article.desc}}</text>
+        <view class='article-footer'>
+          <image class='article-footer-icon' src='/images/icon/star.jpg'></image>
+          <text class='article-footer-text'>{{article.star}}</text>
+          <image class='article-footer-icon' src='/images/icon/view.jpg'></image>
+          <text class='article-footer-text'>{{article.view}}</text> 
+        </view>
+      </view>
+      -->
+      <template is="articleItem" data="{{...article}}"/>
+    </block>
+  </view>
+</view>

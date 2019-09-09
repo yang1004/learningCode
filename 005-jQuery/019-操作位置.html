@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>操作位置</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father{
+			position: relative;
+			width: 300px;
+			height: 300px;
+			border: 1px solid #000;
+			margin: 200px;
+			overflow: auto;
+		}
+		.son{
+			/*position: absolute;
+			top: 0;
+			left: 0;*/
+			width: 3000px;
+			height: 3000px;
+			background-color: red;
+			overflow: auto;
+		}
+	</style>
+</head>
+<body>
+	<button id="btn">获取</button>
+	<div class="father">
+		<div class="son"></div>
+	</div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		var oBtn = document.getElementById('btn');
+		/*
+		console.log($('.son').offset());
+		$('.son').offset({top:100,left:100});//以body为参考定位
+		*/
+	
+		// console.log($('.son').position())//带定位父元素为参考对象，只能读取不能设置
+		
+
+		oBtn.onclick = function(){
+			console.log($('.son').scrollTop());
+			console.log($('.son').scrollLeft());
+		}
+		
+	})
+</script>
+</html>

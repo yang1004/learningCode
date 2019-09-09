@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数码时钟-图片版</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			background-color: #000;
+		}
+		#timer{
+			font-size: 30px;
+			margin: 100px auto;
+			color: #fff;
+			text-align: center;
+		}
+		img{
+			vertical-align: middle;
+		}
+	</style>
+</head>
+<body>
+	<div id="timer">
+		<img src="./images/1.png" alt="">
+		<img src="./images/1.png" alt="">
+		:
+		<img src="./images/1.png" alt="">
+		<img src="./images/1.png" alt="">
+		:
+		<img src="./images/1.png" alt="">
+		<img src="./images/1.png" alt="">
+	</div>
+</body>
+<script>
+	var timer = document.getElementById('timer');
+	var aImg = document.querySelectorAll('#timer img')
+	 
+	function toStr(num){
+		return num<10 ? "0"+num : ""+num;
+	}
+	function showTime(){
+		var today = new Date();
+		var iHours = today.getHours();
+		var iMinute = today.getMinutes();
+		var iSecond = today.getSeconds();
+		var timer = toStr(iHours) + toStr(iMinute) + toStr(iSecond);
+		// console.log(timer);
+		for(var i=0;i<aImg.length;i++){
+			aImg[i].src="./images/" + timer.charAt(i) + ".png";
+		}
+	}
+	setInterval(showTime,1000);
+	showTime();
+</script>
+</html>

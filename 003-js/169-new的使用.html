@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>new的使用</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function show(){
+		console.log(this);
+	}
+	show();
+	var obj = new show();
+	obj.name = "tom";
+	obj.sayName = function(){
+		console.log("I am "+this.name);
+	}
+	console.log("obj::",obj);
+	console.log("show()::",show());
+	obj.sayName();
+</script>
+</html>

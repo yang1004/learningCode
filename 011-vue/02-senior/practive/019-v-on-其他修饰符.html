@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>019-v-on-其他修饰符.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.large-box{
+			width: 500px;
+			height: 500px;
+			margin: 50px auto;
+			background-color: gray;
+			border: 1px solid #000;
+		}
+		.big-box{
+			width: 300px;
+			height: 300px;
+			margin: 50px auto;
+			background-color: blue;
+			border: 1px solid #000;
+		}
+		.small-box{
+			width: 100px;
+			height: 100px;
+			margin: 50px auto;
+			background-color: red;
+			border: 1px solid #000;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<div id="test">
+		<!-- <div class="large-box" @click.capture="clickLargeBox"> -->
+		<div class="large-box" @click="clickLargeBox">
+			<!-- <div class="big-box" @click.self="clickBigBox"> -->
+			<div class="big-box" @click="clickBigBox">
+				<div class="small-box" @click.once="clickSmallBox()">
+					
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	var vm = new Vue({
+		el:'#app',
+		data:{
+			count:0
+		},
+		methods:{
+			clickLargeBox(){
+				console.log('clickLargeBox...')
+			},
+			clickBigBox(){
+				console.log('clickBigBox...')
+			},
+			clickSmallBox(){
+				console.log('clickSmallBox...')
+			}
+		}
+	})
+
+</script>
+</html>

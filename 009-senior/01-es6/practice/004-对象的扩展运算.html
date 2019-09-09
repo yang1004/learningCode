@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>对象的扩展运算</title>
+</head>
+<body>
+	
+</body>
+<script src="../js/jquery-1.12.4.js"></script>
+<script>
+	const obj = {
+		name:"Tom",
+		age:20,
+		friend:["King","Anmy"],
+		pets:{
+			name:'cat'
+		}
+	}
+	//浅copy1
+	//只复制地址
+	/*
+	const obj1 = obj;
+	obj1.sex = 'male';
+	obj1.friend.push('Tony');
+	obj1.pets.age = 1;
+	console.log(obj);
+	*/
+
+	//浅copy2
+	//简单数据复制数据 复杂数据只复制地址
+	/*
+	const obj1 = {...obj};
+	obj1.sex = 'male';
+	obj1.friend.push('Tony');
+	obj1.pets.age = 1;
+	console.log(obj);
+	*/
+
+	//深copy1
+	function getType(data){
+		if(data instanceof Array){
+			return "Array";
+		}else if(data instanceof Object){
+			return "Object";
+		}else{
+			return data;
+		}
+	}
+	function deepCopy(data){
+		let type = getType(data);
+		let result;
+		if(type == "Array"){
+			result = [];
+		}else if(type == "Object"){
+			result = {};
+		}
+		for(key in data){
+			let val = data[key];
+			let valType = getType(val);
+			if(valType == "Array" || valType == "Object"){
+				result[key] = deepCopy(val);
+			}else{
+				result[key] = val;
+			}
+		}
+		return result;
+	}
+	/*
+	const obj1 = deepCopy(obj);
+	obj1.sex = 'male';
+	obj1.friend.push('Tony');
+	obj1.pets.age = 1;
+	console.log(obj);
+	*/
+
+	//深copy2
+	/*
+	let obj1 = JSON.parse(JSON.stringify(obj));
+	obj1.sex = 'male';
+	obj1.friend.push('Tony');
+	obj1.pets.age = 1;
+	console.log(obj);
+	*/
+
+	//深copy2
+	let obj1 = $.extend(true,{},obj);
+	obj1.sex = 'male';
+	obj1.friend.push('Tony');
+	obj1.pets.age = 1;
+	console.log(obj);
+</script>
+</html>

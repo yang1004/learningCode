@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>评论缓慢弹出</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box{
+			width: 400px;
+			margin: 50px auto;
+		}
+		li{
+			list-style: none;
+			line-height: 40px;
+			color: pink;
+			border-bottom: 1px dotted #000;
+			overflow: hidden;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<textarea id="txt" cols="30" rows="10"></textarea>
+		<button id="btn">评论</button>
+		<ul id="list">
+			<!-- <li>1111</li> -->
+		</ul>
+	</div>
+</body>
+<script src="./js/animation.js"></script>
+<script>
+	var oBtn = document.getElementById('btn');
+	var oTxt = document.getElementById('txt');
+	var oUl = document.getElementById('list');
+
+	oBtn.onclick = function(){
+		var sVal = oTxt.value;
+		var newLi = document.createElement("li");
+		newLi.innerHTML = sVal;
+		newLi.style.height = 0;
+		// console.log(newLi);
+		oUl.insertBefore(newLi,oUl.firstChild);
+		animation(newLi,"height",40);
+		oTxt.value = "";
+	}
+</script>
+</html>

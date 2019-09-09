@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>愤怒的小鸟</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			position: absolute;
+			top: 30px;
+			left: 200px;
+			width: 600px;
+			height: 600px;
+			border: 1px solid #000;
+		}
+		#brid{
+			position: absolute;
+			top: 0;
+			left: 50%;
+			margin-left: -25px;
+			width: 50px;
+			height: 50px;
+			background-image: url(./images/bird.jpg);
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+		.topLine{
+			position: absolute;
+			top: 0;
+			left: 100%;
+			width: 30px;
+			background-color: green;
+		}
+		.bottomLine{
+			position: absolute;
+			bottom: 0;
+			left: 100%;
+			width: 30px;
+			background-color: green;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<div id="brid"></div>
+	</div>
+</body>
+<script>
+
+	//碰撞检测
+	function checkBump(obj1,obj2){
+		if(obj1.offsetLeft + obj1.offsetWidth >= obj2.offsetLeft 
+			&& obj1.offsetTop + obj1.offsetHeight >= obj2.offsetTop
+			&& obj2.offsetLeft + obj2.offsetWidth >= obj1.offsetLeft 
+			&& obj2.offsetTop + obj2.offsetHeight >= obj1.offsetTop){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	//生成随机整数
+	function getRandom(min,max){
+		return Math.round(min+(max-min)*Math.random());
+	}
+
+	//游戏结束
+	function overGame(){
+		isDie = true;
+		clearInterval(moveBridTime);
+		clearInterval(addLineTime);
+		clearInterval(moveLineTime);
+	}
+
+
+	var oBox = document.getElementById('box');
+	var oBrid = document.getElementById('brid');
+	var moveBridTime = null;
+	var addLineTime = null;
+	var moveLineTime = null;
+	var speed = 0;//定义向下加速度的速度
+	var isDie = false;
+	var space = 250;//设置柱子之间的距离
+
+
+	//创建小鸟向下加速度运动函数
+	clearInterval(moveBridTime);
+	moveBridTime = setInterval(function(){
+		speed += 1;
+		var iTop = oBrid.offsetTop + speed;
+		if(iTop < 0){
+			iTop = 0;
+			overGame();
+		}else if(iTop > oBox.offsetHeight - oBrid.offsetHeight - 2){
+			iTop = oBox.offsetHeight - oBrid.offsetHeight - 2;
+		}
+		oBrid.style.top = iTop + 'px';
+	},30)
+
+	//监听键盘事件
+	document.onkeydown = function(ev){
+		// console.log(ev.keyCode);
+		if(isDie){
+			return false;
+		}
+		if(ev.keyCode == 32){
+			speed -= 10;
+		}
+	}
+
+	//生成柱子
+	clearInterval(addLineTime);
+	function addLine(){
+		//生成柱子
+		var topLine = document.createElement('div');
+		var bottomLine = document.createElement('div'); 
+
+		//把柱子插入到容器中
+		oBox.appendChild(topLine);
+		oBox.appendChild(bottomLine);
+
+		topLine.className = "topLine";
+		bottomLine.className = "bottomLine";
+
+		//存下柱子的left值
+		topLine.leftDate = 100;
+
+		//设置柱子的高度
+		h = getRandom(200,300);
+
+		topLine.style.height = h + 'px';
+		bottomLine.style.height = oBox.offsetHeight - topLine.offsetHeight - space + 'px';
+
+
+	}
+	addLineTime = setInterval(addLine,600);
+
+
+	//移动柱子
+	clearInterval(moveLineTime);
+	moveLineTime = setInterval(function(){
+		//获取所有的上下柱子
+		var aTopLine = document.querySelectorAll('.topLine');
+		var aBottomLine = document.querySelectorAll('.bottomLine');
+		//碰撞检测  撞上柱子结束游戏
+		for(var i=0;i<aTopLine.length;i++){
+			if(checkBump(oBrid,aTopLine[i]) || checkBump(oBrid,aBottomLine[i])){
+				overGame();
+			}
+			aBottomLine[i].style.left = aTopLine[i].style.left = aTopLine[i].leftDate - 1 + '%';
+			aTopLine[i].leftDate = aTopLine[i].leftDate - 1;
+			//当left值到-10时删除柱子
+			if(aTopLine[i].leftDate < -10){
+				oBox.removeChild(aTopLine[i]);
+			}
+		}
+	},30)
+	
+</script>
+</html>

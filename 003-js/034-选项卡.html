@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>选项卡</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		li{
+			list-style: none;
+		}
+		#btn{
+			overflow: hidden;
+			margin-bottom: 30px;
+		}
+		#btn li{
+			float: left;
+			width: 100px;
+			line-height: 40px;
+			text-align: center;
+		}
+		#content li{
+			width: 300px;
+			height: 300px;
+			line-height: 300px;
+			border: 1px solid #000;
+			text-align: center;
+			display: none;
+		}
+		.active{
+			color: #ff6700;
+			border-bottom: 2px solid #ff6700;
+		}
+	</style>
+</head>
+<body>
+	<ul id="btn">
+		<li class="active">热门</li>
+		<li>电视影音</li>
+		<li>电脑</li>
+		<li>家居</li>
+	</ul>
+	<ul id="content">
+		<li style="display: block;">1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+	</ul>
+</body>
+<script>
+	var btnLi = document.querySelectorAll("#btn li");
+	var contentLi = document.querySelectorAll("#content li");
+	// console.log(btnLi);
+	for(var i=0;i<btnLi.length;i++){
+		// console.log(i);
+		btnLi[i].index = i;
+		btnLi[i].onmouseover = function(){
+			for(var j=0;j<btnLi.length;j++){
+				btnLi[j].className = "";
+			}
+			this.className = "active";
+			for(var k=0;k<btnLi.length;k++){
+				contentLi[k].style.display = "none";
+			}
+			contentLi[this.index].style.display="block";
+			// console.log(this.index);
+		}
+	}
+</script>
+</html>

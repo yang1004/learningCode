@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数组高级</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var arr = [31,2,64,62,14,26,8];
+
+	/*
+	//遍历
+	var result = arr.forEach(function(value,index){
+		console.log("arr["+index+"] = ",value);
+	})
+	console.log(result);//没有返回值
+	
+	
+	//映射
+	var result = arr.map(function(value,index){
+		console.log("arr["+index+"] = ",value);
+		return value;
+	})
+	console.log(result);
+	
+
+	//过滤
+	var result = arr.filter(function(value,index){
+		return value > 10;
+	})
+	console.log(result);
+	
+
+	//全真判断
+	var isAllTrue = arr.every(function(value,index){
+		console.log("arr["+index+"] = ",value);
+		return value > 10;
+	})
+	console.log(isAllTrue);
+	*/
+
+	//有真判断
+	var hasTrue = arr.some(function(value,index){//遇到符合条件就不往下寻找
+		console.log("arr["+index+"] = ",value);
+		return value > 40;
+	})
+	console.log(hasTrue);
+</script>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>i值问题</title>
+</head>
+<body>
+	<button>button1</button>
+	<button>button2</button>
+	<button>button3</button>
+	<button>button4</button>
+</body>
+<script>
+	var oBtn = document.getElementsByTagName('button');
+
+	/*
+	for(var i=0;i<oBtn.length;i++){
+		oBtn[i].index = i;
+		oBtn[i].onclick = function(){
+			// console.log(i);
+			console.log(this.index);
+		}
+	}
+	*/
+	for(let i=0;i<oBtn.length;i++){//每次进入花括号后就进入一个块级域
+		oBtn[i].onclick = function(){
+			console.log(i);
+		}
+	}
+</script>
+</html>

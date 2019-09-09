@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>map</title>
+</head>
+<body>
+	
+</body>
+<script>
+	let m = new Map();
+	m.set('name',"Tom");
+	m.set(11,"HaHa");
+	m.set("friend",{name:"Jane"});
+	m.set({id:"0001"},{num:1});
+	m.set([11,22,33],{length:3});
+	console.log(m.get('friend'));
+	console.log(m.delete('name'));
+	console.log(m.delete({id:"0001"}));
+	console.log(m.delete([11,22,33]));
+	// m.clear()
+	console.log(m);
+
+	for(key of m.keys()){
+		console.log("key::",key)
+	}
+	for(value of m.values()){
+		console.log("value::",value)
+	}
+	for(entrie of m.entries()){
+		console.log("entrie::",entrie)
+	}
+	m.forEach(function(value,index){
+		console.log("index="+index+";value="+value)
+	})
+</script>
+</html>

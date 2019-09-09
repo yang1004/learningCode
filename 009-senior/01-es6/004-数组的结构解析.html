@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数组的结构解析</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*
+	let a = 1,
+		b = 2,
+		c = 3;
+	console.log(a,b,c)
+	*/
+
+	/*
+	let [a,b,c,d] = [1,2,3,4];
+	console.log(a,b,c,d);
+	*/
+
+	/*
+	let [a,[b,c],d] = [1,[2,3],4];
+	console.log(a,b,c,d);
+	*/
+
+	/*
+	let [a,b,c,d] = [1,[2,3],4,{name:"Tom"}];
+	console.log(a,b,c,d);
+	*/
+
+	/*
+	let [a,[b],d] = [1,[2,3],4];
+	console.log(a,b,d);
+	*/
+
+	/*
+	let [a,b,c,d] = [1,2,3];
+	console.log(a,b,c,d);
+	*/
+
+	let [a,b,c,d=6,e=8,f=10] = [1,2,3,undefined,null,""];//不传值或者undefined时为默认值,否则取右边的值
+	console.log(a,b,c,d,e,f);
+</script>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>面向对象高级-定义多个属性</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function Person(name,age){
+		this.name = name;
+		this.age = age;
+	}
+	var p1 = new Person('tom',18);
+
+	Object.defineProperties(p1,{
+		LEGS:{
+			value:2,
+			enumerable:true,
+			writable:true,
+			configurable:true
+		},
+		FOOT:{
+			value:2,
+			enumerable:true,
+			writable:false,
+			configurable:true
+		}
+
+	})
+	console.log(p1);
+	p1.FOOT = 4;
+	console.log(p1.FOOT)//writable定义不能修改值 FOOT还为2
+	for(attr in p1){
+		console.log(attr);
+	}
+</script>
+</html>

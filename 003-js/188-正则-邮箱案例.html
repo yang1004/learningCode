@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>正则-邮箱案例</title>
+</head>
+<body>
+	请输入qq邮箱：<input type="text" id="txt">
+	<button id="btn">检测</button>
+</body>
+<script>
+	var oTxt = document.getElementById('txt');
+	var oBtn = document.getElementById('btn');
+
+	oBtn.onclick = function(){
+		var val = oTxt.value;
+		var reg1 = /^\d{7,11}@qq\.com$/;
+		var reg2 = /^\w+@\w+\.[a-z]{2,3}$/;
+		if(reg1.test(val)){
+			alert("输入的为qq邮箱");
+		}else if(reg2.test(val)){
+			alert("输入的为普通邮箱");
+		}else{
+			alert("输入邮箱不合法");
+		}
+		// console.log(val); 
+		oTxt.value = "";
+	}
+</script>
+</html>

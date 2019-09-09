@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>无序列表排序</title>
+</head>
+<body>
+	<ul id="ul">
+		<li>34</li>
+		<li>5</li>
+		<li>75</li>
+		<li>35</li>
+		<li>17</li>
+		<li>26</li>
+	</ul>
+	<button id="btn">排序</button>
+</body>
+<script>
+	var oUl = document.getElementById('ul');
+	var aLi = oUl.children;
+	var oBtn = document.getElementById('btn');
+
+	var newLi = [];
+	for(var i=0;i<aLi.length;i++){
+		newLi.push(aLi[i]);
+	}
+	// console.log(newLi);
+	oBtn.onclick = function(){
+		newLi.sort(function(aLi1,aLi2){
+			return aLi1.innerHTML - aLi2.innerHTML;
+		});
+		for(var j=0;j<newLi.length;j++){
+			oUl.appendChild(newLi[j]);
+		}
+		// console.log(newLi);
+	}
+</script>
+</html>

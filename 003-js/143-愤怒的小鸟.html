@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>愤怒的小鸟</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#father{
+			position: absolute;
+			top: 50px;
+			left: 150px;
+			width: 1000px;
+			height: 500px;
+			border: 1px solid #000;
+			box-sizing: border-box;
+		}
+		#bird{
+			position: absolute;
+			left: 50%;
+			top: 0;
+			margin-left: -25px;
+			width: 50px;
+			height: 50px;
+			background-image: url(./images/bird.jpg);
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+		.topLine{
+			position: absolute;
+			top: 0;
+			left: 100%;
+			width: 30px;
+			background-color: green;
+		}
+		.bottomLine{
+			position: absolute;
+			bottom: 0;
+			left: 100%;
+			width: 30px;
+			background-color: green;
+		}
+	</style>
+</head>
+<body>
+	<div id="father">
+		<div id="bird"></div>
+	</div>
+</body>
+<script>
+
+	//碰撞检测
+	function checkBump(obj1,obj2){
+		if(obj1.offsetLeft + obj1.offsetWidth >= obj2.offsetLeft 
+			&& obj1.offsetTop + obj1.offsetHeight >= obj2.offsetTop
+			&& obj2.offsetLeft + obj2.offsetWidth >= obj1.offsetLeft 
+			&& obj2.offsetTop + obj2.offsetHeight >= obj1.offsetTop){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
+	//生成随机整数
+	function getRandom(min,max){
+		return Math.round(min+(max-min)*Math.random());
+	}
+	
+	//游戏结束
+	function overGame(){
+		isDel = true;
+		clearInterval(moveBirdTime);
+		clearInterval(addLineTime);
+		clearInterval(moveLineTime);
+		alert("游戏结束");
+	}
+
+	var oFather = document.getElementById('father');
+	var oBird = document.getElementById('bird');
+	var iSpeed = 0;
+	var moveBirdTime = null;
+	var addLineTime = null;
+	var moveLineTime = null;
+	var isDel = false;
+	var space = 200;//设置上下柱子之间的间隔
+
+	//定时器做向下加速度运动
+	clearInterval(moveBirdTime);
+	moveBirdTime = setInterval(function(){
+		iSpeed += 1;
+		var iTop = oBird.offsetTop + iSpeed;
+		if(iTop < 0){
+			iTop = 0;
+			overGame();
+		}else if(iTop > (oFather.offsetHeight - oBird.offsetHeight)){
+			iTop = (oFather.offsetHeight - oBird.offsetHeight);
+			overGame();
+			console.log(oFather.offsetHeight - oBird.offsetHeight)
+		}
+
+		oBird.style.top = iTop + 'px';
+	},30)
+
+	//键盘控制
+	document.onkeydown = function(ev){
+		if(isDel){
+			return false;
+			// console.log(ev.keyCode);
+		}
+		if(ev.keyCode == 32){
+			iSpeed -= 10;
+		}
+	}
+
+	//生成柱子
+	function addLine(){
+		var topLine = document.createElement("div");
+		var bottomLine = document.createElement("div");
+
+		//插入柱子
+		oFather.appendChild(topLine);
+		oFather.appendChild(bottomLine);
+
+		//柱子添加className
+		topLine.className = 'topLine';
+		bottomLine.className = 'bottomLine';
+
+		//随机柱子高度
+		h = getRandom(100,200);
+
+		//存柱子的left值
+		topLine.leftDate = 100;
+
+		//给柱子添加高度
+		topLine.style.height = h + 'px';
+		bottomLine.style.height = oFather.offsetHeight - h - space + 'px';
+
+		
+	}
+	addLineTime = setInterval(addLine,300);
+	// addLine();
+
+	//移动柱子
+		clearInterval(moveLineTime);
+		moveLineTime = setInterval(function(){
+			var aTopLine = document.querySelectorAll('.topLine');
+			var aBottomLine = document.querySelectorAll('.bottomLine');
+
+			for(var i=0;i<aTopLine.length;i++){
+				if(checkBump(oBird,aTopLine[i]) || checkBump(oBird,aBottomLine[i])){
+					overGame();
+				}
+				aBottomLine[i].style.left = aTopLine[i].style.left = aTopLine[i].leftDate - 1 + '%';
+				aTopLine[i].leftDate = aTopLine[i].leftDate - 1;
+
+				//删除柱子
+				if(aTopLine[i].leftDate < -10){
+					oFather.removeChild(aTopLine[i]);
+					oFather.removeChild(aBottomLine[i]);
+				}
+			}
+			
+		},30)
+</script>
+</html>

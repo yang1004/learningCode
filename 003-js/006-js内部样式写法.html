@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js内部样式写法</title>
+	<style>
+		div{
+			width: 100px;
+			height: 100px;
+			background-color: blue;
+			margin: 100px auto;
+		}
+	</style>
+	<script>
+		function toStar(){
+			// document.getElementById('box').style.width='200px';
+			// document.getElementById('box').style.height='200px';
+			// document.getElementById('box').style.backgroundColor='red';
+			
+			var boxLine=document.getElementById('box')
+			boxLine.style.width='200px';
+			boxLine.style.height='200px';
+			boxLine.style.backgroundColor='red';
+		}
+		function toEnd(){
+			document.getElementById('box').style.width='100px';
+			document.getElementById('box').style.height='100px';
+			document.getElementById('box').style.backgroundColor='blue';
+		}
+	</script>
+</head>
+<body>
+	<div id="box" 
+		onmouseover="toStar()"
+		onmouseout="toEnd()"></div>
+</body>
+</html>

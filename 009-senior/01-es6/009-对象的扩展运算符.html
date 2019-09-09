@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>对象的扩展运算符</title>
+</head>
+<body>
+	
+</body>
+<script>
+	const obj = {
+		name:"Tom",//简单数据，直接copy
+		age:18,
+		friend:{//复杂数据，copy地址
+			name:"Leo"
+		}
+	}
+	// console.log(obj);
+	// console.log({...obj});
+	const obj1 = {...obj};
+	const obj2 = obj;
+
+	obj2.name = "Mike";
+	obj1.name = "King";
+	// obj1.friend.name = "Amny";
+
+	console.log('obj::',obj.name);//Mike
+	console.log('obj1::',obj1.name);//King
+	console.log('obj2::',obj2.name);//Mike
+</script>
+</html>

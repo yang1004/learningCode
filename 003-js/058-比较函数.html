@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>比较函数</title>
+</head>
+<body>
+	
+</body>
+<script>
+	// var a = ["good","hi","apple","dog","cat"];
+	var a = [34,64,32,7,86,4,25,57];
+	
+	console.log(":::1",a);
+	var c = 0;
+	for(var i = 0;i < a.length;i++){
+		for(var j = i+1;j<a.length;j++){
+			if(a[i]>a[j]){
+				c = a[i];
+				a[i] = a[j];
+				a[j] = c;
+			}
+		}
+	}
+
+	// var result = a.sort();
+	console.log(":::2",a);
+	// console.log(":::3",result);
+</script>
+</html>

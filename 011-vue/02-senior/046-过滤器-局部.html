@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>046-过滤器-局部</title>
+	<link rel="stylesheet" href="css/animate.css">
+</head>
+<body>
+	<div id="test1">
+		<p>{{price | formatPrice}}</p>
+	</div>
+	<div id="test2">
+		<p>{{price | formatPrice}}</p>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	Vue.filter('formatPrice',function(price){
+		return price.toFixed(2)
+	})
+	var vm = new Vue({
+		el:"#test1",
+		data:{
+			price:10
+		},
+		filters:{
+			formatPrice:function(price){
+				return '$'+price.toFixed(2)
+			}
+		}
+	})
+	var vm = new Vue({
+		el:"#test2",
+		data:{
+			price:30
+		}
+	})
+	//局部过滤器优先于全局
+</script>
+</html>

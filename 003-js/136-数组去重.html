@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数组去重</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var arr = [1,5,6,3,2,5,1];
+	var newArr = [];
+	for(var i=0;i<arr.length;i++){//数组arr循环
+		var isDup = false;//定义变量  初始值为false
+		// console.log(222)
+		for(var j=0;j<newArr.length;j++){//进入空数组newArr循环
+			// console.log(arr[i] == newArr[j])
+			if(arr[i] == newArr[j]){//先判断在新数组中是否有相等元素
+				isDup = true;
+				break;//如果有则终止循环
+			}
+		}
+		if(!isDup){//判断是否有相等元素，若没有则加入新数组
+			newArr.push(arr[i]);
+		}
+	}
+	console.log(newArr);
+</script>
+</html>

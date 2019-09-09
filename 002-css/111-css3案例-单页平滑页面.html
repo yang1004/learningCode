@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>单页平滑页面</title>
+	<link rel="stylesheet" href="./fontawesome-free-5.8.1-web/css/all.css">
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.page>input:hover{
+			cursor: pointer;
+		}
+		.page>input,.page>a{
+			position: fixed;
+			left: 0;
+			top: 0;
+			width: 20%;
+			height: 50px;
+			line-height: 50px;
+			text-align: center;
+			font-size: 20px;
+		}
+		.page input{
+			z-index: 999;
+			opacity: 0;
+		}
+		.page a{
+			font-weight: bold;
+			text-decoration: none;
+			color: #fff;
+			background-color: #2e2e2e;
+		}
+		.page>input:checked + a{
+			background-color: gray;
+			color: #fc6322;
+		}
+		.page #radios1,.page #radios1 + a{
+			left: 0%;
+		}
+		.page #radios2,.page #radios2 + a{
+			left: 20%;
+		}
+		.page #radios3,.page #radios3 + a{
+			left: 40%;
+		}
+		.page #radios4,.page #radios4 + a{
+			left: 60%;
+		}
+		.page #radios5,.page #radios5 + a{
+			left: 80%;
+		}
+		.page{
+			margin-top: 50px;
+			width: 100%;
+			height: 580px;
+			overflow: hidden;
+		}
+		.page .son{
+			width: 100%;
+			height: 2915px;
+			transition: all 1s;
+		}
+		img{
+			width: 100%;
+			height: 583px;
+			margin-top: 0;
+		}
+		#radios1:checked ~ .son{
+			transform: translateY(0);
+		}
+		#radios2:checked ~ .son{
+			transform: translateY(-590px);
+		}
+		#radios3:checked ~ .son{
+			transform: translateY(-1170px);
+		}
+		#radios4:checked ~ .son{
+			transform: translateY(-1755px);
+		}
+		#radios5:checked ~ .son{
+			transform: translateY(-2337px);
+		}
+		.son .photos:nth-child(1){
+			margin-bottom: -5px;
+		}
+		.son .photos:nth-child(2){
+			margin-bottom: -5px;
+		}
+		.son .photos:nth-child(2)>img{
+			height: 587px;
+		}
+		.son .photos:nth-child(3){
+			margin-bottom: -5px;
+		}
+		.son .photos:nth-child(4){
+			margin-bottom: -5px;
+		}
+		.son .photos:nth-child(5){
+			margin-bottom: -5px;
+		}
+	</style>
+</head>
+<body>
+	<div class="page">
+		<input type="radio" name="toper" checked id="radios1">
+		<a href="#"><i class="fas fa-home"></i>Home</a>
+		<input type="radio" name="toper" id="radios2">
+		<a href="#"><i class="fas fa-coffee"></i>Service</a>
+		<input type="radio" name="toper" id="radios3">
+		<a href="#"><i class="fas fa-building"></i>About</a>
+		<input type="radio" name="toper" id="radios4">
+		<a href="#"><i class="fas fa-users"></i>Team</a>
+		<input type="radio" name="toper" id="radios5">
+		<a href="#"><i class="fas fa-phone"></i>Contact</a>
+		<div class="son">
+			<div class="photos">
+				<img src="http://img2.imgtn.bdimg.com/it/u=3361480858,925491910&fm=26&gp=0.jpg" alt=""></div>
+			<div class="photos">
+				<img src="http://img3.imgtn.bdimg.com/it/u=2691000773,1351829260&fm=26&gp=0.jpg" alt="">
+			</div>
+			<div class="photos">
+				<img src="http://img0.imgtn.bdimg.com/it/u=1179490696,307512296&fm=26&gp=0.jpg" alt="">
+			</div>
+			<div class="photos">
+				<img src="http://img4.imgtn.bdimg.com/it/u=163008346,4001278458&fm=26&gp=0.jpg" alt="">
+			</div>
+			<div class="photos">
+				<img src="http://img3.imgtn.bdimg.com/it/u=1222717404,1684801107&fm=26&gp=0.jpg" alt="">
+			</div>
+		</div>
+	</div>
+</body>
+</html>

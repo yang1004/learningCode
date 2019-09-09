@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>轮播图</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		li{
+			list-style: none;
+		}
+		.body-photo{
+			position: relative;
+			width: 800px;
+			height: 400px;
+			margin: 100px auto;
+			overflow: hidden;
+		}
+		.body-photo .photos li{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
+		.body-photo .photos li img{
+			width: 100%;
+			height: 100%;
+		}
+		#arrow-left{
+			position: absolute;
+			left: 0px;
+			top: 175px;
+			width: 41px;
+			height: 69px;
+			line-height: 69px;
+			color: #d2d6d6;
+			font-size: 30px;
+			text-align: center;
+			font-weight: bold;
+			z-index: 999;
+		}
+		#arrow-right{
+			position: absolute;
+			right: 0;
+			top: 175px;
+			width: 41px;
+			height: 69px;
+			line-height: 69px;
+			color: #d2d6d6;
+			font-size: 30px;
+			text-align: center;
+			font-weight: bold;
+			z-index: 999;
+		}
+		#arrow-left:hover{
+			background-color: rgba(0,0,0,0.3);
+			color: #fff;
+		}
+		#arrow-right:hover{
+			background-color: rgba(0,0,0,0.3);
+			color: #fff;
+		}
+		.dot{
+			position: absolute;
+			right: 20px;
+			top: 380px;
+			width: 60px;
+			z-index: 999;
+		}
+		.dot li{
+			float: left;
+			width: 10px;
+			height: 10px;
+			margin-right: 10px;
+			border-radius: 50px 50px;
+			border: 1px solid #acaeb3;
+			background-color: #8c8e96;
+			box-sizing: border-box;
+			cursor: pointer;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="body-photo">
+		<ul class="photos">
+			<li style="z-index: 9;">
+				<img src="../../mi/images/b1.jpg" alt="">
+			</li>
+			<li>
+				<img src="../../mi/images/b2.jpg" alt="">
+			</li>
+			<li>
+				<img src="../../mi/images/b3.jpg" alt="">
+			</li>
+		</ul>
+		<p id="arrow-right">&gt;</p>
+		<p id="arrow-left">&lt;</p>
+		<ul class="dot">
+			<li style="background-color: red;">
+				<a href="#"></a>
+			</li>
+			<li>
+				<a href="#"></a>
+			</li>
+			<li>
+				<a href="#"></a>
+			</li>
+		</ul>
+	</div>
+</body>
+<script>
+	function tab(){
+		for(var i=0;i<oImg.length;i++){
+			oImg[i].style.zIndex = 0;
+			aBtns[i].style.backgroundColor = "#8c8e96";
+		}
+		oImg[imgIndex].style.zIndex = 9;
+		aBtns[imgIndex].style.backgroundColor = "red";
+	}
+	var oImg = document.querySelectorAll(".photos li");
+	var oLeftBtn = document.getElementById('arrow-left');
+	var oRightBtn = document.getElementById('arrow-right');
+	var aBtns = document.querySelectorAll(".dot li");
+	// console.log(oImg);
+	var imgIndex = 0;
+	 
+	oRightBtn.onclick = function(){
+		imgIndex++;
+		if(imgIndex>=oImg.length){
+			imgIndex = 0;
+		}
+
+		tab();
+		/*
+		for(var i=0;i<oImg.length;i++){
+			oImg[i].style.zIndex = 0;
+			aBtns[i].style.backgroundColor = "#8c8e96";
+		}
+		oImg[imgIndex].style.zIndex = 9;
+		aBtns[imgIndex].style.backgroundColor = "red";
+		*/
+	}
+	oLeftBtn.onclick = function(){
+		imgIndex--;
+		if(imgIndex<0){
+			imgIndex = oImg.length-1;
+		}
+
+		tab();
+		/*
+		for(var i=0;i<oImg.length;i++){
+			oImg[i].style.zIndex = 0;
+			aBtns[i].style.backgroundColor = "#8c8e96";
+		}
+		oImg[imgIndex].style.zIndex = 9;
+		aBtns[imgIndex].style.backgroundColor = "red";
+		*/
+	}
+	for(var j=0;j<aBtns.length;j++){
+		aBtns[j].index = j;
+		aBtns[j].onclick = function(){
+			imgIndex = this.index;
+			tab();
+		}
+	}
+
+	setInterval(function(){
+		imgIndex++;
+		if(imgIndex>=oImg.length){
+			imgIndex = 0;
+		}
+
+		tab();
+	},4000)
+</script>
+</html>
