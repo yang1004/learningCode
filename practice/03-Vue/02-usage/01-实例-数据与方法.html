@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>01-实例-数据与方法.html</title>
+</head>
+<body>
+	<div id="app">
+		<p ref="p1">{{msg}}</p>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	// console.log(Vue)
+	let vm = new Vue({
+		el:'#app',
+		data:{
+			msg:'hello Vue'
+		}
+	})
+	console.log(vm)
+	console.log(vm.$el)
+	console.log(vm.$el === document.getElementById('app'))
+	console.log(vm.$refs.p1)
+	console.log(vm.$refs.p1 === document.querySelector('p'))
+
+	console.log(vm.$data)
+
+
+	vm.$watch('msg',function(){
+		console.log('Vue data msg is changed')
+	})
+
+	vm.$destroy()//销毁vm实例
+</script>
+</html>

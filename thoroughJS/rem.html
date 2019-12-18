@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>移动端适配</title>
+	<style>
+		/*
+		做项目时顺序:
+		1.设计稿给出px尺寸和模拟机型 例如iPhone6 图片150px fontsize24px
+		2.算出比例
+		3.1rem = 37.5px
+		  150/37.5 = 4rem;
+		  24/37.5 = 0.6rem;
+		 */
+		* {
+		  margin: 0;
+		  padding: 0;
+		}
+		#app {
+		  width: 5.33333333rem;
+		  height: 5.33333333rem;
+		  background-color: red;
+		}
+		p {
+		  font-size: 0.8rem;
+		}
+	</style>
+</head>
+<body>
+	<div id="app"></div>
+	<p>我是文字</p>
+</body>
+<script>
+	//将rem设置为1rem=37.5px
+	var html = document.getElementsByTagName('html')[0];
+	function refres(){
+		//获取视口宽度
+		var width = document.body.clientWidth || document.documentElement.clientWidth;
+		//设置根元素fantasize为宽度/10
+		var fontSize = width/10 + 'px';
+		// 设置html根元素fantasize
+		html.style.fontSize = fontSize;
+	}
+	window.addEventListener('DOMContentLoaded',refres,false);
+	window.addEventListener('resize',refres,false);
+</script>
+</html>

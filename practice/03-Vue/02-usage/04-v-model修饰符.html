@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>04-v-model修饰符.html</title>
+</head>
+<body>
+	<div id="app">
+		<p>{{massge}}</p>
+		<input type="text" v-model="massge">
+		<input type="text" v-model.lazy="massge">
+		<input type="text" v-model.number="massge">
+		<input type="text" v-model.trim="massge">
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	let vm = new Vue({
+		el:'#app',
+		data:{
+			massge:''
+		}
+	})
+	
+</script>
+</html>

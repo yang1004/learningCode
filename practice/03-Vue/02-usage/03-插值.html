@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>03-插值.html</title>
+</head>
+<body>
+	<div id="app">
+		<p>{{msg}}</p>
+		<p v-text="msg"></p>
+		<p v-once>{{msg}}</p>
+		
+		<p>{{rawHtml}}</p>
+		<p v-html="rawHtml"></p>
+
+
+
+		<input type="text" v-model="massge">
+		<p>{{massge}}</p>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	// console.log(Vue)
+	let vm = new Vue({
+		el:'#app',
+		data:{
+			msg:'hello Vue',
+			rawHtml:'<h1>我是大标题</h1>',
+			massge:''
+		}
+	})
+	
+</script>
+</html>

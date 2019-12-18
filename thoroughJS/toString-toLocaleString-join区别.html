@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>toString-toLocaleString-join区别</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*
+	var arr = ['red','blue','green']
+	alert(arr.toString())//返回arr数组的字符串形式
+	alert(arr.valueOf())//返回arr数组数组形式
+	alert(arr)
+	*/
+
+	var person1 = {
+		toString:function(){
+			return 'red'
+		},
+		toLocaleString:function(){
+			return 'big'
+		}
+	}
+	var person2 = {
+		toString:function(){
+			return 'blue'
+		},
+		toLocaleString:function(){
+			return 'middle'
+		}
+	}
+
+	var person = [person1,person2]
+	alert(person)//alert数组调用数组每项的toString方法 使用，隔开
+	alert(person.toString())//调用数组每项的toString方法 使用，隔开
+	alert(person.toLocaleString())//调用数组每项的toLocaleString方法 使用，隔开
+</script>
+</html>

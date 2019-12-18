@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>02-实例-生命周期.html</title>
+</head>
+<body>
+	<div id="app">
+		<p ref="p1">{{msg}}</p>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	// console.log(Vue)
+	let vm = new Vue({
+		el:'#app',
+		data:{
+			msg:'hello Vue'
+		},
+		beforeCreate(){
+			console.log('beforeCreate')
+		},
+		created(){
+			console.log('created')
+		},
+		beforeMount(){
+			console.log('beforeMount')
+		},
+		mounted(){
+			console.log('mounted')
+		},
+		beforeUpdate(){
+			console.log('beforeUpdate')
+		},
+		updated(){
+			console.log('updated')
+		},
+		beforeDestroy(){
+			console.log('beforeDestroy')
+		},
+		destroyed(){
+			console.log('destroyed')
+		}
+	})
+	
+</script>
+</html>

@@ -15,18 +15,19 @@
 </body>
 <script src="js/vue.js"></script>
 <script>
-	Vue.directive('focus',{
+	var qq = Vue.directive('focus',{
 		inserted:function(el){
 			el.focus()
 		}
 	})
-	var vm = new Vue({
+	console.log(qq)
+	var vm1 = new Vue({
 		el:"#test1",
 		data:{
 			
 		}
 	})
-	var vm = new Vue({
+	var vm2 = new Vue({
 		el:"#test2",
 		data:{
 			

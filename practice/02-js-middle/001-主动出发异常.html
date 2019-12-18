@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>001-主动出发异常.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*
+	function sum(num){
+		try{
+			var result = 0;
+			if(isNaN(parseInt(num))){
+				throw new Error('is not num!')
+			}
+			for(var i=0;i<=num;i++){
+				result += i;
+			}
+			return result
+		}
+		catch(err){
+			console.log(err)
+		}
+		finally{
+			console.log('is end...')
+		}
+	}
+	function count(num){
+		return num*10
+	}
+	console.log("1:::")
+	var total = sum("a")
+	console.log(total)
+	console.log("2:::")
+	console.log(count(total))
+	console.log("3:::")
+	*/
+	let arr = [1,24,5,25,25,62,26]
+	console.log(Array.prototype)
+	let aa = arr.find(function(item){
+		return item>10
+	})
+	console.log(aa)
+
+	let arr1 = {0:"aa",1:"bb",2:"cc",length:3}
+	console.log(arr1)
+	let bb = Array.from(arr1)
+	console.log(bb)
+</script>
+</html>
