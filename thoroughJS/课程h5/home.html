@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>dy-echarts</title>
+	 <!-- 引入 ECharts 文件 -->
+    <script src="js/echarts.js"></script>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.dy-top{
+			width: 100%;
+			height: 40px;
+			margin-top: 100px;
+			padding: 0 15%;
+			box-sizing: border-box;
+			margin-bottom: 30px;
+		}
+		.dy-top .dy-topBox{
+			width: 100%;
+			height: 100%;
+			border-bottom: 1px solid #c9b581;
+		}
+		.dy-echarts{
+			width: 100%;
+			height: 300px;
+			padding: 0 15%;
+			display: flex;
+			justify-content: space-between;
+			box-sizing: border-box;
+			margin-bottom: 50px;
+		}
+		.dy-echarts .dy-left{
+			width: 35%;
+			height: 100%;
+			padding-top: 20px;
+			box-sizing: border-box;
+			/*background-color: green;*/
+		}
+		.dy-echarts .dy-left p{
+			padding-left: 10px;
+			box-sizing: border-box;
+		}
+		.dy-echarts .dy-left .dy-title{
+			border-left: 2px solid #c9b581;
+			font-size: 20px;
+			margin-bottom: 10px;
+		}
+		.dy-echarts .dy-left .dy-title1{
+			font-size: 17px;
+			margin-bottom: 5px;
+		}
+		.dy-echarts .dy-left .dy-content{
+			font-size: 15px;
+			line-height: 25px;
+			color: #333;
+		}
+		.dy-echarts .dy-left button{
+			padding: 2px 5px;
+			border: none;
+			background-color: #c9b581;
+			color: #fff;
+			border-radius: 3px;
+			margin-left: 10px;
+			margin-top: 20px;
+			outline: none;
+		}
+		.dy-echarts .dy-right{
+			width: 50%;
+			height: 100%;
+			padding-top: 20px;
+			/*background-color: blue;*/
+		}
+		.dy-echarts .dy-right .dy-down{
+			padding: 2px 8px;
+			border: none;
+			border-radius: 3px;
+			background-color: #c9b581;
+			color: #fff;
+			margin-right: 50px;
+			float: right;
+		}
+		.dy-echarts .dy-right .dy-select{
+			padding: 2px 8px;
+			border: none;
+			border-radius: 3px;
+			background-color: #ccc;
+			color: #fff;
+			margin-right: 20px;
+			float: right;
+		}
+		.dy-bottom{
+			width: 100%;
+			height: 300px;
+			display: flex;
+			justify-content: space-between;
+			margin-top: 30px;
+			padding: 0 15%;
+			box-sizing: border-box;
+			margin-bottom: 30px;
+		}
+		.dy-bottom .dy-item{
+			width: 300px;
+			height: 100%;
+		}
+		.dy-bottom .dy-item .dy-img{
+			width: 100%;
+			height: 150px;
+			background-color: #d9dced;
+		}
+	</style>
+</head>
+<body>
+	<div class="dy-top">
+		<div class="dy-topBox">
+			<div style="width: 20px;height: 100%;display: inline-block;padding-top: 10px;box-sizing: border-box;float: left;margin-right: 5px;">
+				<img src="images/home.png" style="width: 20px;height: 20px;" alt="">
+			</div>
+			<p style="display: inline-block;font-size: 13px;line-height: 40px;color: #333;margin-right: 5px;float: left;">首页</p>
+			<div style="width: 20px;height: 100%;display: inline-block;padding-top: 10px;box-sizing: border-box;float: left;margin-right: 5px;">
+				<img src="images/right1.png" style="width: 20px;height: 20px;" alt="">
+			</div>
+			<p style="display: inline-block;font-size: 13px;line-height: 40px;color: #333;margin-right: 5px;float: left;">避险指数</p>
+			<div style="width: 20px;height: 100%;display: inline-block;padding-top: 10px;box-sizing: border-box;float: left;margin-right: 5px;">
+				<img src="images/right1.png" style="width: 20px;height: 20px;" alt="">
+			</div>
+			<p style="display: inline-block;font-size: 13px;line-height: 40px;color: #333;margin-right: 5px;float: left;">中国企业避险指数</p>
+		</div>
+	</div>
+
+	<div class="dy-echarts">
+		<div class="dy-left">
+			<p class="dy-title">避险指数</p>
+			<p class="dy-title1">中国企业避险指数</p>
+			<p class="dy-content">
+				避险指数，通常指一种防卫性的投资策略，通常指利用金融工具，特别是衍生品工具来对冲现货标的资产的波动。避险的英文为hedge，hedge也被翻译为对冲或套期保值。盈亏相抵的交易，以减低风险并抵消可能的损失
+			</p>
+			<button>
+				历史数据下载
+			</button>
+		</div>
+		<div class="dy-right">
+			<button class="dy-down">总指数</button>
+			<button class="dy-select">
+				规模
+				<img style="width: 10px;height: 10px;" src="images/down.png" alt="">
+			</button>
+			<button class="dy-select">
+				行业
+				<img style="width: 10px;height: 10px;" src="images/down.png" alt="">
+			</button>
+			<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+		    <div id="dy-main" style="width: 100%;height:260px;"></div>
+			<button class="dy-down">下载</button>
+		</div>
+	</div>
+
+	<div class="dy-bottom">
+		<div class="dy-item">
+			<div class="dy-img"></div>
+			<p style="font-size: 12px;line-height: 20px;color: #c9b581;margin-top: 5px;">2018</p>
+			<p style="font-size: 14px;">中国企业避险指数</p>
+			<p style="font-size: 12px;line-height: 24px;color: #909090;">
+				避险指数，通常指一种防卫性的投资策略，通常指利用金融工具，特别是衍生品工具来对冲现货标的资产的波动。避险的英文为hedge，hedge也被翻译为对冲或套期保值。盈亏相抵的交易，以减低风险并抵消可能的损失
+			</p>
+		</div>
+		<div class="dy-item">
+			<div class="dy-img"></div>
+			<p style="font-size: 12px;line-height: 20px;color: #c9b581;margin-top: 5px;">2018</p>
+			<p style="font-size: 14px;">中国企业避险指数</p>
+			<p style="font-size: 12px;line-height: 24px;color: #909090;">
+				避险指数，通常指一种防卫性的投资策略，通常指利用金融工具，特别是衍生品工具来对冲现货标的资产的波动。避险的英文为hedge，hedge也被翻译为对冲或套期保值。盈亏相抵的交易，以减低风险并抵消可能的损失
+			</p>
+		</div>
+		<div class="dy-item">
+			<div class="dy-img"></div>
+			<p style="font-size: 12px;line-height: 20px;color: #c9b581;margin-top: 5px;">2018</p>
+			<p style="font-size: 14px;">中国企业避险指数</p>
+			<p style="font-size: 12px;line-height: 24px;color: #909090;">
+				避险指数，通常指一种防卫性的投资策略，通常指利用金融工具，特别是衍生品工具来对冲现货标的资产的波动。避险的英文为hedge，hedge也被翻译为对冲或套期保值。盈亏相抵的交易，以减低风险并抵消可能的损失
+			</p>
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('dy-main'));
+
+    // 指定图表的配置项和数据
+    var option = {
+        tooltip: {},
+        xAxis: {
+          nameLocation: "end",
+          nameTextStyle: {
+            padding: -12
+          },
+          data: ["1", "2", "3", "4", "5"],
+          type: "category",
+          boundaryGap: false
+        },
+        color: ["#dcb7fe"],
+        yAxis: {
+          type: "value",
+          nameLocation: "end",
+          nameTextStyle: {
+            padding: -8
+          }
+        },
+        series: [
+          {
+            data: [54, 86, 36, 45, 75],
+            type: "line"
+          }
+        ]
+    };
+
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+</script>
+</html>
