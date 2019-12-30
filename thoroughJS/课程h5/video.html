@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>video</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.dy-box{
+			width: 100%;
+			padding: 0 25%;
+			box-sizing: border-box;
+		}
+		.dy-box .dy-top{
+			width: 100%;
+			height: 300px;
+			margin-bottom: 10px;
+			background-color: red;
+		}
+		.dy-video-name{
+			margin-bottom: 30px;
+		}
+		.dy-video-name p{
+			font-size: 16px;
+			line-height: 30px;
+		}
+		.dy-video-name p span{
+			font-size: 15px;
+			color: #7f8081;
+		}
+		.dy-video-name p s{
+			color: #c8c9ca;
+		}
+		.dy-video-name .small{
+			font-size: 13px;
+		}
+		.dy-content{
+			width: 100%;
+		}
+		.dy-content .dy-title{
+			width: 100%;
+			height: 30px;
+			border-bottom: 1px solid #ccc;
+		}
+		.dy-content .dy-title div{
+			text-align: center;
+			width: 50%;
+			height: 30px;
+			float: left;
+			line-height: 30px;
+		}
+		.dy-content .dy-title div span{
+			line-height: 30px;
+			display: inline-block;
+			height: 30px;
+		}
+		.dy-content .dy-title .dy-active{
+			color: #871925;
+			border-bottom: 1px solid #871925;
+		}
+		.dy-con1{
+			width: 100%;
+			padding: 20px;
+			box-sizing: border-box;
+		}
+		.dy-con2{
+			display: none;
+			width: 100%;
+			padding: 20px;
+			box-sizing: border-box;
+		}
+		.dy-con2 ul{
+			width: 100%;
+		}
+		.dy-con2 ul li{
+			width: 100%;
+			height: 50px;
+			list-style: none;
+			margin-bottom: 10px;
+			background-color: #f9faf5;
+		}
+		.dy-con2 li .img{
+			display: inline-block;
+			float: left;
+			width: 50px;
+			height: 100%;
+			padding: 15px;
+			box-sizing: border-box; 
+		}
+		.dy-con2 li .img img{
+			width: 100%;
+			height: 100%;
+		}
+		.dy-con2 li .name{
+			float: left;
+			padding-top: 5px;
+			box-sizing: border-box;
+			display: inline-block;
+		}
+		.dy-con2 li .name p{
+			font-size: 13px;
+			line-height: 22px;
+		}
+		.dy-con2 li .name p:nth-child(1){
+			color: #4c4c4c;
+		}
+		.dy-con2 li .name p:nth-child(2){
+			color: #861926;
+		}
+	</style>
+</head>
+<body>
+	<div class="dy-box">
+		<div class="dy-top"></div>
+		<div class="dy-video-name">
+			<p>tony老师为你讲解职场小白工作中的问题，深度提高能力</p>
+			<p><span>¥99/</span><span class="small">200避险贝</span><s class="small">¥199</s></p>
+		</div>
+		<div class="dy-content">
+			<div class="dy-title">
+				<div><span class="dy-active">课程介绍</span></div>
+				<div><span>目录</span></div>
+			</div>
+			<div class="dy-con1">
+				我是课程介绍
+			</div>
+			<div class="dy-con2">
+				<ul>
+					<li>
+						<div class="img">
+							<img src="images/video.png" alt="">
+						</div>
+						<div class="name">
+							<p>看懂期权合约</p>
+							<p>(第一讲)</p>
+						</div>
+					</li>
+					<li>
+						<div class="img">
+							<img src="images/video.png" alt="">
+						</div>
+						<div class="name">
+							<p>看懂期权合约</p>
+							<p>(第一讲)</p>
+						</div>
+					</li>
+					<li>
+						<div class="img">
+							<img src="images/video.png" alt="">
+						</div>
+						<div class="name">
+							<p>看懂期权合约</p>
+							<p>(第一讲)</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
