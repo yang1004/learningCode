@@ -192,6 +192,7 @@
         width: 100%;
         height: 500px;
         padding-top: 180px;
+        margin-top: 70px;
         box-sizing: border-box;
         text-align: center;
         background: url(../assets/img/banner.png) center 0 no-repeat #ff5c38;

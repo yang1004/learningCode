@@ -5,7 +5,7 @@
             <img src="../assets/img/logo.png" alt="">
         </div>
         <div class="middle-btn">
-            <span :class="{'top-active':$route.path=='/home'}">首页</span>
+            <span :class="{'top-active':$route.path=='/home'}" @click="goHome">首页</span>
             <span>卡券出售</span>
             <span>订单中心</span>
             <div 
@@ -25,7 +25,7 @@
             </div>
         </div>
         <div class="right">
-            <span class="login">登录</span>
+            <span class="login" @click="goLogin" :class="{'top-active':$route.path=='/login'}">登录</span>
             <span class="register">注册</span>
         </div>
     </div>
@@ -54,7 +54,17 @@
                 setTimeout(function(){
                     $('.orderUl').css('display','none')
                 },200)
-            }
+            },
+            goLogin(){
+                this.$router.push({
+                    path: '/login'
+                })
+            },
+            goHome(){
+                this.$router.push({
+                    path: '/home'
+                })
+            },
         }
     }
 </script>
@@ -80,6 +90,10 @@
         }
     }
     .top{
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
         width: 100%;
         height: 70px;
         background-color: #fff;
