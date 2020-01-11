@@ -1,0 +1,132 @@
+/* @media screen and (max-width: 1920px) {
+  html {
+    font-size: 100px;
+  }
+}
+@media screen and (max-width: 1680px) {
+  html {
+    font-size: 87.5px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  html {
+    font-size: 83.33px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  html {
+    font-size: 100px;
+  }
+}
+@media screen and (max-width: 1366px) {
+  html {
+    font-size: 75px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  html {
+    font-size: 66.66px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  html {
+    font-size: 62.5px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  html {
+    font-size: 53.33px;
+  }
+}
+@media screen and (max-width: 960px) {
+  html {
+    font-size: 50px;
+  }
+} */
+body,
+html {
+  min-width: 1200px;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB,
+    Microsoft YaHei, SimSun, sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  /* font-size: 16px !important; */
+}
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+body,
+ul,
+li,
+p,
+h1,
+h2,
+h3,
+h4,
+dl,
+dd,
+form,
+input,
+textarea,
+select {
+  padding: 0;
+  margin: 0;
+}
+body {
+  font-size: 16px;
+  font-family: '微软雅黑';
+  line-height: 1;
+}
+ul,
+li {
+  list-style: none;
+}
+i {
+  font-style: normal;
+}
+img {
+  border: none;
+}
+a {
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+}
+a:hover {
+  text-decoration: none;
+}
+.clearfix:before,
+.clearfix:after {
+  content: '';
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+}
+.clearfix {
+  *zoom: 1; /*IE/7/6*/
+}
+.fl {
+  float: left !important;
+}
+.fr {
+  float: right !important;
+}
+.mt25 {
+  margin-top: 25px;
+}
+/*显示省略号*/
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
